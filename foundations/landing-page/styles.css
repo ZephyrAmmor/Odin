@@ -1,0 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap');
+
+*{
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+
+body{
+    font-family: "Orbitron", "Times New Roman", sans-serif;
+    font-optical-sizing: auto;
+}
