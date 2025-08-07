@@ -22,6 +22,7 @@ ul{
     list-style: none;
 }
 li{
+    margin: 15px 0px;
     padding: 5px;
 }
 ol li{
@@ -37,6 +38,7 @@ img{
 }
 
 h1, h2{
+    margin: 10px;
     font-family: 'Times New Roman', Times, serif;
 }
 a{
