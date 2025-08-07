@@ -5,6 +5,35 @@
 }
 
 body{
-    width: 70%;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-size: 18px;
+    width: 50%;
     margin: 0 auto;
+    padding-left: 50px;
+}
+
+.sections{
+    margin: 20px;
+    padding: 10px;
+}
+ul{
+    list-style: none;
+}
+li{
+    padding: 5px;
+}
+ol li{
+    margin-left: 20px;
+}
+img{
+    width: 750px;
+    height: auto;
+    display: block;
+    border-radius: 10px;
+    margin : 10px;
+    margin-left: 20px;
+}
+
+h1, h2{
+    font-family: 'Times New Roman', Times, serif;
 }
