@@ -9,4 +9,120 @@
 body{
     font-family: "Orbitron", "Times New Roman", sans-serif;
     font-optical-sizing: auto;
+    color: rgb(223, 237, 228);
+    background-color: rgba(10, 10, 10, 0.900);
+    word-spacing: 1px;
+    letter-spacing: 1px;
+    display: flex;
+    flex-direction: column; 
+}
+
+nav{
+    position:sticky;
+    background-color:rgb(223, 237, 200 ); ;
+    padding: 16px;
+    display: flex;
+    align-items: cetner;
+    justify-content: space-between;
+}
+nav ul{
+    min-width: 300px;
+    flex-shrink: 0;
+    list-style: none;
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+a{
+    text-decoration: none;
+    color: rgb(223, 237, 228);
+}
+nav a{
+    border: 1px solid;
+    padding: 5px;
+    border-radius: 5px;
+    color: rgba(26, 165, 2);
+}
+.sections{
+    width: 80%;
+    margin: 0 auto; 
+    flex: 1;
+}
+.hero-section, .action-section, .quote-section, .info-section{
+    gap: 16px;
+    min-height: 300px;
+    display: flex;
+    margin: 32px;
+}
+.hero-section img{
+    width: 500px;
+    height: auto;
+    border-radius: 10px;
+}
+.hero-text{
+    width: 80%;
+    padding: 48px;
+}
+.hero-text h1{
+    margin-bottom: 16px;
+    font-size: 40px;
+}
+.hero-text p{
+    line-height: 24px;
+    font-size: 14px;
+}
+.hero-text a{
+    background-color: rgba(26, 165, 2, 0.853);
+    padding: 6px 8px;
+    border-radius: 4px;
+}
+.hero-section{
+    justify-content: space-between;
+}
+.info-section{
+    gap: 32px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.quote-section, .action-section{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;   
+}
+.action-section div, .author{
+    padding: 24px;
+    border-radius: 8px;
+    background-color: rgba(26, 165, 2, 0.853);
+}
+.card{
+    border: 1px solid rgba(26, 165, 2, 0.853);
+    border-radius: 8px;
+    min-height: 160px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 16px;
+    width: 400px;
+    height: auto;
+}
+.card:hover{
+    box-shadow: 2px 3px 10px rgba(26, 165, 2, 0.853);
+}
+footer{
+    background-color:rgb(223, 237, 200 ); ;
+    color: rgba(26, 165, 2);
+    text-align: center;
+    padding: 8px;
+}
+.logo{
+    font-size: 32px;
+    font-weight: 800;
+}
+.action-section a{
+    display: inline-block;
+    margin-top: 16px;
+    background-color: rgb(223, 237, 200 );
+    color: rgba(26, 165, 2);
+    padding: 8px;
+    border-radius: 4px;
 }
