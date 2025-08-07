@@ -6,6 +6,7 @@
     <title>Projects Page</title>
     <style>
         body{
+            text-align: center;
             width: 80%;
             margin: 0 auto;
             color: rgb(230, 230, 200);
@@ -13,8 +14,10 @@
         }
         .projects-container{
             display: flex;
-            flex-direction: column-reverse;
+            flex-direction: row-reverse;
+            justify-content: flex-end;
             flex-wrap: wrap;
+            margin-top: 32px;
         }
         .card{
             border: 1px solid rgba(26, 165, 2, 0.853);
@@ -26,6 +29,13 @@
             padding: 16px;
             width: 400px;
             height: auto;
+        }
+        a{
+            text-decoration: none;
+            background-color: rgba(26, 165, 2, 0.853);
+            color: rgb(230, 230, 200);
+            padding: 8px;
+            border-radius: 4px;
         }
     </style>
 </head>
