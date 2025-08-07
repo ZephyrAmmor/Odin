@@ -10,6 +10,8 @@ body{
     width: 50%;
     margin: 0 auto;
     padding-left: 50px;
+    color: rgb(235, 233, 229);
+    background: rgba(17, 17, 17, 0.921);
 }
 
 .sections{
@@ -36,4 +38,16 @@ img{
 
 h1, h2{
     font-family: 'Times New Roman', Times, serif;
+}
+a{
+    text-decoration: none;
+    color:rgb(235, 233, 229);
+    background-color: rgb(8, 147, 31);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+a:hover{
+    color:rgb(221, 202, 166);
+    background-color: rgb(9, 77, 20);
 }
