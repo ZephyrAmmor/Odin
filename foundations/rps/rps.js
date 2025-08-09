@@ -74,5 +74,5 @@ let playRoundTimes = (n = 5) => {
     declareWinner(humanVictories, computerVictories)
     console.log('Game Ends!')
 }
-
-playRoundTimes()
+let playNTimes = parseInt(prompt('How many rounds you want to play? ', 5))
+playRoundTimes(playNTimes)
