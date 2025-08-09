@@ -26,7 +26,7 @@ let getHumanMove = () =>{
 // Play a round of game
 
 let playRound = (humanMove, computerMove) => {
-    if (humanMove === computerMove)
+    if (humanMove == computerMove)
         console.log("It's a Draw")
     else if (humanMove === 'rock' && computerMove ==='paper'){
         console.log('Computer Wins, Paper beats Rock!')
@@ -52,8 +52,10 @@ let playRound = (humanMove, computerMove) => {
         console.log('You win, Rock beats Scissors!')
         humanVictories ++;
     }
-    else
+    else{
         console.log('An Unknown Error')
+    }
+    console.log('Your Move: ', humanMove, ' || ', 'Computer Move: ', computerMove)
 }
 
 let declareWinner = (humanVictories, computerVictories) => {
@@ -67,9 +69,11 @@ let declareWinner = (humanVictories, computerVictories) => {
 }
 let playRoundTimes = (n = 5) => {
     while (n > 0){
-        playRound(getHumanMove(), getComputerMove)
+        playRound(getHumanMove(), getComputerMove())
         n --;
     }
     declareWinner(humanVictories, computerVictories)
     console.log('Game Ends!')
 }
+
+playRoundTimes()
