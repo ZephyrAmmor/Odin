@@ -49,18 +49,27 @@ let playRound = (humanMove, computerMove) => {
         humanVictories ++;
     }
     else if (humanMove === 'rock' && computerMove === 'scissors'){
-        console.log('You win, Rock beats Scissors!')console.log(humanMove, computerMove)
+        console.log('You win, Rock beats Scissors!')
         humanVictories ++;
     }
     else
         console.log('An Unknown Error')
 }
 
+let declareWinner = (humanVictories, computerVictories) => {
+    console.log('Your victories:', humanVictories, '||', 'Computer Victories', computerVictories)
+    if (humanVictories === computerVictories)
+        console.log("It's a Draw")
+    else if (humanVictories > computerVictories)
+        console.log('You win')
+    else if (humanVictories < computerVictories)
+        console.log('Computer Wins')
+}
 let playRoundTimes = (n = 5) => {
     while (n > 0){
         playRound(getHumanMove(), getComputerMove)
         n --;
     }
-    declareWinner()
+    declareWinner(humanVictories, computerVictories)
     console.log('Game Ends!')
 }
