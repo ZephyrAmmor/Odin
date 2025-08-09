@@ -1,5 +1,5 @@
 // Get computer's move via Math.random
-let computerMove = () => {
+let getComputerMove = () => {
     let random = Math.floor(Math.random() * 3)
     switch (random){
         case 0:
@@ -10,4 +10,4 @@ let computerMove = () => {
             return 'scissors'
     }
 }
-console.log(computerMove())
+console.log(getComputerMove())
