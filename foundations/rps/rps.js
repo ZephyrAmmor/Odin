@@ -77,4 +77,4 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     let playNTimes = parseInt(prompt('How many rounds you want to play? ', 5))
     playRoundTimes(playNTimes)
-})
+});
