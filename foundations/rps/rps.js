@@ -1,4 +1,6 @@
 // Get computer's move via Math.random
+let humanVictories = 0
+let computerVictories = 0
 let getComputerMove = () => {
     let random = Math.floor(Math.random() * 3)
     switch (random){
@@ -26,20 +28,31 @@ let getHumanMove = () =>{
 let playRound = (humanMove, computerMove) => {
     if (humanMove === computerMove)
         console.log("It's a Draw")
-    else if (humanMove === 'rock' && computerMove ==='paper')
+    else if (humanMove === 'rock' && computerMove ==='paper'){
         console.log('Computer Wins, Paper beats Rock!')
-    else if (humanMove === 'scissors' && computerMove === 'rock')
+        computerVictories ++;
+    }
+    else if (humanMove === 'scissors' && computerMove === 'rock'){
         console.log('Computer Wins, Rock beats Scissors!')
-    else if (humanMove === 'paper' && computerMove === 'scissors')
+        computerVictories ++;
+    }
+    else if (humanMove === 'paper' && computerMove === 'scissors'){
         console.log('Computer Wins, Scissors beats Paper!')
-    else if (humanMove === 'paper' && computerMove === 'rock')
+        computerVictories ++;
+    }
+    else if (humanMove === 'paper' && computerMove === 'rock'){
         console.log('You win, paper beats rock')
-    else if (humanMove === 'scissors' && computerMove === 'paper')
+        humanVictories ++;
+    }
+    else if (humanMove === 'scissors' && computerMove === 'paper'){
         console.log('You win, Scissors bests Paper!')
-    else if (humanMove === 'rock' && computerMove === 'scissors')
-        console.log('You win, Rock beats Scissors!')
+        humanVictories ++;
+    }
+    else if (humanMove === 'rock' && computerMove === 'scissors'){
+        console.log('You win, Rock beats Scissors!')console.log(humanMove, computerMove)
+        humanVictories ++;
+    }
     else
         console.log('An Unknown Error')
-    console.log('Your Move :',humanMove,'||', 'Computer Move: ', computerMove)
 }
 playRound(getHumanMove(), getComputerMove() )
