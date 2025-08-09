@@ -55,4 +55,12 @@ let playRound = (humanMove, computerMove) => {
     else
         console.log('An Unknown Error')
 }
-playRound(getHumanMove(), getComputerMove() )
+
+let playRoundTimes = (n = 5) => {
+    while (n > 0){
+        playRound(getHumanMove(), getComputerMove)
+        n --;
+    }
+    declareWinner()
+    console.log('Game Ends!')
+}
