@@ -15,10 +15,10 @@ let getComputerMove = () => {
 // Get Human Move
 
 let getHumanMove = () =>{
-    let humanMove = prompt('rock, paper, scissors\nYour Move?').toLowerCase()
+    let humanMove = prompt('rock, paper, scissors\nYour Move?').toLowerCase().trim()
     if (humanMove !== 'rock' && humanMove !== 'paper' && humanMove !=='scissors'){
         console.log('Illegal Move')
-        humanMove = prompt('rock, paper, scissors !!! Enter again!').toLowerCase()
+        humanMove = prompt('rock, paper, scissors !!! Enter again!').toLowerCase().trim()
     }
     return humanMove;
 }
