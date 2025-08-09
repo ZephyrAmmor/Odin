@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+body{
+    font-family: "Press Start 2P", system-ui, sans-serif;
+    width: 70%;
+    height: 100vh;
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    background-color: rgba(10,10,10,0.9);
+    color: honeydew;
+}
+main{
+    flex: 1;
+}
+footer{
+    padding: 16px;
+    max-height: 72px;
+    background-color: honeydew;
+    margin-bottom: 16px;
+    border-radius: 8px;
+    color: rgba(10,10,10,0.9)
+}
