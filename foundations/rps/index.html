@@ -9,11 +9,27 @@
 <body>
     <main>
     <h1>Rock, Paper, Scissors</h1>
-    <p>It's a console Game. Press F12 to open console.</p>
+    <div class="moves">
+        <button class="btn" id="rock">Rock</button>
+        <button class="btn" id="paper">Paper</button>
+        <button class="btn" id="scissors">Scissors</button>
+    </div>
+    
+    <div>
+        <form id="totalRounds">
+            <input type="number" min="5" max="20">
+            <button type="submit">Play</button>
+        </form>
+    </div>
+    <div class="roundResult">
+    </div>
+    <div id="round"></div>
+    <div class="finalResult"></div>
+    <div class="winner"></div>
     </main>
     <footer>
         Copyright &copy; ZephyrAmmor 2025
     </footer>
 </body>
-<script src="./rps.js" defer></script>
+<script src="./rough.js" defer></script>
 </html>
