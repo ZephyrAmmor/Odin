@@ -23,3 +23,37 @@ let getComputerMove = () => {
         let random = Math.floor(Math.random() * 3)
         return legalMoves[random]        
 }
+
+function playRound(humanMove){
+    let computerMove = getComputerMove()
+    if (humanMove == computerMove)
+            roundResult.textContent = "It's a Draw"
+    else if (humanMove === 'rock' && computerMove ==='paper'){
+        roundResult.textContent = 'Computer Wins, Paper beats Rock!'
+        computerVictories ++;
+    }
+    else if (humanMove === 'scissors' && computerMove === 'rock'){
+        roundResult.textContent = 'Computer Wins, Rock beats Scissors!'
+        computerVictories ++;
+    }
+    else if (humanMove === 'paper' && computerMove === 'scissors'){
+        roundResult.textContent = 'Computer Wins, Scissors beats Paper!'
+        computerVictories ++;
+    }
+    else if (humanMove === 'paper' && computerMove === 'rock'){
+        roundResult.textContent = 'You win, paper beats rock'
+        humanVictories ++;
+    }
+    else if (humanMove === 'scissors' && computerMove === 'paper'){
+        roundResult.textContent = 'You win, Scissors bests Paper!'
+        humanVictories ++;
+    }
+    else if (humanMove === 'rock' && computerMove === 'scissors'){
+        roundResult.textContent = 'You win, Rock beats Scissors!'
+        humanVictories ++;
+    }
+    else{
+        roundResult.textContent = 'An Unknown Error'
+    }
+    roundPara.textContent = `Your Move:  ${humanMove} ' ||  Computer Move: ${computerMove}p`
+}
