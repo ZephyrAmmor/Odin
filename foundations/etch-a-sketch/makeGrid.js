@@ -7,3 +7,9 @@ for(let i = 0; i < gridSize; i++){
         container.appendChild(aDiv)
     }
 }
+
+const cells = document.querySelectorAll('.cells')
+
+cells.forEach(cell => {
+    cell.addEventListener('dblclick', addStyles())
+});
