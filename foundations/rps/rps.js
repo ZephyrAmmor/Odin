@@ -8,3 +8,12 @@ const totalRounds = document.getElementById('totalRounds')
 let totalRoundsToPlay = 5
 let humanVictories = 0
 let computerVictories = 0
+
+totalRounds.addEventListener('submit', (event) =>{
+    event.preventDefault();
+    totalRoundsToPlay = document.querySelector('input').value || 5
+    roundResult.textContent = ''
+    roundPara.textContent = ''
+    finalResult.textContent = ''
+    winner.textContent = ''
+})
