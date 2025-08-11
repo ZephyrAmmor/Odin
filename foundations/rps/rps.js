@@ -55,7 +55,7 @@ function playRound(humanMove){
     else{
         roundResult.textContent = 'An Unknown Error'
     }
-    roundPara.textContent = `Your Move:  ${humanMove} ' ||  Computer Move: ${computerMove}p`
+    roundPara.textContent = `Your Move:  ${humanMove}  ||  Computer Move: ${computerMove}`
 }
 function declareWinner (){
         finalResult.textContent = `Your victories: ${humanVictories} || Computer Victories  ${computerVictories}`
