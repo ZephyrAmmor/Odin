@@ -9,7 +9,6 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-content: center;
     background-color: rgba(10,10,10,0.9);
     color: honeydew;
 }
@@ -39,4 +38,16 @@ input{
     border-radius: 8px;
     min-width: 100px;
     font: inherit;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    margin: 0 auto;
+    gap: 32px;
+    justify-content: center;
+    align-items: center;
+}
+form button, form input{
+    max-width: 150px;
 }
