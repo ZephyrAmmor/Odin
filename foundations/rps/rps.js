@@ -17,3 +17,9 @@ totalRounds.addEventListener('submit', (event) =>{
     finalResult.textContent = ''
     winner.textContent = ''
 })
+
+let getComputerMove = () => {
+        const legalMoves = ['rock', 'paper', 'scissors']
+        let random = Math.floor(Math.random() * 3)
+        return legalMoves[random]        
+}
