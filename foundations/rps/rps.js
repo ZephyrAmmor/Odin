@@ -57,3 +57,12 @@ function playRound(humanMove){
     }
     roundPara.textContent = `Your Move:  ${humanMove} ' ||  Computer Move: ${computerMove}p`
 }
+function declareWinner (){
+        finalResult.textContent = `Your victories: ${humanVictories} || Computer Victories  ${computerVictories}`
+        if (humanVictories === computerVictories)
+           winner.textContent = 'It\'s a Draw'
+        else if (humanVictories > computerVictories)
+            winner.textContent = 'You win'
+        else if (humanVictories < computerVictories)
+            winner.textContent = 'Computer Wins'
+}
