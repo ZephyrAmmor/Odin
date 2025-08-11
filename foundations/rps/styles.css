@@ -1,7 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap');
 body{
-    font-family: "Press Start 2P", system-ui, sans-serif;
+    font-family: "Play", system-ui, sans-serif;
     width: 70%;
     height: 100vh;
     margin: 0 auto;
@@ -11,6 +10,7 @@ body{
     justify-content: center;
     background-color: rgba(10,10,10,0.9);
     color: honeydew;
+    font-size: 24px;
 }
 main{
     flex: 1;
