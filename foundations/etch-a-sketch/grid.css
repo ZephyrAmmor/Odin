@@ -4,6 +4,7 @@
     padding: 0px;
 }
 body{
+    font-family: 'Times New Roman', Times, serif, 'sans-serif';
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -25,6 +26,7 @@ body{
     border: 1px solid black;
 }
 h1{
+    font-family: inherit;
     font-size: 48px;
     margin-bottom: 32px;
 }
