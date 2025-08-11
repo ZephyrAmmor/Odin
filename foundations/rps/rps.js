@@ -66,3 +66,17 @@ function declareWinner (){
         else if (humanVictories < computerVictories)
             winner.textContent = 'Computer Wins'
 }
+moves.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+        if (totalRoundsToPlay == 1){
+            playRound(e.target.id)
+            totalRoundsToPlay --;
+            declareWinner()
+        }
+        if (totalRoundsToPlay != 0){
+            playRound(e.target.id)
+            totalRoundsToPlay --;
+        }
+        
+    })
+});
