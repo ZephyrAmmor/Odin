@@ -20,7 +20,16 @@ const screen = document.querySelector('.screen')
 const result = document.querySelector('.result')
 const clear = document.querySelector('#clr')
 const backSpaceBtn = document.querySelector('.backspace')
+const bodyElement = document.querySelector('body')
+const toggle = document.querySelector('#toggle')
 
+toggle.addEventListener('click', () => {
+    bodyElement.classList.toggle('dark');
+    btns.forEach(btn => {
+        btn.classList.toggle('dark')
+    });
+    toggle.classList.toggle('dark')
+})
 let operate = () => {
     const regex = /[+\-/x=]/
     const regexOp = /[+\-/x]/
