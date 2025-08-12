@@ -13,6 +13,12 @@ function multiply(a,b){
     return a * b
 }
 
+const btns = document.querySelectorAll('.btn')
+const screen = document.querySelector('.screen')
+const result = document.querySelector('.result')
+const clear = document.querySelector('#clr')
+const backSpaceBtn = document.querySelector('.backspace')
+
 let operate = () => {
     const regex = /[+\-/x=]/
     const regexOp = /[+\-/x]/
@@ -28,8 +34,6 @@ let operate = () => {
             operator =  screenValue[i]
         }
     }
-    
-    
 
     const legalOperators = ['+', '-', '/','x']
     if(!legalOperators.includes(operator) && checkDecimals(operand1, operand2)){
@@ -48,6 +52,15 @@ let operate = () => {
     }
 }
 
+ backSpaceBtn.addEventListener('click', () =>{
+        if(screenValue.length > 0){
+        console.log(screenValue.slice(0, -1))
+        screenValue = screenValue.slice(0, -1)
+        screen.textContent = screenValue
+        console.log(screen, 'back')
+    }
+    })
+
 function checkDecimals(operand1, operand2){
     let decimalsOp1 = 0
     let decimalsOp2 = 0
@@ -62,10 +75,7 @@ function checkDecimals(operand1, operand2){
     if(decimalsOp1 > 1 || decimalsOp2 > 1)
         return false;
 }
-const btns = document.querySelectorAll('.btn')
-const screen = document.querySelector('.screen')
-const result = document.querySelector('.result')
-const clear = document.querySelector('#clr')
+
 function clearScreen(){
     screen.textContent = ''
     result.textContent = '0'
