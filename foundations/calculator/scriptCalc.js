@@ -14,12 +14,28 @@ function multiply(a,b){
 }
 
 let operate = () => {
-    const screen = screenValue.trim.split('+','-','/','x')
-    console.log(screen)
-    const operand1 = Number(screen[0])
-    const operator = Number(screen[1])
-    const operand2 = Number(screen[2])
+    const regex = /[+\-/x=]/
+    const regexOp = /[+\-/x]/
+    console.log(screenValue)
+    let screen = screenValue.split(regex)
+    console.log(screen,'well')
+    let operand1 = screen[0]
+    let operator = ''
+    let operand2 = screen[1]
+    console.log(screenValue)
+    for(let i = 0; i < screenValue.length; i ++){
+        if(regexOp.test(screenValue[i])){
+            operator =  screenValue[i]
+            break;
+        }
+    }
+    console.log(operator)
+    // for(let i = 0; i < screen.length;i ++){
+    //     if(regex.exec())
+    //         operand1 +=
+    // }
     
+
     const legalOperators = ['+', '-', '/','x']
     if(!legalOperators.includes(operator))
         return "Illegal Operation"
@@ -37,6 +53,13 @@ let operate = () => {
 
 const btns = document.querySelectorAll('.btn')
 const screen = document.querySelector('.screen')
+const result = document.querySelector('.result')
+const clear = document.querySelector('#clr')
+clear.addEventListener('click', () =>{
+    screen.textContent = ''
+    result.textContent = '0'
+})
+result.textContent = '0'
 
 btns.forEach(btn => {
     btn.addEventListener('click', () =>{
@@ -45,3 +68,10 @@ btns.forEach(btn => {
         console.log(screenValue)
     })
 });
+
+const equalTo = document.getElementById('=')
+
+equalTo.addEventListener('click', () => {
+    screen.textContent = ''
+    result.textContent =  operate()
+})
