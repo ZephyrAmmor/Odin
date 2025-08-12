@@ -19,6 +19,7 @@ body{
     border-radius: 8px;
     border-collapse: collapse;
     margin: 0 auto;
+    box-shadow: 6px 6px 20px rgba(60, 179, 113, 0.5);
 }
 .btnLayout{
     margin: 4px;
