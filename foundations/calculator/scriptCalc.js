@@ -16,6 +16,7 @@ function multiply(a,b){
 let operate = () => {
     const regex = /[+\-/x=]/
     const regexOp = /[+\-/x]/
+    let noOfOperator = 0
     console.log(screenValue)
     let screen = screenValue.split(regex)
     console.log(screen,'well')
@@ -26,7 +27,7 @@ let operate = () => {
     for(let i = 0; i < screenValue.length; i ++){
         if(regexOp.test(screenValue[i])){
             operator =  screenValue[i]
-            break;
+            noOfOperator ++
         }
     }
     console.log(operator)
@@ -37,8 +38,10 @@ let operate = () => {
     
 
     const legalOperators = ['+', '-', '/','x']
-    if(!legalOperators.includes(operator))
+    if(!legalOperators.includes(operator) && checkDecimals(operand1, operand2)){
         return "Illegal Operation"
+    }
+
     switch(operator){
         case '+':
             return add(operand1, operand2)
@@ -51,14 +54,29 @@ let operate = () => {
     }
 }
 
+function checkDecimals(operand1, operand2){
+    let decimalsOp1 = 0
+    let decimalsOp2 = 0
+    for(let i = 0; i < operand1.length; i ++){
+        if(operand1[i] == '.')
+            decimalsOp1 ++
+    }
+    for (let i = 0; i < operand2.length; i ++){
+        if(operand2[i] == '.')
+            decimalsOp2 ++
+    }
+    if(decimalsOp1 > 1 || decimalsOp2 > 1)
+        return false;
+}
 const btns = document.querySelectorAll('.btn')
 const screen = document.querySelector('.screen')
 const result = document.querySelector('.result')
 const clear = document.querySelector('#clr')
-clear.addEventListener('click', () =>{
+function clearScreen(){
     screen.textContent = ''
     result.textContent = '0'
-})
+}
+clear.addEventListener('click', clearScreen())
 result.textContent = '0'
 
 btns.forEach(btn => {
@@ -73,5 +91,11 @@ const equalTo = document.getElementById('=')
 
 equalTo.addEventListener('click', () => {
     screen.textContent = ''
-    result.textContent =  operate()
+    const res = operate()
+    result.textContent = res
+    if (res == 'Illegal Operation')
+    {
+        setTimeout(clearScreen, 3000)
+    }
 })
+
