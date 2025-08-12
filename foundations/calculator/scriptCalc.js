@@ -1,6 +1,7 @@
 let operand1 = 0
 let operand2 = 0
 let operator = ''
+let screenValue = ''
 
 function add(a,b){
     return a +b;
@@ -30,3 +31,14 @@ let operate = () => {
             return multiply(operand1, operand2)
     }
 }
+
+const btns = document.querySelectorAll('.btn')
+const screen = document.querySelector('.screen')
+
+btns.forEach(btn => {
+    btn.addEventListener('click', () =>{
+        screen.textContent += btn.id
+        screenValue += btn.id
+        console.log(screenValue)
+    })
+});
