@@ -77,10 +77,11 @@ function checkDecimals(operand1, operand2){
 }
 
 function clearScreen(){
+    screenValue = ''
     screen.textContent = ''
     result.textContent = '0'
 }
-clear.addEventListener('click', clearScreen())
+clear.addEventListener('click', clearScreen)
 result.textContent = '0'
 
 btns.forEach(btn => {
