@@ -1,6 +1,3 @@
-let operand1 = 0
-let operand2 = 0
-let operator = ''
 let screenValue = ''
 
 function add(a,b){
