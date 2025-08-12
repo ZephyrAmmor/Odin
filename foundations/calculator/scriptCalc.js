@@ -28,15 +28,17 @@ let operate = () => {
     let operand1 = screen[0]
     let operator = ''
     let operand2 = screen[1]
-  
+    let noOfOperators = 0
+    
     for(let i = 0; i < screenValue.length; i ++){
         if(regexOp.test(screenValue[i])){
             operator =  screenValue[i]
+            noOfOperators ++
         }
     }
 
     const legalOperators = ['+', '-', '/','x']
-    if(!legalOperators.includes(operator) && checkDecimals(operand1, operand2)){
+    if(!legalOperators.includes(operator) && checkDecimals(operand1, operand2) && noOfOperators < 2){
         return "Illegal Operation"
     }
 
