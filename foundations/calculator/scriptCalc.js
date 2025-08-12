@@ -58,10 +58,8 @@ let operate = () => {
 
  backSpaceBtn.addEventListener('click', () =>{
         if(screenValue.length > 0){
-        console.log(screenValue.slice(0, -1))
         screenValue = screenValue.slice(0, -1)
         screen.textContent = screenValue
-        console.log(screen, 'back')
     }
     })
 
@@ -92,7 +90,6 @@ btns.forEach(btn => {
     btn.addEventListener('click', () =>{
         screen.textContent += btn.id
         screenValue += btn.id
-        console.log(screenValue)
     })
 });
 
@@ -102,9 +99,9 @@ equalTo.addEventListener('click', () => {
     screen.textContent = ''
     const res = operate()
     result.textContent = res
-    if (res == 'Illegal Operation')
+    if (res == 'Illegal Operation' || 'Logic Error')
     {
-        setTimeout(clearScreen, 3000)
+        setTimeout(() => result.textContent = '0', 3000)
     }
 })
 
