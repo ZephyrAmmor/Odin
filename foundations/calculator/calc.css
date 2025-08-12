@@ -41,5 +41,8 @@ body{
 }
 .screen{
     width: 100%;
-    min-height: 150px;
+    min-height: 100px;
+}
+.result{
+    height: 50px;
 }
