@@ -33,16 +33,20 @@ body{
 }
 .btn{
     font-size: 32px;
+    max-width: 48px;
     margin: 4px;
-    padding:12px 16px;
+    padding:8px 12px;
     border: 1px dotted mediumseagreen;
     border-radius: 4px;
     min-width: 52px;
 }
 .screen{
+    padding: 16px;
+    border-bottom: 1px solid mediumseagreen;
     width: 100%;
     min-height: 100px;
 }
 .result{
+    padding: 16px;
     height: 50px;
 }
