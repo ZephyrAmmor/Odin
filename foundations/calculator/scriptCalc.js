@@ -14,6 +14,12 @@ function multiply(a,b){
 }
 
 let operate = () => {
+    const screen = screenValue.trim.split('+','-','/','x')
+    console.log(screen)
+    const operand1 = Number(screen[0])
+    const operator = Number(screen[1])
+    const operand2 = Number(screen[2])
+    
     const legalOperators = ['+', '-', '/','x']
     if(!legalOperators.includes(operator))
         return "Illegal Operation"
