@@ -16,25 +16,19 @@ function multiply(a,b){
 let operate = () => {
     const regex = /[+\-/x=]/
     const regexOp = /[+\-/x]/
-    let noOfOperator = 0
-    console.log(screenValue)
+  
     let screen = screenValue.split(regex)
-    console.log(screen,'well')
+    
     let operand1 = screen[0]
     let operator = ''
     let operand2 = screen[1]
-    console.log(screenValue)
+  
     for(let i = 0; i < screenValue.length; i ++){
         if(regexOp.test(screenValue[i])){
             operator =  screenValue[i]
-            noOfOperator ++
         }
     }
-    console.log(operator)
-    // for(let i = 0; i < screen.length;i ++){
-    //     if(regex.exec())
-    //         operand1 +=
-    // }
+    
     
 
     const legalOperators = ['+', '-', '/','x']
