@@ -7,6 +7,8 @@ function sub(a,b){
     return a - b;
 }
 function divide(a,b){
+    if(b == 0)
+        return "Logic Error"
     return a / b;
 }
 function multiply(a,b){
@@ -29,7 +31,7 @@ let operate = () => {
     let operator = ''
     let operand2 = screen[1]
     let noOfOperators = 0
-    
+
     for(let i = 0; i < screenValue.length; i ++){
         if(regexOp.test(screenValue[i])){
             operator =  screenValue[i]
