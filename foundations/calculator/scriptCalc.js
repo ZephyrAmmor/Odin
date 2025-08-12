@@ -1,5 +1,5 @@
 let operand1 = 0
-let operand2 = 1
+let operand2 = 0
 let operator = ''
 
 function add(a,b){
@@ -13,4 +13,20 @@ function divide(a,b){
 }
 function multiply(a,b){
     return a * b
+}
+
+let operate = () => {
+    const legalOperators = ['+', '-', '/','x']
+    if(!legalOperators.includes(operator))
+        return "Illegal Operation"
+    switch(operator){
+        case '+':
+            return add(operand1, operand2)
+        case '-':
+            return sub(operand1, operand2)
+        case '/':
+            return divide(operand1, operand2)
+        case 'x':
+            return multiply(operand1, operand2)
+    }
 }
