@@ -44,3 +44,10 @@ button{
     border-radius: 0.3rem;
     margin-top: 3rem;
 }
+#side-img{
+    width: 45%;
+    height: 100vh;
+}
+#side-img img{
+    height: 100vh;
+}
