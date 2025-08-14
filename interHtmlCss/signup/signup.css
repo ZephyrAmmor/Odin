@@ -7,3 +7,13 @@
     margin: 0;
     padding: 0;
 }
+body{
+    overflow-y: hidden;
+    display: flex;
+    gap: 5rem;
+    align-items: center;
+}
+body div>img{
+    height: 100vh;
+    width: auto;
+}
