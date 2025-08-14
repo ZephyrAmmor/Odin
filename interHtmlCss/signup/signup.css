@@ -10,6 +10,7 @@
 body{
     height: 100vh;
     display: flex;
+    overflow-y: hidden;
 }
 form{
     display: flex;
@@ -50,4 +51,12 @@ button{
 }
 #side-img img{
     height: 100vh;
+}
+#img-sec{
+    position:relative;
+}
+#img-sec div p{
+    position: absolute;
+    bottom: 3rem;
+    left: 20%;
 }
