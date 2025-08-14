@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap');
+
 @font-face {
     font-family: 'Norse';
     src: url("./Norse-Bold.otf");
@@ -8,6 +10,7 @@
     padding: 0;
 }
 body{
+    font-family: 'Obitron', 'Literata', 'Times New Roman', serif;
     overflow-y: hidden;
     display: flex;
     gap: 5rem;
