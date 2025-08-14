@@ -6,7 +6,8 @@
     padding: 0;
 }
 :root{
-    font-family: 'Orbitron', 'Literata', system-ui, serif;ont-size: 1.1rem;
+    font-family: 'Orbitron', 'Literata', system-ui, serif;
+    letter-spacing: 0.04rem;
 }
 body{
     height: 100vh;
@@ -32,6 +33,7 @@ form{
     gap: 0.5rem;
 }
 input{
+    letter-spacing: inherit;
     border: 2px #acacac solid;
     border-radius: 0.3rem;
     font-family: inherit;
@@ -40,6 +42,7 @@ input{
     width: 100%;
 }
 button{
+    letter-spacing: inherit;
     width: fit-content;
     border: none;
     padding: 0.5rem 1rem;
