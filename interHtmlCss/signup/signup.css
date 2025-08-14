@@ -102,3 +102,9 @@ a{
     padding: 0.7rem;
     border-radius: 0.3rem;
 }
+input:valid{
+    border: 2px solid rgb(15, 200, 100);
+}
+input[type="password"]:invalid{
+    border: 2px solid orangered;
+}
