@@ -20,6 +20,10 @@ form{
     width: 80%;
     margin: 0 auto;
     gap: 1rem;
+    background-color: rgba(230, 230, 230, 0.5);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    box-shadow: -1rem -1rem 0.5rem rgba(15, 200, 100, 0.2);
 }
 .form-field{
     display: flex;
