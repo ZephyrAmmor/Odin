@@ -6,7 +6,7 @@
     padding: 0;
 }
 :root{
-    font-family: 'Orbitron', 'Literata', system-ui, serif;
+    font-family: 'Orbitron', 'Literata', system-ui, serif;ont-size: 1.1rem;
 }
 body{
     height: 100vh;
@@ -45,6 +45,8 @@ button{
     padding: 0.5rem 1rem;
     border-radius: 0.3rem;
     margin-top: 3rem;
+    background: rgba(15, 200, 100, 0.6);
+    font-family: inherit;
 }
 #side-img{
     width: 100%;
@@ -86,4 +88,14 @@ button{
     justify-content: center;
     align-items: center;
     gap: 3rem;
+}
+a{
+    color: rgb(15, 200, 100);
+    text-decoration: none;
+}
+#refer-img p{
+    background-color: rgba(10, 10, 10, 0.5);
+    color: rgba(15, 200, 100);
+    padding: 0.7rem;
+    border-radius: 0.3rem;
 }
