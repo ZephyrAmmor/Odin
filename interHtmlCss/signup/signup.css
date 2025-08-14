@@ -10,7 +10,7 @@
 body{
     height: 100vh;
     display: flex;
-    overflow-y: hidden;
+    /* overflow-y: hidden; */
 }
 form{
     display: flex;
@@ -46,17 +46,27 @@ button{
     margin-top: 3rem;
 }
 #side-img{
-    width: 45%;
-    height: 100vh;
+    width: 100%;
 }
 #side-img img{
-    height: 100vh;
+    width: 100%;
 }
 #img-sec{
+    width: 35%;
     position:relative;
 }
 #img-sec div p{
     position: absolute;
     bottom: 3rem;
     left: 20%;
+}
+#odin-logo{
+    width: 100%;
+    background-color: rgba(10, 10, 10, 0.5);
+    padding: 1rem;
+    position: absolute;
+    top: 30%;
+}
+#odin-logo img{
+    width: 20%;
 }
