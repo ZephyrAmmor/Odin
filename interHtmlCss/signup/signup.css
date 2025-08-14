@@ -12,7 +12,7 @@
 body{
     height: 100vh;
     display: flex;
-    /* overflow-y: hidden; */
+    overflow-y: hidden;
 }
 form{
     display: flex;
@@ -75,7 +75,8 @@ button{
     align-items: center;
     justify-content: center;
     width: 100%;
-    background-color: rgba(10, 10, 10, 0.5);
+    background-color: rgba(15, 200, 100, 0.1);
+    backdrop-filter: blur(10px);
     padding: 1rem;
     position: absolute;
     top: 30%;
@@ -101,7 +102,8 @@ a{
     text-decoration: none;
 }
 #refer-img p{
-    background-color: rgba(10, 10, 10, 0.5);
+    background-color: rgba(10, 10, 10, 0.2);
+    backdrop-filter: blur(10px);
     color: rgba(15, 200, 100);
     padding: 0.7rem;
     border-radius: 0.3rem;
@@ -111,4 +113,7 @@ input:valid{
 }
 input[type="password"]:invalid{
     border: 2px solid orangered;
+}
+a:hover{
+    text-decoration: underline;
 }
