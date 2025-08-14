@@ -17,18 +17,35 @@
     </div>
     <form action="">
         <h2>Sign Up</h2>
-        <label for="firstname">First Name</label>
-        <input type="text" name="firstname" id="firstname" placeholder="Imran" required>
-        <label for="lastname">Last Name</label>
-        <input type="text" id="lastname" name="lastname" placeholder="Khan">
-        <label for="email">Email</label>
-        <input type="email" name="email" id="email" placeholder="Khan@jail.adiala" required>
-        <label for="phone">Phone Number</label>
-        <input type="tel" name="phone" id="phone" placeholder="+92300xxxx804">
-        <label for="password">Password</label>
-        <input type="password" id="password" name="password" required>
-        <label for="confirmPassword">Confirm Password</label>
-        <input type="password" id="confirmPassword" name="confirmPassword" required >
+        <div class="form-field">
+            <div class="form-control">
+                <label for="firstname">First Name</label>
+                <input type="text" name="firstname" id="firstname" placeholder="Imran" required>
+            </div>
+            <div class="form-control">
+                <label for="lastname">Last Name</label>
+                <input type="text" id="lastname" name="lastname" placeholder="Khan">
+            </div>
+        </div>
+        <div class="form-field">
+            <div class="form-control">
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email" placeholder="Khan@jail.adiala" required>
+            </div class="form-control">
+                <label for="phone">Phone Number</label>
+                <input type="tel" name="phone" id="phone" placeholder="+92300xxxx804">
+            </div>
+        </div>
+        <div class="form-field">
+            <div class="form-control">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div class="form-control">
+                <label for="confirmPassword">Confirm Password</label>
+                <input type="password" id="confirmPassword" name="confirmPassword" required >
+            </div>
+        </div>
         <button type="submit">Create Account</button>
     </form>
 </body>
