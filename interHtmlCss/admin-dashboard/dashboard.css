@@ -8,12 +8,12 @@
 body{
     font-family: 'Orbitron', 'Literata', system-ui, serif;
     letter-spacing: 0.04rem;
+    background-color: rgba(10, 10, 10, 0.9);
 }
 
 .container{
     display: grid;
     grid-template: 1fr 85% / 1fr 3fr 1fr;
-    background-color: rgba(10, 10, 10, 0.9);
     color: whitesmoke;
 }
 
@@ -75,9 +75,9 @@ ul{
     gap: 1rem;
 }
 .news, .trending{
-    height: 100%;
+    height: 90%;
     display: grid;
-    gap: 1rem;
+    gap: 0.5rem;
     overflow: auto;
 }
 .trending > div > div{
@@ -126,11 +126,11 @@ input{
 .sidebar a{
     font-size: 1.2rem;
     font-weight: 600;
-    text-shadow: 1px 1px rgb(117, 19, 117);
+    text-shadow: -1px -1px rgb(100, 7, 100);
 }
 a:hover{
     display: inline-block;
-    color: rgb(117, 19, 117);
+    color: rgb(117, 19, 73);
 }
 .sidebar.icon{
     display: inline-block;
@@ -151,4 +151,7 @@ a:hover{
 }
 .intro div{
     display:inline-block;
+}
+br{
+    color: rgb(100, 7, 100);
 }
