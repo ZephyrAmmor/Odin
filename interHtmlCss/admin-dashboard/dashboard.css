@@ -10,18 +10,51 @@ body{
     letter-spacing: 0.04rem;
     background-color: rgba(10, 10, 10, 0.9);
 }
-
+/*General Rules shared by most of the components" */
+ul{
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+a{
+    display: inline-block;
+    text-decoration: none;
+    color: rgb(100, 230, 50)
+}
+img{
+    width: 3rem;
+    border-radius: 50%;
+}
+input{
+    font-size: 1.1rem;
+    padding: 0.5rem;
+    width: 94%;
+    border: 1px solid rgb(100, 230, 50);
+    border-left: 2px solid rgb(100, 230, 50);
+    border-radius: 0.5rem;
+    background-color: inherit;
+    color: inherit;
+}
+.nav a{
+    display: inline-block;
+    margin-top: 1rem;
+    background-color: rgb(100, 230, 50);
+    color: rgb(117, 19, 117);
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+}
+.sidebar a{
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-shadow: -1px -1px rgb(100, 7, 100);
+}
+/*Display Grid */
 .container{
     display: grid;
     grid-template: 1fr 85% / 1fr 3fr 1fr;
     color: whitesmoke;
 }
 
-ul{
-    list-style: none;
-    display: flex;
-    gap: 2rem;
-}
 .pages-links, .support-link{
     flex-direction: column;
 }
@@ -80,6 +113,7 @@ ul{
     gap: 0.5rem;
     overflow: auto;
 }
+/* Select the div containing text*/
 .trending > div > div{
     display: inline-block;
     width: clamp(5rem, 70%, 10rem)
@@ -90,48 +124,14 @@ ul{
 .thin-font{
     font-size: 0.8rem;
 }
-a{
-    display: inline-block;
-    text-decoration: none;
-    color: rgb(100, 230, 50)
-}
-img{
-    width: 3rem;
-    border-radius: 50%;
-}
+
 .search div{
     width: 75%;
     border: 1px solid rgb(100, 230, 50);
     border-left: 0px;
     border-radius: 0.5rem 1rem 1rem 0.5rem ;
 }
-input{
-    font-size: 1.1rem;
-    padding: 0.5rem;
-    width: 94%;
-    border: 1px solid rgb(100, 230, 50);
-    border-left: 2px solid rgb(100, 230, 50);
-    border-radius: 0.5rem;
-    background-color: inherit;
-    color: inherit;
-}
-.nav a{
-    display: inline-block;
-    margin-top: 1rem;
-    background-color: rgb(100, 230, 50);
-    color: rgb(117, 19, 117);
-    padding: 0.5rem 1rem;
-    border-radius: 0.5rem;
-}
-.sidebar a{
-    font-size: 1.2rem;
-    font-weight: 600;
-    text-shadow: -1px -1px rgb(100, 7, 100);
-}
-a:hover{
-    display: inline-block;
-    color: rgb(117, 19, 73);
-}
+
 .sidebar.icon{
     display: inline-block;
     margin-right: 1rem;
@@ -152,11 +152,12 @@ a:hover{
 .intro div{
     display:inline-block;
 }
-br{
-    color: rgb(100, 7, 100);
-}
 
 .card:hover{
     box-shadow: -1px 1px 10px honeydew;
     transform: translateY(-0.1rem);
+}
+a:hover{
+    display: inline-block;
+    color: rgb(117, 19, 73);
 }
