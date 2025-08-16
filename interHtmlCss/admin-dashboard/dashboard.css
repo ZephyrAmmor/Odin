@@ -41,7 +41,10 @@ ul{
     grid-area: 2/2/3/3
 }
 .aside{
-    grid-area: 2/3/3/4
+    grid-area: 2/3/3/4;
+    display: grid;
+    gap: 2rem;
+    padding: 2rem;
 }
 .notify-area{
     grid-area: 1/2/2/3
@@ -66,4 +69,10 @@ ul{
     display: flex;
     flex-direction: column;
     gap: 1rem;
+}
+.news, .trending{
+    height: 100%;
+    display: grid;
+    gap: 1rem;
+    overflow: auto;
 }
