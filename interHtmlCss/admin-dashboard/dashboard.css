@@ -82,6 +82,13 @@ ul{
     gap: 1rem;
     overflow: auto;
 }
+.trending > div > div{
+    display: inline-block;
+    width: clamp(5rem, 70%, 10rem)
+}
+.aside h3{
+    margin: 0.4rem 0;
+}
 .thin-font{
     font-size: 0.8rem;
 }
