@@ -33,6 +33,7 @@ ul{
 }
 
 .nav{
+    padding: 1rem;
     display: grid;
     grid-template: 1fr 1fr/2fr 1fr;
     grid-area: 1/2/2/4;
@@ -86,4 +87,8 @@ ul{
 }
 a{
     text-decoration: none;
+}
+img{
+    width: 3rem;
+    border-radius: 50%;
 }
