@@ -12,7 +12,7 @@ body{
 
 .container{
     display: grid;
-    grid-template: 1fr 80% / 1fr 3fr 1fr;
+    grid-template: 1fr 85% / 1fr 3fr 1fr;
 }
 
 ul{
@@ -36,6 +36,7 @@ ul{
     display: grid;
     grid-template: 1fr 1fr/2fr 1fr;
     grid-area: 1/2/2/4;
+    background-color: #acacac;
 }
 .main{
     grid-area: 2/2/3/3
