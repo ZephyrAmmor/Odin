@@ -155,3 +155,8 @@ a:hover{
 br{
     color: rgb(100, 7, 100);
 }
+
+.card:hover{
+    box-shadow: -1px 1px 10px honeydew;
+    transform: translateY(-0.1rem);
+}
