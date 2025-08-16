@@ -91,6 +91,7 @@ ul{
     font-size: 0.8rem;
 }
 a{
+    display: inline-block;
     text-decoration: none;
     color: rgb(100, 230, 50)
 }
@@ -113,4 +114,41 @@ input{
     border-radius: 0.5rem;
     background-color: inherit;
     color: inherit;
+}
+.nav a{
+    display: inline-block;
+    margin-top: 1rem;
+    background-color: rgb(100, 230, 50);
+    color: rgb(117, 19, 117);
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+}
+.sidebar a{
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-shadow: 1px 1px rgb(117, 19, 117);
+}
+a:hover{
+    display: inline-block;
+    color: rgb(117, 19, 117);
+}
+.sidebar.icon{
+    display: inline-block;
+    margin-right: 1rem;
+}
+.notify-profile, .intro{
+    align-items: center;
+    display: flex;
+}
+.notify-profile{
+    gap: 10%;
+}
+.intro{
+    gap: 5%;
+}
+.intro img{
+    width: 5rem;
+}
+.intro div{
+    display:inline-block;
 }
