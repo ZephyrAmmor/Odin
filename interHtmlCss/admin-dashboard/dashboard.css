@@ -9,3 +9,8 @@ body{
     font-family: 'Orbitron', 'Literata', system-ui, serif;
     letter-spacing: 0.04rem;
 }
+
+.container{
+    display: grid;
+    grid-template: 1fr 80% / 1fr 3fr 1fr;
+}
