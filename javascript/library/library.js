@@ -1,5 +1,7 @@
 let library = []
 const table = document.querySelector('.table')
+const tBody = document.createElement('tbody')
+tBody.setAttribute('id', 'tbody')
 displayTable()
 // Open dialog box on add new book click
 const addNewBook = document.getElementById('add-new-book')
@@ -46,7 +48,7 @@ function addNewBookToLibrary(title, author, pages, read){
     displayBook(newBook)
 }
 function displayBook(newBook){
-    const tbody = document.getElementById('tbody')
+   
     const tableRow = document.createElement('tr')
     tableRow.setAttribute('id', newBook.id)
     for(let key in newBook){
@@ -111,31 +113,9 @@ function displayTable(){
     headerRow.appendChild(readHeader)
     headerRow.appendChild(delHeader)
     table.appendChild(headerRow)
-    const tBody = document.createElement('tbody')
-    tBody.setAttribute('id', 'tbody')
     table.appendChild(tBody)
 }
 
-function toggleBook(){
-    const readToggleBtns = document.querySelectorAll('.read-status')
-
-    readToggleBtns.forEach(btn =>{
-    btn.addEventListener('click', ()=>{
-        const bookToToggle = library.filter(item => item.id === btn.dataset.bookId)
-        bookToToggle[0].toggle()
-        btn.textContent = bookToToggle[0].showRead()
-    });
-});
-}
-
-function deleteBook(){
-    const delBtns = document.querySelectorAll('.del')
-    delBtns.forEach(btn =>{
-        btn.addEventListener('click', ()=>{
-            
-        })
-    })
-}
 table.addEventListener('click', (e) =>{
     if(e.target.classList.contains('read-status')){
         const bookToToggle = library.filter(item => item.id === e.target.dataset.bookId)
@@ -147,6 +127,6 @@ table.addEventListener('click', (e) =>{
         console.log(indexOfBook)
         library.splice(indexOfBook, 1)
         const rowToDelete = document.getElementById(e.target.dataset.bookId)
-        table.removeChild(rowToDelete)
+        tbody.removeChild(rowToDelete)
     }
 })
