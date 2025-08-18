@@ -4,13 +4,13 @@
     padding: 0;
 }
 body{
-    background-color: rgba(240, 255, 240, 0.253);
-    background-image: url(./pexels-nitin-arya-386173-1029141.jpg);
+    /* background-color: rgba(240, 255, 240, 0.253); */
+    /* background-image: url(./pexels-nitin-arya-386173-1029141.jpg); */
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh;
     background-attachment: fixed;
-    color: rgb(27, 1, 1);
+    /* color: rgb(27, 1, 1); */
     margin-bottom: 1rem;
 }
 h1{
@@ -48,7 +48,7 @@ input, select, button{
     padding: 0.3rem;
     border-radius: 0.3rem;
 }
-select, button{
+select{
     min-width: 100px;
     width: 50%;
     margin: 0 auto;
@@ -67,8 +67,7 @@ select, button{
 }
 
 button{
-    border: 1px solid rgba(0, 0, 0, 0);
-    box-shadow: -2px -2px 5px rgb(100, 230, 80);
+    border: 1px solid rgba( 0, 0, 0);
 }
 button:hover{
     border: 1px solid rgb(100, 230, 80);
@@ -81,4 +80,24 @@ button:hover{
 #refer{
     text-decoration: none;
     color: rgb(100, 230, 80);
+}
+.card{
+    align-items: center;
+    gap: 1rem;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    width: clamp(250px, 40%, 400px);
+    border: 1px solid rgb(100, 230, 80);
+    border-radius: 0.3rem;
+}
+.info{
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+}
+.value, .labels{
+    gap: 1rem;
+    display: flex;
+    flex-direction: column;
 }
