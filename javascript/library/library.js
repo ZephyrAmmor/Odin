@@ -124,7 +124,6 @@ table.addEventListener('click', (e) =>{
     }
     else if(e.target.classList.contains('del')){
         const indexOfBook = library.findIndex(item => item.id === e.target.dataset.bookId)
-        console.log(indexOfBook)
         library.splice(indexOfBook, 1)
         const rowToDelete = document.getElementById(e.target.dataset.bookId)
         tbody.removeChild(rowToDelete)
