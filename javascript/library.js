@@ -24,11 +24,12 @@ const form = document.querySelector('form')
 form.addEventListener('submit', (event) =>{
     event.preventDefault()
 
-    const form = document.getElementsByTagName('form')
+    const form = document.querySelector('form')
     const formData = new FormData(form)
     addNewBookToLibrary(...formData)
     form.reset()
     dialog.close()
+    displayBooks()
 })
 
 //Get Books from Library and Display them
@@ -43,6 +44,6 @@ function displayBooks(){
             tableData.textContent = `${book[key]}`
             tableRow.appendChild(tableData)
         }
-        table.append(tableRow)
+        table.appendChild(tableRow)
     }
 }
