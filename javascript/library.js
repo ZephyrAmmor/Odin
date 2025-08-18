@@ -13,22 +13,34 @@ function Book(title, author, pages, read){
     this.pages = pages; 
     this.read = read;
 }
-// Create new Book and push it to the library
-function addNewBookToLibrary(title, author, pages, read){
-    newBook = new Book(title, author, pages, Boolean(read))
-    console.log(newBook)
-    Object.defineProperty(newBook, 'id', {
-        value: crypto.randomUUID()
-    })
-    Object.defineProperty(newBook, 'showRead', {
+Object.defineProperty(Book.prototype, 'toggle', {
         value: function(){
-            if(read)
+            if(this.read)
+                this.read = false
+            else
+                this.read = true
+            displayBooks()
+        },
+        enumerable:false,
+        writable: true,
+        configurable: true,
+    })
+    Object.defineProperty(Book.prototype, 'showRead', {
+        value: function(){
+            if(this.read)
                 return 'Already'
             return 'Not Yet'
         },
         enumerable: false,
         writable: true,
         configurable: true
+    })
+// Create new Book and push it to the library
+function addNewBookToLibrary(title, author, pages, read){
+    newBook = new Book(title, author, pages, Boolean(read))
+    console.log(newBook)
+    Object.defineProperty(newBook, 'id', {
+        value: crypto.randomUUID()
     })
     library.push(newBook)
     console.table(library)
@@ -79,7 +91,7 @@ function displayBooks(){
             if(key == 'read'){
                 const readToggleBtn = document.createElement('button')
                 readToggleBtn.textContent = book.showRead()
-                readToggleBtn.classList.add('.read-status')
+                readToggleBtn.classList.add('read-status')
                 readToggleBtn.dataset.bookId = book.id
                 tableData.appendChild(readToggleBtn)
                 tableRow.appendChild(tableData)
@@ -98,5 +110,19 @@ function displayBooks(){
 
         tableRow.appendChild(delData)
         table.appendChild(tableRow)
+        toggleBook()
     }
+}
+
+function toggleBook(){
+    const readToggleBtns = document.querySelectorAll('.read-status')
+
+    readToggleBtns.forEach(btn =>{
+    console.log(btn)
+    btn.addEventListener('click', ()=>{
+        const bookToToggle = library.filter(item => item.id === btn.dataset.bookId)
+        bookToToggle[0].toggle()
+        btn.textContent = bookToToggle[0].showRead()
+    });
+});
 }
