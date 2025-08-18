@@ -5,15 +5,17 @@
 }
 body{
     color: whitesmoke;
+    background-color: rgb(30,30, 30);
+    background-image: url(./pexels-nitin-arya-386173-1029141.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh;
-    background-attachment: fixed;
-    background: rgb(30,30, 30);
+    background-attachment: fixed; 
     margin-bottom: 1rem;
 }
 
 .container{
+    padding: 1rem;
     overflow: auto;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -55,6 +57,7 @@ input, select, button{
     border-radius: 0.3rem;
 }
 select{
+    color:rgb(29, 169, 7);
     min-width: 100px;
     width: 50%;
     margin: 0 auto;
@@ -67,7 +70,8 @@ select{
 #add-new-book{
     border: none;
     box-shadow: none;
-    background-color: rgb(100, 230, 80);
+    color: inherit;
+    background-color: rgb(29, 169, 7);
     max-width: 200px;
     margin: 0 auto;
 }
@@ -81,15 +85,17 @@ button:hover{
 
 .card{
     color: inherit;
-    background-color: inherit;
+    background-color: rgba(240, 255, 240, 0.2);
     align-items: center;
     gap: 1rem;
     display: flex;
     flex-direction: column;
     padding: 1rem;
     width: clamp(250px, 40%, 400px);
-    border: 1px solid rgb(100, 230, 80);
-    border-radius: 0.3rem;
+    border: 1px solid rgb(100, 250, 80);
+    border-radius: 0.5rem;
+    backdrop-filter: blur(20px);
+    box-shadow: 1px 1px 5px;
 }
 .info{
     display: flex;
