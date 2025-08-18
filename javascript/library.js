@@ -33,7 +33,7 @@ form.addEventListener('submit', (event) =>{
 
 //Get Books from Library and Display them
 function displayBooks(){
-
+    const table = document.querySelector('.table')
     for(book of library){
         const tableRow = document.createElement('tr')
         
@@ -43,5 +43,6 @@ function displayBooks(){
             tableData.textContent = `${book[key]}`
             tableRow.appendChild(tableData)
         }
+        table.append(tableRow)
     }
 }
