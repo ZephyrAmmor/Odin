@@ -46,3 +46,11 @@ select, button{
     max-width: 200px;
     margin: 0 auto;
 }
+.table{
+    width: 90%;
+    margin: 0 auto;
+    min-width: 350px;
+}
+.table button{
+    min-width: 75px;
+}
