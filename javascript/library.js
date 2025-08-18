@@ -23,7 +23,7 @@ function addNewBookToLibrary(title, author, pages, read){
     Object.defineProperty(newBook, 'showRead', {
         value: function(){
             if(read)
-                return 'Already Read'
+                return 'Already'
             return 'Not Yet'
         },
         enumerable: false,
@@ -50,6 +50,22 @@ form.addEventListener('submit', (event) =>{
 //Get Books from Library and Display them
 function displayBooks(){
     const table = document.querySelector('.table')
+    table.textContent = ''
+    const headerRow = document.createElement('tr')
+    const titleHeader = document.createElement('td')
+    const authorHeader = document.createElement('td')
+    const pagesHeader = document.createElement('td')
+    const readHeader = document.createElement('td')
+    titleHeader.textContent = 'Title'
+    authorHeader.textContent = 'Author'
+    pagesHeader.textContent = 'Pages'
+    readHeader.textContent = 'Read'
+    headerRow.appendChild(titleHeader)
+    headerRow.appendChild(authorHeader)
+    headerRow.appendChild(pagesHeader)
+    headerRow.appendChild(readHeader)
+    table.appendChild(headerRow)
+
     for(book of library){
         const tableRow = document.createElement('tr')
         
