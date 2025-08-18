@@ -20,6 +20,16 @@ function addNewBookToLibrary(title, author, pages, read){
     Object.defineProperty(newBook, 'id', {
         value: crypto.randomUUID()
     })
+    Object.defineProperty(newBook, 'showRead', {
+        value: function(){
+            if(read)
+                return 'Already Read'
+            return 'Not Yet'
+        },
+        enumerable: false,
+        writable: true,
+        configurable: true
+    })
     library.push(newBook)
     console.table(library)
 }
@@ -46,6 +56,11 @@ function displayBooks(){
         //Iterate over each property of a Book
         for(let key in book){
             const tableData = document.createElement('td')
+            if(key == 'read'){
+                tableData.textContent = book.showRead()
+                tableRow.appendChild(tableData)
+                continue;
+            }
             tableData.textContent = `${book[key]}`
             tableRow.appendChild(tableData)
         }
