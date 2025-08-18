@@ -4,11 +4,12 @@
     padding: 0;
 }
 body{
+    color: whitesmoke;
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh;
     background-attachment: fixed;
-    background: rgba(10,10, 10, 0.9);
+    background: rgb(30,30, 30);
     margin-bottom: 1rem;
 }
 h1{
@@ -19,7 +20,7 @@ h1{
 dialog{
     backdrop-filter: blur(20px);
     color: inherit;
-    background-color: rgb(226, 235, 226);
+    background-color: inherit;
     font-size: 0.9rem;
     position: absolute;
     bottom: 10%;
@@ -72,6 +73,8 @@ button:hover{
 }
 
 .card{
+    color: inherit;
+    background-color: inherit;
     align-items: center;
     gap: 1rem;
     display: flex;
