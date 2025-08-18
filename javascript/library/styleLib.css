@@ -15,6 +15,7 @@ body{
 }
 
 .container{
+    backdrop-filter: blur(10px);
     padding: 1rem;
     overflow: auto;
     display: grid;
@@ -29,7 +30,7 @@ h1{
 dialog{
     backdrop-filter: blur(20px);
     color: inherit;
-    background-color: inherit;
+    background-color: rgba(0,0 , 0, 0.3);
     font-size: 0.9rem;
     position: absolute;
     bottom: 10%;
