@@ -8,18 +8,20 @@ addNewBook.addEventListener('click',() =>{
 })
 
 function Book(title, author, pages, read){
-    this.title = title,
-    this.author = author,
-    this.pages = pages, 
-    this.read =read
+    this.title = title;
+    this.author = author;
+    this.pages = pages; 
+    this.read = read;
 }
 // Create new Book and push it to the library
 function addNewBookToLibrary(title, author, pages, read){
     newBook = new Book(title, author, pages, Boolean(read))
+    console.log(newBook)
     Object.defineProperty(newBook, 'id', {
         value: crypto.randomUUID()
     })
     library.push(newBook)
+    console.table(library)
 }
 
 const form = document.querySelector('form')
@@ -28,7 +30,8 @@ form.addEventListener('submit', (event) =>{
 
     const form = document.querySelector('form')
     const formData = new FormData(form)
-    addNewBookToLibrary(...formData)
+    
+    addNewBookToLibrary(formData.get('title'), formData.get('author'), formData.get('pages'), formData.get('read'))
     form.reset()
     dialog.close()
     displayBooks()
