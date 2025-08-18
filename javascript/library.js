@@ -11,7 +11,8 @@ function Book(title, author, pages, read){
     this.title = title,
     this.author = author,
     this.pages = pages, 
-    this.read =read
+    this.read =read,
+    this.id = crypto.randomUUID()
 }
 // Create new Book and push it to the library
 function addNewBookToLibrary(title, author, pages, read){
