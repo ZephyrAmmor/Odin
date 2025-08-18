@@ -39,12 +39,10 @@ Object.defineProperty(Book.prototype, 'showRead', {
 // Create new Book and push it to the library
 function addNewBookToLibrary(title, author, pages, read){
     newBook = new Book(title, author, pages, Boolean(read))
-    console.log(newBook)
     Object.defineProperty(newBook, 'id', {
         value: crypto.randomUUID()
     })
     library.push(newBook)
-    console.table(library)
 }
 
 const form = document.querySelector('form')
@@ -121,7 +119,6 @@ function toggleBook(){
     const readToggleBtns = document.querySelectorAll('.read-status')
 
     readToggleBtns.forEach(btn =>{
-    console.log(btn)
     btn.addEventListener('click', ()=>{
         const bookToToggle = library.filter(item => item.id === btn.dataset.bookId)
         bookToToggle[0].toggle()
