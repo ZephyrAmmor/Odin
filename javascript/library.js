@@ -27,4 +27,6 @@ form.addEventListener('submit', (event) =>{
     const form = document.getElementsByTagName('form')
     const formData = new FormData(form)
     addNewBookToLibrary(...formData)
+    form.reset()
+    dialog.close()
 })
