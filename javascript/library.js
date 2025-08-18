@@ -25,16 +25,17 @@ Object.defineProperty(Book.prototype, 'toggle', {
         writable: true,
         configurable: true,
     })
-    Object.defineProperty(Book.prototype, 'showRead', {
-        value: function(){
-            if(this.read)
-                return 'Already'
-            return 'Not Yet'
-        },
-        enumerable: false,
-        writable: true,
-        configurable: true
-    })
+Object.defineProperty(Book.prototype, 'showRead', {
+    value: function(){
+        if(this.read)
+            return 'Already'
+        return 'Not Yet'
+    },
+    enumerable: false,
+    writable: true,
+    configurable: true
+})
+
 // Create new Book and push it to the library
 function addNewBookToLibrary(title, author, pages, read){
     newBook = new Book(title, author, pages, Boolean(read))
@@ -60,8 +61,9 @@ form.addEventListener('submit', (event) =>{
 })
 
 //Get Books from Library and Display them
+const table = document.querySelector('.table')
 function displayBooks(){
-    const table = document.querySelector('.table')
+    
     table.textContent = ''
     const headerRow = document.createElement('tr')
     const titleHeader = document.createElement('td')
@@ -84,7 +86,7 @@ function displayBooks(){
 
     for(book of library){
         const tableRow = document.createElement('tr')
-        
+        tableRow.setAttribute('id', book.id)
         //Iterate over each property of a Book
         for(let key in book){
             const tableData = document.createElement('td')
@@ -111,6 +113,7 @@ function displayBooks(){
         tableRow.appendChild(delData)
         table.appendChild(tableRow)
         toggleBook()
+        deleteBook()
     }
 }
 
@@ -125,4 +128,17 @@ function toggleBook(){
         btn.textContent = bookToToggle[0].showRead()
     });
 });
+}
+
+function deleteBook(){
+    const delBtns = document.querySelectorAll('.del')
+    delBtns.forEach(btn =>{
+        btn.addEventListener('click', ()=>{
+            const indexOfBook = library.findIndex(item => item.id === btn.dataset.bookId)
+            console.log(indexOfBook)
+            library = library.splice(indexOfBook, 1)
+            const rowToDelete = document.getElementById(btn.dataset.bookId)
+            table.removeChild(rowToDelete)
+        })
+    })
 }
