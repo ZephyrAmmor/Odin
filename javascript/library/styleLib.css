@@ -10,8 +10,9 @@ dialog{
     position: absolute;
     bottom: 10%;
     margin: 0 auto;
-    min-width: 350px;
-    width: 20%;
+    min-width: 300px;
+    width: 25%;
+    max-width: 500px;
     border: 2px solid rgba(100, 230, 80);
     border-radius: 0.3rem;
     padding: 1rem;
