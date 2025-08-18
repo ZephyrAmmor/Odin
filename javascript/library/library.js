@@ -48,8 +48,30 @@ function addNewBookToLibrary(title, author, pages, read){
 function displayBook(newBook){
    
     const card = document.createElement('div')
+    const labels = document.createElement('div')
+    const title = document.createElement('div')
+    const author = document.createElement('div')
+    const pages = document.createElement('div')
+    const read = document.createElement('div')
+    title.textContent =  'Title  :'
+    author.textContent = 'Author : '
+    pages.textContent =  'Pages  :'
+    read.textContent =   'Read   :'
+    labels.appendChild(title)
+    labels.appendChild(author)
+    labels.appendChild(pages)
+    labels.appendChild(read)
+    labels.classList.add('labels')
+    
+    const values = document.createElement('div')
+    values.classList.add('value')
+    
+    const info = document.createElement('div')
+    info.classList.add('info')
+
     card.classList.add('card')
     card.setAttribute('id', newBook.id)
+    info.appendChild(labels)
     for(let key in newBook){
             const item = document.createElement('div')
             item.classList.add('item')
@@ -63,7 +85,9 @@ function displayBook(newBook){
                 continue;
             }
             item.textContent = `${newBook[key]}`
-            card.appendChild(item)
+            values.appendChild(item)
+            info.appendChild(values)
+            card.appendChild(info)
         }
         const delBtn = document.createElement('button')
         delBtn.textContent = 'Del'
