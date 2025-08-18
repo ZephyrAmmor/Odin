@@ -5,3 +5,33 @@ td{
     border: 1px solid #acacac;
     padding: 1rem;
 }
+dialog{
+    font-size: 0.9rem;
+    position: absolute;
+    bottom: 4rem;
+    margin: 0 auto;
+    min-width: 350px;
+    width: 20%;
+    border: 2px solid rgba(100, 230, 80);
+    border-radius: 0.3rem;
+    padding: 1rem;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+label, input, button, select{
+    display: block;
+    font: inherit;
+    color: inherit;
+    background-color: inherit;
+}
+input, select, button{
+    padding: 0.3rem;
+    border-radius: 0.3rem;
+}
+select, button{
+    width: 50%;
+    margin: 0 auto;
+}
