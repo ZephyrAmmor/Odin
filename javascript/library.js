@@ -36,10 +36,12 @@ function displayBooks(){
 
     for(book of library){
         const tableRow = document.createElement('tr')
-        const tableTitle = document.createElement('td')
-        const tableAuthor = document.createElement('td')
-        const tablePages = document.createElement('td')
-        const tableRead = document.createElement('td')
-        const tableDelBtn = document.createElement('td')
+        
+        //Iterate over each property of a Book
+        for(let key in book){
+            const tableData = document.createElement('td')
+            tableData.textContent = `${book[key]}`
+            tableRow.appendChild(tableData)
+        }
     }
 }
