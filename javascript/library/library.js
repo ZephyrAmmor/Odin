@@ -46,6 +46,7 @@ function addNewBookToLibrary(title, author, pages, read){
     displayBook(newBook)
 }
 function displayBook(newBook){
+    const tbody = document.getElementById('tbody')
     const tableRow = document.createElement('tr')
     tableRow.setAttribute('id', newBook.id)
     for(let key in newBook){
@@ -71,7 +72,7 @@ function displayBook(newBook){
         delData.appendChild(delBtn)
 
         tableRow.appendChild(delData)
-        table.appendChild(tableRow)
+        tbody.appendChild(tableRow)
     
 }
 
@@ -92,12 +93,12 @@ form.addEventListener('submit', (event) =>{
 function displayTable(){
     
     table.textContent = ''
-    const headerRow = document.createElement('tr')
-    const titleHeader = document.createElement('td')
-    const authorHeader = document.createElement('td')
-    const pagesHeader = document.createElement('td')
-    const readHeader = document.createElement('td')
-    const delHeader = document.createElement('td')
+    const headerRow = document.createElement('thead')
+    const titleHeader = document.createElement('th')
+    const authorHeader = document.createElement('th')
+    const pagesHeader = document.createElement('th')
+    const readHeader = document.createElement('th')
+    const delHeader = document.createElement('th')
 
     titleHeader.textContent = 'Title'
     authorHeader.textContent = 'Author'
@@ -110,6 +111,9 @@ function displayTable(){
     headerRow.appendChild(readHeader)
     headerRow.appendChild(delHeader)
     table.appendChild(headerRow)
+    const tBody = document.createElement('tbody')
+    tBody.setAttribute('id', 'tbody')
+    table.appendChild(tBody)
 }
 
 function toggleBook(){
