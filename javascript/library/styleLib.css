@@ -1,3 +1,12 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: rgb(50, 50, 50);
+    color: whitesmoke;
+}
 table{
     border-collapse: collapse;
 }
@@ -6,6 +15,8 @@ td{
     padding: 1rem;
 }
 dialog{
+    color: inherit;
+    background-color: inherit;
     font-size: 0.9rem;
     position: absolute;
     bottom: 10%;
