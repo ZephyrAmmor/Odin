@@ -13,6 +13,11 @@ function Book(title, author, pages, read){
     this.pages = pages, 
     this.read =read
 }
+// Create new Book and push it to the library
+function addNewBookToLibrary(title, author, pages, read){
+    newBook = new Book(title, author, pages, Boolean(read))
+    library.push(newBook)
+}
 
 const form = document.querySelector('form')
 form.addEventListener('submit', (event) =>{
