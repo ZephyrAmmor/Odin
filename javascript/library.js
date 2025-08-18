@@ -30,3 +30,16 @@ form.addEventListener('submit', (event) =>{
     form.reset()
     dialog.close()
 })
+
+//Get Books from Library and Display them
+function displayBooks(){
+
+    for(book of library){
+        const tableRow = document.createElement('tr')
+        const tableTitle = document.createElement('td')
+        const tableAuthor = document.createElement('td')
+        const tablePages = document.createElement('td')
+        const tableRead = document.createElement('td')
+        const tableDelBtn = document.createElement('td')
+    }
+}
