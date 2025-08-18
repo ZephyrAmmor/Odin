@@ -56,14 +56,18 @@ function displayBooks(){
     const authorHeader = document.createElement('td')
     const pagesHeader = document.createElement('td')
     const readHeader = document.createElement('td')
+    const delHeader = document.createElement('td')
+
     titleHeader.textContent = 'Title'
     authorHeader.textContent = 'Author'
     pagesHeader.textContent = 'Pages'
     readHeader.textContent = 'Read'
+    delHeader.textContent = 'Delete'
     headerRow.appendChild(titleHeader)
     headerRow.appendChild(authorHeader)
     headerRow.appendChild(pagesHeader)
     headerRow.appendChild(readHeader)
+    headerRow.appendChild(delHeader)
     table.appendChild(headerRow)
 
     for(book of library){
@@ -73,13 +77,26 @@ function displayBooks(){
         for(let key in book){
             const tableData = document.createElement('td')
             if(key == 'read'){
-                tableData.textContent = book.showRead()
+                const readToggleBtn = document.createElement('button')
+                readToggleBtn.textContent = book.showRead()
+                readToggleBtn.classList.add('.read-status')
+                readToggleBtn.dataset.bookId = book.id
+                tableData.appendChild(readToggleBtn)
                 tableRow.appendChild(tableData)
                 continue;
             }
             tableData.textContent = `${book[key]}`
             tableRow.appendChild(tableData)
         }
+        const delBtn = document.createElement('button')
+        delBtn.textContent = 'Del'
+        delBtn.classList.add('del')
+        delBtn.dataset.bookId = book.id
+
+        const delData = document.createElement('td')
+        delData.appendChild(delBtn)
+
+        tableRow.appendChild(delData)
         table.appendChild(tableRow)
     }
 }
