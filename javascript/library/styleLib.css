@@ -4,18 +4,23 @@
     padding: 0;
 }
 body{
+    background-color: rgba(240, 255, 240, 0.253);
+    backdrop-filter: blur(20px);
     background-image: url(./pexels-nitin-arya-386173-1029141.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh;
     background-attachment: fixed;
-    color: whitesmoke;
+    color: rgb(27, 1, 1);
 }
 h1{
     padding: 1rem;
     text-align: center;
+    color: rgb(100, 230, 80);
 }
 table{
+    font-size: 1.1rem;
+    background-color: inherit;
     text-align: center;
     border-collapse: collapse;
 }
@@ -29,7 +34,7 @@ tr{
 }
 dialog{
     color: inherit;
-    background-color: inherit;
+    background-color: rgb(226, 235, 226);
     font-size: 0.9rem;
     position: absolute;
     bottom: 10%;
@@ -67,6 +72,9 @@ select, button{
     width: 100%;
 }
 #add-new-book{
+    border: none;
+    box-shadow: none;
+    background-color: rgb(100, 230, 80);
     max-width: 200px;
     margin: 0 auto;
 }
@@ -77,4 +85,11 @@ select, button{
 }
 .table button{
     min-width: 75px;
+}
+button{
+    border: 1px solid rgba(0, 0, 0, 0);
+    box-shadow: -2px -2px 5px rgb(100, 230, 80);
+}
+button:hover{
+    border: 1px solid rgb(100, 230, 80);
 }
