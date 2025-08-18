@@ -7,7 +7,24 @@
   <title>Library</title>
 </head>
 <body>
-  
+  <h1>Library of Stellar Lore</h1>
+
+  <dialog>
+    <form>
+      <label for="title">Title</label>
+      <input type="text" name="title" id="title" required autofocus>
+      <label for="author">Author</label>
+      <input type="text" name="author" id="author" required>
+      <label for="pages">Pages</label>
+      <input type="text" name="pages" id="pages">
+      <label for="read">Read</label>
+      <select name="read" id="read">
+        <option value="Already Read">Already Read</option>
+        <option value="Not Yet">Not Yet</option>
+      </select>
+      <button type="submit" id="add-new-book">Add Book</button>
+    </form>
+  </dialog>
 </body>
 <script src="./library.js"></script>
 </html>
