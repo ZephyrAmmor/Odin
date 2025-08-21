@@ -65,7 +65,6 @@ function controlForm(){
         divOne.textContent = `${players.one.name}'s symbol is ${players.one.symbol}`
         divTwo.textContent = `${players.two.name}'s symbol is ${players.two.symbol}`
         dialog.close()
-        console.log(JSON.parse(JSON.stringify(players))) // deep copy
         form.reset()
         resetCells()
     })
@@ -85,7 +84,6 @@ function controlDisplay (){
         if(gameBoard.isAvail(btn.id) && btn.classList.contains('cell')){
             gameBoard.addMove(btn.id, symbol)
             btn.textContent = symbol
-            console.log(gameBoard.show(), gameBoard.totalMoves())
             checkWinner()
         }
 
