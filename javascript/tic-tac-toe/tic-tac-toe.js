@@ -108,9 +108,9 @@ function checkWinner(){
         declareWinner('D')
 
 }
-
+const result = document.querySelector('#result')
 function declareWinner(char){
-    const result = document.querySelector('#result')
+    
     if(char === 'W'){
         result.textContent = `${winner()} Won the Game`
         gameBoard.reset()
@@ -135,6 +135,7 @@ playBtn.addEventListener('click', () =>{
 
 const popUp = document.querySelector('#popUp')
 popUp.addEventListener('click', () =>{
+    result.textContent = ''
     gameBoard.reset()
     popUp.close()
     players = {}
