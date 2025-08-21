@@ -1,5 +1,5 @@
 let gameBoard = (function(){
-    let board = ['X','O','X','O','O','X','X','O']
+    let board = []
     let btnsPressed = []
     function addMove(index, symbol){
         const indexInt = parseInt(index)
@@ -15,6 +15,7 @@ let gameBoard = (function(){
     }
     function reset(){
         board = []
+        btnsPressed = []
     }
     function isAvail(id){
         if(btnsPressed.includes(id))
@@ -45,10 +46,11 @@ function winner(){
         if(arr[a] && arr[a] ===  arr[b] && arr[a] === arr[c])
             return players.one.symbol == arr[a] ? players.one.name : players.two.name
     }
+    return false
 }
 
 function controlForm(){
-    const form = document.querySelector('form')
+    const form = document.querySelector('.dialog-form')
     form.addEventListener('submit', (event) =>{
         event.preventDefault()
         const formData = new FormData(form)
@@ -58,6 +60,8 @@ function controlForm(){
         players.two = createPlayer(name2, 'O')
         dialog.close()
         console.table(players)
+        form.reset()
+        resetCells()
         controlDisplay()
     })
 }
@@ -76,15 +80,63 @@ function controlDisplay (){
         if(gameBoard.isAvail(btn.id)){
             gameBoard.addMove(btn.id, symbol)
             btn.textContent = symbol
+            console.log(gameBoard.show(), gameBoard.totalMoves())
+            checkWinner()
         }
 
     })
 }
+function isGameEnded(){
+    if(gameBoard.totalMoves() < 5)
+        return null
+    else if(winner())
+        return 'W'
+    else if(gameBoard.totalMoves() >= 8)
+        return 'D'
+    else 
+        return null
+}
+function checkWinner(){
+    if(isGameEnded() == 'W')
+        declareWinner('W')
+    else if(isGameEnded() == 'D')
+        declareWinner('D')
 
-const dialog = document.querySelector('dialog')
+}
+
+function declareWinner(char){
+    const result = document.querySelector('#result')
+    if(char === 'W'){
+        result.textContent = winner()
+        gameBoard.reset()
+        resetCells()
+        popUp.showModal()
+        controlForm()
+    }
+    else if(char == 'D'){
+        result.textContent = "It's a Draw"
+        gameBoard.reset()
+        resetCells()
+        popUp.show()
+        controlForm()
+    }
+}
+const dialog = document.querySelector('#dialog')
 const playBtn = document.querySelector('#play')
 
 playBtn.addEventListener('click', () =>{
     dialog.show()
     controlForm()
 })
+
+const popUp = document.querySelector('#popUp')
+popUp.addEventListener('click', () =>{
+    popUp.close()
+    dialog.show()
+})
+function resetCells (){
+    const cells = document.querySelectorAll('.cell')
+    cells.forEach(cell =>{
+        cell.textContent = ''
+    })
+}
