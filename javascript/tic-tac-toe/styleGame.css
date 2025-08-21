@@ -1,3 +1,8 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 .board{
     width: 451px;
     height: 450px;
@@ -7,4 +12,55 @@
 .cell{
     width: 150px;
     height: 150px;
+}
+
+dialog{
+    border: none;
+    box-shadow: 1px 1px 10px rgba(200, 200, 200, 1);
+    border-radius: 0.5rem;
+    position: fixed;
+    bottom: 4rem;
+    margin: 0 auto;
+    padding:2rem 1rem;
+    width: clamp(400px, 25%, 40%);
+    background-color: rgba(230, 230, 230, 0.2);
+    backdrop-filter: blur(10px);
+}
+dialog form{
+    align-items: center;
+    gap: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+input, dialog button{
+    border-radius: 0.3rem;
+    display: block;
+    font: inherit;
+    width: 300px;
+    padding: 0.2rem 0.4rem;
+}
+.playButton{
+    width: 100%;
+    position: fixed;
+    bottom: 1rem;
+    margin: 0 auto;
+}
+#play{
+    padding: 0.2rem 0.4rem;
+    border-radius: 0.3rem;
+    font:inherit;
+    width: 8rem;
+    display: block;
+    margin: 0 auto;
+}
+
+#popUp{
+    width: 200px;
+    position:absolute;
+    top: 80%;
+    margin: 0 auto;
+}
+#popUp button{
+    width: 50%;
+    margin: auto;
 }
