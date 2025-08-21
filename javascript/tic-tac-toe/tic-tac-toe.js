@@ -1,6 +1,6 @@
 let gameBoard = (function(){
     let board = ['X','O','X','O','O','X','X','O']
-
+    let btnsPressed = []
     function addMove(index, symbol){
         const indexInt = parseInt(index)
         if(symbol!== 'X' && symbol !== 'O' || indexInt < 0 || indexInt > 8){
@@ -8,6 +8,7 @@ let gameBoard = (function(){
             return null
         }
         board[indexInt] = symbol
+        btnsPressed.push(index)
     }
     function show(){
         return board
@@ -15,8 +16,15 @@ let gameBoard = (function(){
     function reset(){
         board = []
     }
-
-    return{addMove, show, reset}
+    function isAvail(id){
+        if(btnsPressed.includes(id))
+            return false
+        return true
+    }
+    function totalMoves(){
+        return btnsPressed.length
+    }
+    return{addMove, show, reset, isAvail, totalMoves}
 })();
 
 const players = {}
@@ -39,7 +47,7 @@ function winner(){
     }
 }
 
-function controlDisplay(){
+function controlForm(){
     const form = document.querySelector('form')
     form.addEventListener('submit', (event) =>{
         event.preventDefault()
@@ -50,6 +58,26 @@ function controlDisplay(){
         players.two = createPlayer(name2, 'O')
         dialog.close()
         console.table(players)
+        controlDisplay()
+    })
+}
+function getSymbol(){
+    const totalMoves = gameBoard.totalMoves()
+    if(totalMoves % 2 === 0)
+        return players.one.symbol
+    else
+        return players.two.symbol
+}
+function controlDisplay (){
+    const board = document.querySelector('.board')
+    board.addEventListener('click', (e) =>{
+        const btn = e.target
+        const symbol = getSymbol()
+        if(gameBoard.isAvail(btn.id)){
+            gameBoard.addMove(btn.id, symbol)
+            btn.textContent = symbol
+        }
+
     })
 }
 
@@ -58,5 +86,5 @@ const playBtn = document.querySelector('#play')
 
 playBtn.addEventListener('click', () =>{
     dialog.show()
-    controlDisplay()
+    controlForm()
 })
