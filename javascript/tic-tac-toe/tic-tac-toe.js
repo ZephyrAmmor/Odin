@@ -18,3 +18,5 @@ let gameBoard = (function(){
 
     return{addMove, show, reset}
 })();
+
+const players = {}
