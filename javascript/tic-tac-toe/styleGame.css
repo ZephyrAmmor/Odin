@@ -15,7 +15,7 @@ body{
     background-position: left;
     color:rgb(2, 204, 2);
 }
-.board,.cell, dialog, input, dialog button, #play, #result{
+.board,.cell, dialog, input, dialog button, #play, #result, .symbols{
     color: inherit;
     font: inherit;
     box-shadow: 1px 1px 8px rgba(200, 200, 200, 1);
@@ -92,4 +92,12 @@ input, dialog button{
 button:hover{
     background-color: rgba(230, 230, 230, 0.1);
     border: 1px solid rgb(2, 204, 2);
+}
+.symbols{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin: 1rem auto;
+    min-height: 100px;
 }
