@@ -78,7 +78,7 @@ function controlDisplay (){
     board.addEventListener('click', (e) =>{
         const btn = e.target
         const symbol = getSymbol()
-        if(gameBoard.isAvail(btn.id)){
+        if(gameBoard.isAvail(btn.id) && btn.classList.contains('cell')){
             gameBoard.addMove(btn.id, symbol)
             btn.textContent = symbol
             console.log(gameBoard.show(), gameBoard.totalMoves())
