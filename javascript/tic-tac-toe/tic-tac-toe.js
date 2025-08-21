@@ -33,6 +33,7 @@ let players = {}
 function createPlayer(name, symbol){
     return {name, symbol}
 }
+let controlGame = (function(){
 
 function winner(){
     const winnerCombos = [
@@ -124,12 +125,15 @@ function declareWinner(char){
         popUp.showModal()
     }
 }
+
+return {controlForm}
+})();
 const dialog = document.querySelector('#dialog')
 const playBtn = document.querySelector('#play')
 
 playBtn.addEventListener('click', () =>{
     dialog.show()
-    controlForm()
+    controlGame.controlForm()
     players = {}
 })
 
