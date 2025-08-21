@@ -27,7 +27,7 @@ body{
     gap: 0.5rem;
     padding: 0.5rem;
     margin:auto;
-    margin-top: 10rem;
+    margin-top: 1rem;
     width: calc(3 * 8.7rem + 1px);
     display: flex;
     flex-wrap: wrap;
@@ -97,7 +97,7 @@ button:hover{
     text-align: center;
     display: flex;
     flex-direction: column;
-    width: 50%;
+    width: clamp(300px, 30%, 50%);
     margin: 1rem auto;
     min-height: 100px;
 }
