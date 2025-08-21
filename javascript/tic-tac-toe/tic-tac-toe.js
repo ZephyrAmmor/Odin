@@ -28,7 +28,7 @@ let gameBoard = (function(){
     return{addMove, show, reset, isAvail, totalMoves}
 })();
 
-const players = {}
+let players = {}
 
 function createPlayer(name, symbol){
     return {name, symbol}
@@ -56,10 +56,11 @@ function controlForm(){
         const formData = new FormData(form)
         const name1 = formData.get('name1')
         const name2 = formData.get('name2')
+        players = {}
         players.one = createPlayer(name1, 'X')
         players.two = createPlayer(name2, 'O')
         dialog.close()
-        console.table(players)
+        console.log(JSON.parse(JSON.stringify(players))) // deep copy
         form.reset()
         resetCells()
         controlDisplay()
@@ -111,14 +112,12 @@ function declareWinner(char){
         gameBoard.reset()
         resetCells()
         popUp.showModal()
-        controlForm()
     }
     else if(char == 'D'){
         result.textContent = "It's a Draw"
         gameBoard.reset()
         resetCells()
-        popUp.show()
-        controlForm()
+        popUp.showModal()
     }
 }
 const dialog = document.querySelector('#dialog')
@@ -127,11 +126,13 @@ const playBtn = document.querySelector('#play')
 playBtn.addEventListener('click', () =>{
     dialog.show()
     controlForm()
+    players = {}
 })
 
 const popUp = document.querySelector('#popUp')
 popUp.addEventListener('click', () =>{
     popUp.close()
+    players = {}
     dialog.show()
 })
 function resetCells (){
