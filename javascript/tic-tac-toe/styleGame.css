@@ -1,13 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
+
 *{
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 body{
-    background-color: rgb(57, 164, 21);
+    font-size: 1.2rem;
+    font-family: 'Patrick Hand', 'Literata', system-ui, serif;
     min-height: 99vh;
+    background-image: url(/pexels-pedro-figueras-202443-681467.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: left;
+    color:rgb(2, 204, 2);
 }
 .board,.cell, dialog, input, dialog button, #play, #result{
+    color: inherit;
+    font: inherit;
     box-shadow: 1px 1px 8px rgba(200, 200, 200, 1);
     background-color: rgba(230, 230, 230, 0.2);
     border: none;
@@ -23,6 +33,7 @@ body{
     flex-wrap: wrap;
 }
 .cell{
+    font-size: 3rem;
     backdrop-filter: blur(10px);
     width: 8rem;
     height: 8rem;
