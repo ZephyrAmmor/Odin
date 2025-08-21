@@ -63,7 +63,6 @@ function controlForm(){
         console.log(JSON.parse(JSON.stringify(players))) // deep copy
         form.reset()
         resetCells()
-        controlDisplay()
     })
 }
 function getSymbol(){
@@ -87,6 +86,7 @@ function controlDisplay (){
 
     })
 }
+controlDisplay()
 function isGameEnded(){
     if(gameBoard.totalMoves() < 5)
         return null
@@ -131,6 +131,7 @@ playBtn.addEventListener('click', () =>{
 
 const popUp = document.querySelector('#popUp')
 popUp.addEventListener('click', () =>{
+    gameBoard.reset()
     popUp.close()
     players = {}
     dialog.show()
