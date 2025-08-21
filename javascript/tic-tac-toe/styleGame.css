@@ -71,3 +71,12 @@ input, dialog button{
     width: 50%;
     margin: auto;
 }
+#result{
+    width: clamp(200px, 25%, 50%);
+    background-color: rgba(230, 230, 230, 0.2);
+    text-align: center;
+    margin: 1rem auto;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    box-shadow: 1px 1px 10px rgba(200, 200, 200, 1)
+}
