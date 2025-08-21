@@ -59,6 +59,10 @@ function controlForm(){
         players = {}
         players.one = createPlayer(name1, 'X')
         players.two = createPlayer(name2, 'O')
+        const divOne = document.querySelector('.one')
+        const divTwo = document.querySelector('.two')
+        divOne.textContent = `${players.one.name}'s symbol is ${players.one.symbol}`
+        divTwo.textContent = `${players.two.name}'s symbol is ${players.two.symbol}`
         dialog.close()
         console.log(JSON.parse(JSON.stringify(players))) // deep copy
         form.reset()
@@ -108,7 +112,7 @@ function checkWinner(){
 function declareWinner(char){
     const result = document.querySelector('#result')
     if(char === 'W'){
-        result.textContent = winner()
+        result.textContent = `${winner()} Won the Game`
         gameBoard.reset()
         resetCells()
         popUp.showModal()
