@@ -3,15 +3,22 @@
     margin: 0;
     padding: 0;
 }
+body{
+    min-height: 99vh;
+}
 .board{
-    width: 451px;
-    height: 450px;
+    margin:auto;
+    margin-top: 10rem;
+    width: calc(3 * 8rem + 1px);
     display: flex;
     flex-wrap: wrap;
 }
 .cell{
-    width: 150px;
-    height: 150px;
+    background-color: rgba(230, 230, 230, 0.2);
+    border: none;
+    box-shadow: 1px 1px 3px rgb(200, 200, 200);
+    width: 8rem;
+    height: 8rem;
 }
 
 dialog{
