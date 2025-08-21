@@ -20,3 +20,7 @@ let gameBoard = (function(){
 })();
 
 const players = {}
+
+function creatPlayer(name, symbol){
+    return {name, symbol}
+}
