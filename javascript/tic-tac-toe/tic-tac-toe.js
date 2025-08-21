@@ -21,12 +21,9 @@ let gameBoard = (function(){
 
 const players = {}
 
-function creatPlayer(name, symbol){
+function createPlayer(name, symbol){
     return {name, symbol}
 }
-
-players.one = creatPlayer('Ali', 'X')
-players.two = creatPlayer('Arif', 'O')
 
 function winner(){
     const winnerCombos = [
@@ -41,3 +38,25 @@ function winner(){
             return players.one.symbol == arr[a] ? players.one.name : players.two.name
     }
 }
+
+function controlDisplay(){
+    const form = document.querySelector('form')
+    form.addEventListener('submit', (event) =>{
+        event.preventDefault()
+        const formData = new FormData(form)
+        const name1 = formData.get('name1')
+        const name2 = formData.get('name2')
+        players.one = createPlayer(name1, 'X')
+        players.two = createPlayer(name2, 'O')
+        dialog.close()
+        console.table(players)
+    })
+}
+
+const dialog = document.querySelector('dialog')
+const playBtn = document.querySelector('#play')
+
+playBtn.addEventListener('click', () =>{
+    dialog.show()
+    controlDisplay()
+})
