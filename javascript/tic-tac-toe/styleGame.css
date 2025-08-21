@@ -4,33 +4,36 @@
     padding: 0;
 }
 body{
+    background-color: rgb(57, 164, 21);
     min-height: 99vh;
 }
+.board,.cell, dialog, input, dialog button, #play, #result{
+    box-shadow: 1px 1px 8px rgba(200, 200, 200, 1);
+    background-color: rgba(230, 230, 230, 0.2);
+    border: none;
+    border-radius: 0.4rem;
+}
 .board{
+    gap: 0.5rem;
+    padding: 0.5rem;
     margin:auto;
     margin-top: 10rem;
-    width: calc(3 * 8rem + 1px);
+    width: calc(3 * 8.65rem + 1px);
     display: flex;
     flex-wrap: wrap;
 }
 .cell{
-    background-color: rgba(230, 230, 230, 0.2);
-    border: none;
-    box-shadow: 1px 1px 3px rgb(200, 200, 200);
+    backdrop-filter: blur(10px);
     width: 8rem;
     height: 8rem;
 }
 
 dialog{
-    border: none;
-    box-shadow: 1px 1px 10px rgba(200, 200, 200, 1);
-    border-radius: 0.5rem;
     position: fixed;
     bottom: 4rem;
     margin: 0 auto;
     padding:2rem 1rem;
     width: clamp(400px, 25%, 40%);
-    background-color: rgba(230, 230, 230, 0.2);
     backdrop-filter: blur(10px);
 }
 dialog form{
@@ -40,7 +43,6 @@ dialog form{
     flex-direction: column;
 }
 input, dialog button{
-    border-radius: 0.3rem;
     display: block;
     font: inherit;
     width: 300px;
@@ -54,7 +56,6 @@ input, dialog button{
 }
 #play{
     padding: 0.2rem 0.4rem;
-    border-radius: 0.3rem;
     font:inherit;
     width: 8rem;
     display: block;
@@ -73,10 +74,7 @@ input, dialog button{
 }
 #result{
     width: clamp(200px, 25%, 50%);
-    background-color: rgba(230, 230, 230, 0.2);
     text-align: center;
     margin: 1rem auto;
     padding: 1rem;
-    border-radius: 0.5rem;
-    box-shadow: 1px 1px 10px rgba(200, 200, 200, 1)
 }
