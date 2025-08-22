@@ -9,35 +9,26 @@ const dialog = document.querySelector('dialog')
 addNewBook.addEventListener('click',() =>{
     dialog.show()
 })
+class Book{
 
-function Book(title, author, pages, read){
+    constructor (title, author, pages, read){
     this.title = title;
     this.author = author;
     this.pages = pages; 
     this.read = read;
 }
-Object.defineProperty(Book.prototype, 'toggle', {
-        value: function(){
+    toggle(){
             if(this.read)
                 this.read = false
             else
                 this.read = true
-        },
-        enumerable:false,
-        writable: true,
-        configurable: true,
-    })
-Object.defineProperty(Book.prototype, 'showRead', {
-    value: function(){
+    }
+    showRead(){
         if(this.read)
             return 'Already'
         return 'Not Yet'
-    },
-    enumerable: false,
-    writable: true,
-    configurable: true
-})
-
+    }
+}
 // Create new Book and push it to the library
 function addNewBookToLibrary(title, author, pages, read){
     const newBook = new Book(title, author, pages, Boolean(read))
