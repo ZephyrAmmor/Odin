@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styleGame.css">
+    <title>Tic Tac Toe</title>
+</head>
+<body>
+    <div class="symbols">
+        <h2>
+        SYMBOLS
+        </h2>
+        <div class="one"></div>
+        <div class="two"></div>
+    </div>
+    <div class="board">
+        <button class="cell" id="0"></button>
+        <button class="cell" id="1"></button>
+        <button class="cell" id="2"></button>
+        <button class="cell" id="3"></button>
+        <button class="cell" id="4"></button>
+        <button class="cell" id="5"></button>
+        <button class="cell" id="6"></button>
+        <button class="cell" id="7"></button>
+        <button class="cell" id="8"></button>
+    </div>
+    <dialog id="dialog">
+        <form class="dialog-form">
+            <div>
+            <label for="name1">First Player</label>
+            <input type="text" id="name1" name="name1" required autofocus>
+            </div>
+            <div>
+            <label for="name2">Second Player</label>
+            <input type="text" id="name2" name="name2" required>
+            </div>
+            <button id="submit-dialog" type="sumbit">Start</button>
+        </form>
+    </dialog>
+    <dialog id="popUp">
+        <button type="button">Restart</button>
+    </dialog>
+    <div class="playButton">
+        <button id="play" type="button">Play Game</button>
+    </div>
+    <div id="result"></div>
+    <a href="https://www.pexels.com/photo/red-moon-during-night-time-681467/">Photo by Pedro Figueras</a>
+</body>
+<script src="./tic-tac-toe.js"></script>
+</html>
