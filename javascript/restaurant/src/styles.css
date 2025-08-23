@@ -115,3 +115,27 @@ h1{
     font-size: 3rem;
     font-weight: 800;
 }
+
+.contact{
+    padding: 1rem;
+    font-size: 1.1rem;
+    line-height: 1.6rem;
+    width: 70%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+.contact h3{
+    margin-bottom: 0.8rem;
+}
+.phone::first-letter, .address::first-letter, .timing::first-letter{
+    font-size: 2rem;
+    font-weight: 800;
+}
+
+.bold{
+    margin-right: 1rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+}

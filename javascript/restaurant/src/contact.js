@@ -7,7 +7,7 @@ header.textContent = 'Contact & Locations'
 const address = document.createElement('div')
 
 const addressHeading = document.createElement('h3')
-addressHeading.appendChild = 'Adress'
+addressHeading.textContent = 'Adress'
 
 const addressPara = document.createElement('div')
 
@@ -23,7 +23,7 @@ adPara3.textContent = 'Multan, Pnjab, Pakistan'
 addressPara.appendChild(adPara1)
 addressPara.appendChild(adPara2)
 addressPara.appendChild(adPara3)
-
+address.classList.add('address')
 address.appendChild(addressHeading)
 address.appendChild(addressPara)
 const phone = document.createElement('div')
@@ -33,14 +33,14 @@ phoneHeader.textContent = 'Phone'
 
 const phoneNumber = document.createElement('p')
 phoneNumber.textContent = '(061) 555-FOOD (3663)'
-
 phone.appendChild(phoneHeader)
 phone.appendChild(phoneNumber)
+phone.classList.add('phone')
+
 const timing = document.createElement('div')
 const timingHeader = document.createElement('h3')
 timingHeader.textContent = 'Hours of Operation:'
-
-const timingList = document.createElement('ul')
+timing.classList.add('timing')
 
 const timeMonToThur = document.createElement('li')
 const timeMonToThurHead = document.createElement('span')
@@ -64,6 +64,7 @@ timeMonToThur.appendChild(timeMonToThurPara)
 timeFriToSun.appendChild(timeFriToSunHead)
 timeFriToSun.appendChild(timeFriToSunPara)
 
+timing.appendChild(timingHeader)
 timing.appendChild(timeMonToThur)
 timing.appendChild(timeFriToSun)
 
