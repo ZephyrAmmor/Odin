@@ -100,3 +100,18 @@ h1{
     background-color: rgb(100, 200, 50);
     color: purple;
 }
+
+.about{
+    font-size: 1.1rem;
+    padding: 1rem;
+    width: 70%;
+    margin: 0 auto;
+    line-height: 1.6rem;
+}
+.aboutPara{
+    margin-bottom: 2rem;
+}
+.about::first-letter{
+    font-size: 3rem;
+    font-weight: 800;
+}
