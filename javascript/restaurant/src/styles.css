@@ -20,11 +20,9 @@ body > div{
 .content{
     border-radius: 1rem;
     background-color: rgba(0,0,0,0.4);
-    width: 80%;
+    width: clamp(400px,80%, 90vw);
     padding: 0.5rem 2rem;
     margin: 0 auto;
-    display: grid;
-    grid-template-rows: 5rem 8fr;
 }
 #content{
     min-height: 70vh;
@@ -32,24 +30,30 @@ body > div{
 header{
     align-items: center;
     padding: 1rem;
-    justify-content: space-between;
-    grid-row: 1/2;
+    justify-content: space-around;
     display: flex;
+    flex-wrap: wrap;
 }
 ul{
     list-style: none;
 }
-header ul, nav{
-    gap: 2rem;
+header ul{
+    gap: 1rem;
     display: flex;
 }
 button{
+    min-width: 50px;
     font: inherit;
     color: purple;
     padding: 0.5rem;
     border: none;
     border-radius: 0.5rem;
     background-color: rgb(100, 200, 50);
+}
+nav{
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between
 }
 nav button{
     color: inherit;
@@ -94,7 +98,7 @@ nav button{
     display: flex;
 }
 h1{
-    font-size: 3.5rem;
+    font-size: 3rem;
 }
 .current{
     background-color: rgb(100, 200, 50);
