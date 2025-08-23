@@ -4,13 +4,24 @@
     padding: 0;
 }
 body{
-    min-height: 99vh;
+    color: whitesmoke;
+    background-image: url(./bg.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+    height: 100%;
+    backdrop-filter: blur(20px);
+}
+body > div{
+    width: 100%;
+    padding: 5% 0;
 }
 .content{
     border-radius: 1rem;
-    background-color: rgba(0,0,0,0.2);
+    background-color: rgba(0,0,0,0.4);
     width: 80%;
-    margin: 10% auto;
+    margin: 0 auto;
     display: grid;
     grid-template-rows: 5rem 8fr;
 }
@@ -32,12 +43,15 @@ header ul, nav{
     display: flex;
 }
 button{
+    font: inherit;
+    color: purple;
     padding: 0.5rem;
     border: none;
     border-radius: 0.5rem;
+    background-color: rgb(100, 200, 50);
 }
 nav button{
-    font: inherit;
+    color: inherit;
     background-color: rgba(0, 0, 0, 0);
     border: none;
 }
