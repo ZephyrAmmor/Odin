@@ -169,9 +169,20 @@ h1{
     margin-bottom: 4rem;
 }
 .card button{
+    color: rgb(100, 200, 50);
+    border: 1px solid rgb(100, 200, 50);
+    background-color: inherit;
     position: absolute;
     bottom: 1rem;
     left: 1rem;
     width: 30%;
     display: block;
+}
+
+button:hover{
+    color: purple;
+    background-color: rgb(92, 205, 35);
+}
+header > h2{
+    font-size: 2rem;
 }
