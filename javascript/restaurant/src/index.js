@@ -2,6 +2,7 @@ import {home} from './home.js'
 import {menu} from './menu.js'
 import {about} from './about.js'
 import {contact} from './contact.js'
+import './styles.css'
 
 const content = document.querySelector('#content')
 
