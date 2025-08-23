@@ -21,12 +21,13 @@ body > div{
     border-radius: 1rem;
     background-color: rgba(0,0,0,0.4);
     width: 80%;
+    padding: 0.5rem 2rem;
     margin: 0 auto;
     display: grid;
     grid-template-rows: 5rem 8fr;
 }
 #content{
-    padding: 1rem;
+    min-height: 70vh;
 }
 header{
     align-items: center;
@@ -54,4 +55,48 @@ nav button{
     color: inherit;
     background-color: rgba(0, 0, 0, 0);
     border: none;
+}
+
+.home{
+    display: flex;
+    gap: 15%;
+}
+.imgHome{
+    width: 50%;
+}
+.imgHome img{
+    border-radius: 50%;
+    width: 100%;
+}
+.contentHome{
+    width: 60%;
+}
+.contentHome > *{
+    margin : 1rem 0;
+}
+.infoHome{
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-align: center;
+    margin-top: 10%;
+    display: flex;
+    gap: 1rem;
+}
+.reviews img{
+    margin-left: -3rem;
+    width: 4rem;
+    border-radius: 50%;
+}
+.reviews{
+    margin-left: 3rem;
+    align-items: center;
+    gap: 1rem;
+    display: flex;
+}
+h1{
+    font-size: 3.5rem;
+}
+.current{
+    background-color: rgb(100, 200, 50);
+    color: purple;
 }

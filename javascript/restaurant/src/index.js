@@ -7,13 +7,20 @@ import './styles.css'
 const content = document.querySelector('#content')
 
 content.appendChild(home)
-
+const homeBtn = document.querySelector('#home')
+homeBtn.classList.add('current')
 const nav = document.querySelector('nav')
-
+const navbtns = document.querySelectorAll('nav button')
 nav.addEventListener('click', (e) =>{
     while (content.firstChild){
+
         content.removeChild(content.firstChild)
     }
+    for(let btn of navbtns){
+        if(btn.classList.contains('current'))
+            btn.classList.remove('current')
+    }
+    e.target.classList.add('current')
     const btnId = e.target.id
     if(btnId === 'home'){
         content.appendChild(home)

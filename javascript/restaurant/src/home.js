@@ -1,3 +1,5 @@
+import heroPic from './hero.webp'
+import tommy from './WilliamXTommy.png'
 const home = document.createElement('div')
 home.classList.add('home')
 
@@ -11,16 +13,30 @@ tagLine.textContent = 'We are helping you to get rich and delecious food in a fe
 const actionBtn = document.createElement('button')
 actionBtn.classList.add('btn')
 actionBtn.setAttribute('id', 'menu')
-
-const customers = document.createElement('ul')
-customers.classList.add('reviews')
 actionBtn.textContent = 'View Menu'
 
 const reviewsTag = document.createElement('p')
 reviewsTag.classList.add('reviewTag')
 reviewsTag.textContent = 'Our Happy Customers'
+const coustomers = document.createElement('div')
+coustomers.classList.add('reviews')
+const coustomerImg = document.createElement('img')
+coustomerImg.setAttribute('src', tommy)
+coustomerImg.setAttribute('width', '50')
+const coustomerImg2 = document.createElement('img')
+coustomerImg2.setAttribute('src', tommy)
+coustomerImg2.setAttribute('width', '50')
+const coustomerImg3 = document.createElement('img')
+coustomerImg3.setAttribute('src', tommy)
+coustomerImg3.setAttribute('width', '50')
+
+coustomers.appendChild(coustomerImg)
+coustomers.appendChild(coustomerImg2)
+coustomers.appendChild(coustomerImg3)
+coustomers.appendChild(reviewsTag)
 
 const info = document.createElement('div')
+info.classList.add('infoHome')
 const infoDownload = document.createElement('div')
 const infoActiveUsers = document.createElement('div')
 
@@ -49,12 +65,18 @@ contentDiv.classList.add('contentHome')
 contentDiv.appendChild(hero)
 contentDiv.appendChild(tagLine)
 contentDiv.appendChild(actionBtn)
-contentDiv.appendChild(reviewsTag)
+contentDiv.appendChild(coustomers)
 contentDiv.appendChild(info)
 
 const imgDiv = document.createElement('div')
 imgDiv.classList.add('imgHome')
 
+const imgElm = document.createElement('img')
+imgElm.setAttribute('width', '300')
+imgElm.setAttribute('src', heroPic)
+imgDiv.appendChild(imgElm)
+
 home.appendChild(contentDiv)
-home.appendChild(contentDiv)
+home.appendChild(imgDiv)
+
 export {home}
