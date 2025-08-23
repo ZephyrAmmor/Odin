@@ -50,7 +50,7 @@ button{
     border-radius: 0.5rem;
     background-color: rgb(100, 200, 50);
 }
-nav{
+nav, .priceOrder{
     display: flex;
     gap: 1rem;
     justify-content: space-between
@@ -174,13 +174,19 @@ h1{
 }
 .card button{
     color: rgb(100, 200, 50);
-    border: 1px solid rgb(100, 200, 50);
     background-color: inherit;
+    width: 50%;
+    display: block;
+}
+.priceOrder{
+    align-items: center;
+    border : 1px solid rgb(100, 200, 50);
+    padding: 0.2rem 0.8rem;
+    border-radius: 0.4rem;
+    width: 50%;
     position: absolute;
     bottom: 1rem;
     left: 1rem;
-    width: 30%;
-    display: block;
 }
 
 button:hover{
