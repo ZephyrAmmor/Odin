@@ -23,15 +23,17 @@ function DishCard (heading, description){
     return dish
 }
 
-function Category(name){
+function Category(){
     const category = document.createElement('div')
     category.classList.add('dishCategory')
-    const header = document.createElement('h2')
-    header.textContent = name
-    category.appendChild(header)
     return category
 }
-
+const spicesHead = document.createElement('h2')
+spicesHead.textContent = 'Spices'
+const sweetsHead = document.createElement('h2')
+sweetsHead.textContent = 'Sweets'
+const beveragesHead = document.createElement('h2')
+beveragesHead.textContent = 'Beverages'
 const chickenKarahi = DishCard('Chicken Karahi', "Tender chicken pieces simmered in a rich, rustic tomato base with fiery green chilies and ginger. Each bite bursts with authentic, bold Pakistani spices. Served sizzling hot, it's a deeply aromatic and addictive experience that’s perfect for scooping up with fresh, warm naan.")
 
 
@@ -78,7 +80,7 @@ for(let dish of beverages){
     beveragesCategory.appendChild(dish)
 }
 
-const categroies = [spicesCategory, sweetsCategory, beveragesCategory]
+const categroies = [spicesHead,spicesCategory, sweetsHead, sweetsCategory, beveragesHead, beveragesCategory]
 
 for(let category of categroies){
     menu.appendChild(category)
