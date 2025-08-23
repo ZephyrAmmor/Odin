@@ -74,7 +74,11 @@ imgDiv.classList.add('imgHome')
 const imgElm = document.createElement('img')
 imgElm.setAttribute('width', '300')
 imgElm.setAttribute('src', heroPic)
+const refImg = document.createElement('a')
+refImg.setAttribute('href', 'https://www.allrecipes.com/thmb/NbS3BNdr8ljRJW4jBT3Vp-U4gmQ=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/4437164-biryani-with-yogurt-marinated-chicken-Buckwheat-Queen-1x1-1-35e7310f2c5b4fd09251d6deac7256a3.jpg')
+refImg.textContent = 'Credit: Buckwheat Queen | Allrecipes'
 imgDiv.appendChild(imgElm)
+imgDiv.appendChild(refImg)
 
 home.appendChild(contentDiv)
 home.appendChild(imgDiv)
