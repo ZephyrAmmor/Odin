@@ -7,13 +7,19 @@ body{
     min-height: 99vh;
 }
 .content{
-    background-color: green;
+    border-radius: 1rem;
+    background-color: rgba(0,0,0,0.2);
     width: 80%;
     margin: 10% auto;
     display: grid;
-    grid-template-rows: 1fr 8fr;
+    grid-template-rows: 5rem 8fr;
+}
+#content{
+    padding: 1rem;
 }
 header{
+    align-items: center;
+    padding: 1rem;
     justify-content: space-between;
     grid-row: 1/2;
     display: flex;
@@ -24,4 +30,14 @@ ul{
 header ul, nav{
     gap: 2rem;
     display: flex;
+}
+button{
+    padding: 0.5rem;
+    border: none;
+    border-radius: 0.5rem;
+}
+nav button{
+    font: inherit;
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
 }
