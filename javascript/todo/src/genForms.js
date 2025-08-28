@@ -1,10 +1,16 @@
 // 6 FUnctions to export
+const title = inputDiv('text', 'titleField', 'title', 'Title', 'Odin')
+const importance = selectDiv('importanceField', 'importance', 'Important', 'Casual', 'Important', 'Very Important')
+const urgency = selectDiv('urgencyField', 'urgency', 'Urgent', 'Trivial', 'Urgent', 'Very Urgent')
+const description = textareaDiv('descriptionField', 'description', 'Description', 'Odin is Amazing...')
+const startDate = inputDiv('date', 'startDateField', 'startDate', 'Start Date')
+const dueDate = inputDiv('date', 'dueDateField', 'dueDate', 'Due Date')
+const note = textareaDiv('noteField', 'note', 'Note', 'Odin is tough as well...')
+
+
 function genAddBoard(){
     const form = document.createAttribute('form')
     form.classList.add('boardForm')
-    const title = inputDiv('text', 'titleField', 'title', 'Title', 'Odin')
-    const description = textareaDiv('descriptionField', 'description', 'Description', 'Odin is a paradis for learners...')
-    const importance = selectDiv('importanceField', 'importance', 'Important', 'Casual', 'Important', 'Very Important')
     const head = wrapInHead(title, importance)
 
     form.appendChild(head)
@@ -13,6 +19,36 @@ function genAddBoard(){
     return form
 }
 
+function genAddProject(){
+    const form = document.createElement('form')
+    form.classList.add('projectForm')
+
+    const head = wrapInHead(title, importance, urgency)
+    const dates = document.createElement('div')
+    dates.appendChild(startDate)
+    dates.appendChild(dueDate)
+
+    form.appendChild(head)
+    form.appendChild(description)
+    form.appendChild(dates)
+    form.appendChild(note)
+
+    return form
+}
+
+function genAddTask(){
+    const form = document.createElement('form')
+    form.classList.add('taskForm')
+
+    const head = wrapInHead(title, importance, urgency)
+
+    form.appendChild(head)
+    form.appendChild(description)
+    form.appendChild(dueDate)
+    form.appendChild(note)
+
+    return form
+}
 function wrapInHead(...args){
     const head = document.createElement('fromHead')
     for(let arg of args){
