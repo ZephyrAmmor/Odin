@@ -83,6 +83,18 @@ class Board extends Todo{
             projects : this.projects
         }
     }
+
+    static fromJSON(boardObj){
+        const [id, parent, complete, title, description, importance, projects] = boardObj
+        const board = new Board(title, description, importance)
+        board.id = id
+        board.parent = parent
+        board.complete = complete
+        for(let [projId, projObj] of Object.entries(boardObj.projects)){
+            board.projects[projId] = Project.fromJSON(projObj)
+        }
+        return board
+    }
 }
 
 class Project extends Todo{
@@ -137,6 +149,18 @@ class Project extends Todo{
             tasks : this.tasks
         }
     }
+
+    static fromJSON(projectObj){
+        const [id, parent, complete, title, description, importance, urgency, startDate, dueDate, note, tasks] = projectObj
+        const proj = new Project(title, description, importance, urgency, startDate, dueDate, note)
+        proj.id = id
+        proj.parent = parent
+        proj.complete = complete
+        for(let [taskId, taskObj] in Object.entries(projectObj.tasks)){
+            proj.tasks[taskId] = Task.fromJSON(taskObj)
+        }
+        return proj
+    }
 }
 
 class Task extends Todo{
@@ -163,5 +187,14 @@ class Task extends Todo{
             dueDate : this.dueDate,
             note : this.note
         }
+    }
+
+    static fromJSON(taskObj){
+        const [id, parent, complete, title, description, importance, urgency, dueDate, note] = taskObj
+        const task = new Task(title, description, importance, urgency, dueDate, note)
+        task.id = id
+        task.parent = parent
+        task.complete = complete
+        return task
     }
 }
