@@ -1,5 +1,3 @@
-const { javascript } = require("webpack");
-
 class Todo{
     #id 
     #parent
@@ -208,3 +206,4 @@ class Task extends Todo{
         return task
     }
 }
+export {Project}
