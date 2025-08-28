@@ -39,3 +39,33 @@ class Todo{
             this.#complete = true
     }
 }
+
+class Board{
+    projects = {}
+    constructor(title, description, importance){
+        super(title, description, importance)
+    }
+
+    addProject(project){
+        if(project && typeof project === 'object'){
+            project.id = crypto.randomUUID()
+            this.projects[project.id] = project
+            updateSelf()
+        }
+    }
+
+    removeProject(id){
+        if(id && this.projects[id]){
+            delete this.projects[id]
+            updateSelf()
+        }
+    }
+    updateSelf(){
+        workSpace.update(this)
+    }
+    update(project){
+        if(project && ){
+            this.projects[project.id] = project
+        }
+    }
+}
