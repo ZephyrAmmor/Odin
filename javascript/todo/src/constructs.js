@@ -52,23 +52,23 @@ class Board extends Todo{
             project.parent = this.id
             project.complete = false
             this.projects[project.id] = project
-            this.updateSelf()
+            this.update()
         }
     }
 
     removeProject(id){
         if(id && this.projects[id]){
             delete this.projects[id]
-            this.updateSelf()
+            this.update()
         }
     }
-    updateSelf(){
+    update(){
         workSpace.update(this)
     }
     updateProject(project){
         if(project && this.projects[project.id]){
             this.projects[project.id] = project
-            this.updateSelf()
+            this.update()
         }
     }
     
