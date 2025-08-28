@@ -64,8 +64,41 @@ class Board{
         workSpace.update(this)
     }
     update(project){
-        if(project && ){
+        if(project && this.projects[project.id]){
             this.projects[project.id] = project
+        }
+    }
+}
+
+class Project{
+    tasks = {}
+    constructor(title, description, importance, urgency, startDate, dueDate, note){
+        super(title, description, importance)
+        this.urgency = urgency;
+        this.startDate = startDate;
+        this.dueDate = dueDate;
+        this.note = note;
+    }
+
+    addTask(task){
+        if(task && typeof task === 'object'){
+            task.id = crypto.randomUUID()
+            this.tasks[task.id] = task
+            task.parent = this.id
+        }
+        else
+            throw TypeError('Was expecting an object here')
+    }
+
+    removeTask(id){
+        if(id && this.tasks[id]){
+            delete this.tasks[id]
+        }
+    }
+
+    update(task){
+        if(task && task.id && this.tasks[task.id]){
+            this.tasks[task.id]
         }
     }
 }
