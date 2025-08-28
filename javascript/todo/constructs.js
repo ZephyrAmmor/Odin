@@ -106,7 +106,7 @@ class Project extends Todo{
     }
 
     update(board){
-        board.update(this)
+        board.updateProject(this)
     }
 }
 
