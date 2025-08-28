@@ -1,4 +1,26 @@
 // 6 FUnctions to export
+function genAddBoard(){
+    const form = document.createAttribute('form')
+    form.classList.add('boardForm')
+    const title = inputDiv('text', 'titleField', 'title', 'Title', 'Odin')
+    const description = textareaDiv('descriptionField', 'description', 'Description', 'Odin is a paradis for learners...')
+    const importance = selectDiv('importanceField', 'importance', 'Important', 'Casual', 'Important', 'Very Important')
+    const head = wrapInHead(title, importance)
+
+    form.appendChild(head)
+    form.appendChild(description)
+
+    return form
+}
+
+function wrapInHead(...args){
+    const head = document.createElement('fromHead')
+    for(let arg of args){
+        head.appendChild(arg)
+    }
+    return head
+}
+
 function inputDiv(type, classToAdd, id, tag, placeholder = 'Write...'){
     const div = document.createElement('div')
     div.classList.add(classToAdd)
@@ -24,7 +46,7 @@ function textareaDiv(classToAdd, id, tag, placeholder = 'Write...'){
     return div
 }
 
-function selectDiv(classToAdd, id, tag, options){
+function selectDiv(classToAdd, id, tag, ...options){
     const div = document.createElement('div')
     div.classList.add(classToAdd)
     const label = label(id, tag)
@@ -61,15 +83,15 @@ function select(id, options){
     const select = document.createElement('select')
     select.setAttribute('id', id)
     select.setAttribute('name', id)
-    for(let [optionText, optionValue] of Object.entries(options)){
-        select.appendChild(option(optionText, optionValue))
+    for(let optValue of options){
+        select.appendChild(option(optValue))
     }
     return select
 }
 
-function option(text, value){
+function option(value){
     const option = document.createElement('option')
     option.setAttribute('value', value)
-    option.textContent = text
+    option.textContent = value
     return option
 }
