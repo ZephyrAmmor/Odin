@@ -1,17 +1,111 @@
-// 6 FUnctions to export
-const title = inputDiv('text', 'titleField', 'title', 'Title', 'Odin')
-const importance = selectDiv('importanceField', 'importance', 'Important', 'Casual', 'Important', 'Very Important')
-const urgency = selectDiv('urgencyField', 'urgency', 'Urgent', 'Trivial', 'Urgent', 'Very Urgent')
-const description = textareaDiv('descriptionField', 'description', 'Description', 'Odin is Amazing...')
-const startDate = inputDiv('date', 'startDateField', 'startDate', 'Start Date')
-const dueDate = inputDiv('date', 'dueDateField', 'dueDate', 'Due Date')
-const note = textareaDiv('noteField', 'note', 'Note', 'Odin is tough as well...')
+function genEditBoard(board){
+    const form = document.createElement('form')
+    form.classList.add('boardEditForm')
 
+    const title = inputDiv('text', 'titleField', 'title', 'Title', 'Odin')
+    const importance = selectDiv('importanceField', 'importance', 'Important', 'Casual', 'Important', 'Very Important')
+    const description = textareaDiv('descriptionField', 'description', 'Description', 'Odin is Amazing...')
+
+    const titleValue = board.title
+    const descriptionValue = board.description
+    const importanceValue = board.importance
+
+    title.setAttribute('value', titleValue)
+    description.setAttribute('value', descriptionValue)
+    importance.setAttribute('value', importanceValue)
+    const head = wrapInHead(title, importance)
+
+    form.appendChild(head)
+    form.appendChild(description)
+
+    return form
+}
+function genEditProject(project){
+    const form = document.createElement('form')
+    form.classList.add('projectEditForm')
+
+    const title = inputDiv('text', 'titleField', 'title', 'Title', 'Odin')
+    const importance = selectDiv('importanceField', 'importance', 'Important', 'Casual', 'Important', 'Very Important')
+    const urgency = selectDiv('urgencyField', 'urgency', 'Urgent', 'Trivial', 'Urgent', 'Very Urgent')
+    const description = textareaDiv('descriptionField', 'description', 'Description', 'Odin is Amazing...')
+    const startDate = inputDiv('date', 'startDateField', 'startDate', 'Start Date')
+    const dueDate = inputDiv('date', 'dueDateField', 'dueDate', 'Due Date')
+    const note = textareaDiv('noteField', 'note', 'Note', 'Odin is tough as well...')
+    const complete = input('checkbox', 'complete')
+
+    const titleValue = project.title
+    const descriptionValue = project.description
+    const importanceValue = project.description
+    const urgencyValue = project.urgency
+    const dueDateValue = project.dueDate
+    const startDateValue = project.startDate
+    const noteValue = project.note
+    const completeValue = project.complete
+    if(completeValue === true)
+        complete.setAttribute('checked', 'ckecked')
+    title.setAttribute('value', titleValue)
+    description.setAttribute('value', descriptionValue)
+    importance.setAttribute('value', importanceValue)
+    urgency.setAttribute('value', urgencyValue)
+    startDate.setAttribute('value', startDateValue)
+    dueDate.setAttribute('value', dueDateValue)
+    note.setAttribute('value', noteValue)
+
+    const dates = document.createElement('div')
+    dates.appendChild(startDate)
+    dates.appendChild(dueDate)
+    const head = wrapInHead(title, importance, urgency, complete)
+    form.appendChild(head)
+    form.appendChild(description)
+    form.appendChild(dates)
+    form.appendChild(note)
+}
+function genEditTask(task){
+    const form = document.createElement('form')
+    form.classList.add('taskEditForm')
+
+    const title = inputDiv('text', 'titleField', 'title', 'Title', 'Odin')
+    const importance = selectDiv('importanceField', 'importance', 'Important', 'Casual', 'Important', 'Very Important')
+    const urgency = selectDiv('urgencyField', 'urgency', 'Urgent', 'Trivial', 'Urgent', 'Very Urgent')
+    const description = textareaDiv('descriptionField', 'description', 'Description', 'Odin is Amazing...')
+    const dueDate = inputDiv('date', 'dueDateField', 'dueDate', 'Due Date')
+    const note = textareaDiv('noteField', 'note', 'Note', 'Odin is tough as well...')
+    const complete = input('checkbox', 'complete')
+
+
+    const titleValue = task.title
+    const descriptionValue = task.description
+    const importanceValue = task.description
+    const urgencyValue = task.urgency
+    const dueDateValue = task.dueDate
+    const noteValue = task.note
+    const completeValue = project.complete
+    if(completeValue === true)
+        complete.setAttribute('checked', 'checked')
+    title.setAttribute('value', titleValue)
+    description.setAttribute('value', descriptionValue)
+    importance.setAttribute('value', importanceValue)
+    urgency.setAttribute('value', urgencyValue)
+    dueDate.setAttribute('value', dueDateValue)
+    note.setAttribute('value', noteValue)
+
+    const head = wrapInHead(title, importance, urgency, complete)
+    form.appendChild(head)
+    form.appendChild(description)
+    form.appendChild(dueDate)
+    form.appendChild(note)
+
+    return form
+} 
 
 function genAddBoard(){
     const form = document.createAttribute('form')
     form.classList.add('boardForm')
     const head = wrapInHead(title, importance)
+    const title = inputDiv('text', 'titleField', 'title', 'Title', 'Odin')
+    const importance = selectDiv('importanceField', 'importance', 'Important', 'Casual', 'Important', 'Very Important')
+    const description = textareaDiv('descriptionField', 'description', 'Description', 'Odin is Amazing...')
+
 
     form.appendChild(head)
     form.appendChild(description)
@@ -22,6 +116,14 @@ function genAddBoard(){
 function genAddProject(){
     const form = document.createElement('form')
     form.classList.add('projectForm')
+
+    const title = inputDiv('text', 'titleField', 'title', 'Title', 'Odin')
+    const importance = selectDiv('importanceField', 'importance', 'Important', 'Casual', 'Important', 'Very Important')
+    const urgency = selectDiv('urgencyField', 'urgency', 'Urgent', 'Trivial', 'Urgent', 'Very Urgent')
+    const description = textareaDiv('descriptionField', 'description', 'Description', 'Odin is Amazing...')
+    const startDate = inputDiv('date', 'startDateField', 'startDate', 'Start Date')
+    const dueDate = inputDiv('date', 'dueDateField', 'dueDate', 'Due Date')
+    const note = textareaDiv('noteField', 'note', 'Note', 'Odin is tough as well...')
 
     const head = wrapInHead(title, importance, urgency)
     const dates = document.createElement('div')
@@ -39,6 +141,13 @@ function genAddProject(){
 function genAddTask(){
     const form = document.createElement('form')
     form.classList.add('taskForm')
+
+    const title = inputDiv('text', 'titleField', 'title', 'Title', 'Odin')
+    const importance = selectDiv('importanceField', 'importance', 'Important', 'Casual', 'Important', 'Very Important')
+    const urgency = selectDiv('urgencyField', 'urgency', 'Urgent', 'Trivial', 'Urgent', 'Very Urgent')
+    const description = textareaDiv('descriptionField', 'description', 'Description', 'Odin is Amazing...')
+    const dueDate = inputDiv('date', 'dueDateField', 'dueDate', 'Due Date')
+    const note = textareaDiv('noteField', 'note', 'Note', 'Odin is tough as well...')
 
     const head = wrapInHead(title, importance, urgency)
 
