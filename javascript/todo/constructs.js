@@ -51,24 +51,26 @@ class Board extends Todo{
             project.id = crypto.randomUUID()
             this.projects[project.id] = project
             project.parent = this.id
-            updateSelf()
+            this.updateSelf()
         }
     }
 
     removeProject(id){
         if(id && this.projects[id]){
             delete this.projects[id]
-            updateSelf()
+            this.updateSelf()
         }
     }
     updateSelf(){
         workSpace.update(this)
     }
-    update(project){
+    updateProject(project){
         if(project && this.projects[project.id]){
             this.projects[project.id] = project
+            this.updateSelf()
         }
     }
+    
 }
 
 class Project extends Todo{
@@ -97,10 +99,14 @@ class Project extends Todo{
         }
     }
 
-    update(task){
+    updateTask(task){
         if(task && task.id && this.tasks[task.id]){
             this.tasks[task.id]
         }
+    }
+
+    update(board){
+        board.update(this)
     }
 }
 
@@ -110,5 +116,9 @@ class Task extends Todo{
         this.urgency = urgency;
         this.dueDate = dueDate;
         this.note = note;
+    }
+
+    update(project){
+        project.updateTask(this)
     }
 }
