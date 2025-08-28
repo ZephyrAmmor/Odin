@@ -1,21 +1,15 @@
 import { Task, Project, Board } from "./constructs"
-function createBoard(workSpace, boardData, type){
+function createBoard(workSpace, boardData){
     const title = boardData.get('title')
     const description = boardData.get('description')
     const importance = boardData.get('importance')
 
     const board = new Board(title, description, importance)
-    if(type === 'add'){
-        workSpace.addBoard(board)
-        renderSideUI()
-    }
-    else if(type === 'edit'){
-        workSpace.update(board)
-        renderSideUI()
-    }
+    workSpace.addBoard(board)
+    renderSideUI()
 }
 
-function createProject(board, projectData, type){
+function createProject(board, projectData){
     const title = projectData.get('title')
     const description = projectData.get('description')
     const importance = projectData.get('importance')
@@ -25,17 +19,12 @@ function createProject(board, projectData, type){
     const note = projectData.get('note')
 
     const project = new Project(title, description, importance, urgency, startDate, dueDate, note)
-    if(type === 'add'){
-        board.addProject(project)
-        renderUI()
-    }
-    else if(type === 'edit'){
-        board.updateProject(project)
-        renderUI()
-    }
+
+    board.addProject(project)
+    renderUI()
 }
 
-function createTask(project, taskData, type){
+function createTask(project, taskData){
     const title = taskData.get('title')
     const description = taskData.get('description')
     const importance = taskData.get('importance')
@@ -45,12 +34,6 @@ function createTask(project, taskData, type){
 
     const task = new Task(title, description, importance, urgency, dueDate, note)
 
-    if(type === 'add'){
-        project.addTask(task)
-        renderUI()
-    }
-    else if(type === 'edit'){
-        project.updateTask(task)
-        renderUI()
-    }
+    project.addTask(task)
+    renderUI()
 }
