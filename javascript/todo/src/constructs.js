@@ -206,4 +206,4 @@ class Task extends Todo{
         return task
     }
 }
-export {Project}
+export {Task, Board, Project}
