@@ -240,3 +240,5 @@ function option(value){
     option.textContent = value
     return option
 }
+
+export {genAddBoard, genAddProject, genAddTask, genEditBoard, genEditProject, genEditTask}
