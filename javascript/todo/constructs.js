@@ -72,6 +72,16 @@ class Board extends Todo{
         }
     }
     
+    toJSON(){
+        return {
+            id : this.id,
+            parent : this.parent,
+            complete : this.complete,
+            title : this.title,
+            description: this.description,
+            importance : this.importance
+        }
+    }
 }
 
 class Project extends Todo{
@@ -110,6 +120,21 @@ class Project extends Todo{
     update(board){
         board.updateProject(this)
     }
+
+    toJSON(){
+        return {
+            id : this.id,
+            parent : this.parent,
+            complete : this.complete,
+            title : this.title,
+            description: this.description,
+            importance : this.importance,
+            urgency : this.urgency,
+            startDate : this.startDate,
+            dueDate : this.dueDate,
+            note : this.note
+        }
+    }
 }
 
 class Task extends Todo{
@@ -122,5 +147,19 @@ class Task extends Todo{
 
     update(project){
         project.updateTask(this)
+    }
+
+    toJSON(){
+        return {
+            id : this.id,
+            parent : this.parent,
+            complete : this.complete,
+            title : this.title,
+            description: this.description,
+            importance : this.importance,
+            urgency : this.urgency,
+            dueDate : this.dueDate,
+            note : this.note
+        }
     }
 }
