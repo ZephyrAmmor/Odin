@@ -49,8 +49,9 @@ class Board extends Todo{
     addProject(project){
         if(project && typeof project === 'object'){
             project.id = crypto.randomUUID()
-            this.projects[project.id] = project
             project.parent = this.id
+            project.complete = false
+            this.projects[project.id] = project
             this.updateSelf()
         }
     }
@@ -86,8 +87,9 @@ class Project extends Todo{
     addTask(task){
         if(task && typeof task === 'object'){
             task.id = crypto.randomUUID()
-            this.tasks[task.id] = task
             task.parent = this.id
+            task.complete = false
+            this.tasks[task.id] = task
         }
         else
             throw TypeError('Was expecting an object here')
