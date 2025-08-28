@@ -47,3 +47,15 @@ const workSpace = {
         }
     }
 }
+
+function addToLocalStorage(jsonObj){
+    localStorage.setItem('boards' , jsonObj)
+}
+
+function getFromLocalStorage(){
+    const rawData = localStorage.getItem('boards')
+    const boards = rawData ? JSON.parse(rawData) : {}
+    workSpace.fromJSON(boards)
+}
+
+export {getFromLocalStorage}
