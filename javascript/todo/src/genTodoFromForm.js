@@ -37,3 +37,50 @@ function createTask(project, taskData){
     project.addTask(task)
     renderUI()
 }
+
+function editTask(project, task, taskData){
+    task.title = taskData.get('title')
+    task.description = taskData.get('description')
+    task.importance = taskData.get('importance')
+    task.urgency = taskData.get('urgency')
+    task.dueDate  = taskData.get('dueDate')
+    task.note = taskData.get('note')
+
+    if(taskData.has('complete')){
+        task.complete = true
+    }
+    else{
+        task.complete = false
+    }
+
+    project.updateTask(task)
+    renderUI()
+}
+
+function editProject(board, project, projectData){
+    project.title = projectData.get('title')
+    project.description = projectData.get('description')
+    project.importance = projectData.get('importance')
+    project.urgency = projectData.get('urgency')
+    project.startDate = projectData.get('startDate')
+    project.dueDate = projectData.get('dueDate')
+    project.note = projectData.get('note')
+
+    if(projectData.has('complete')){
+        project.complete = true
+    }
+    else
+        project.complete = false
+
+    board.updateProject(project)
+    renderUI()
+}
+
+function editBoard(workSpace, board, boardData){
+    board.title = boardData.get('title')
+    board.description = boardData.get('description')
+    board.importance = boardData.get('importance')
+
+    workSpace.update(board)
+    renderSideUI()
+}
