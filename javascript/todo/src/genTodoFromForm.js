@@ -84,3 +84,42 @@ function editBoard(workSpace, board, boardData){
     workSpace.update(board)
     renderSideUI()
 }
+
+function handleForm(stateUI, form, classOfbtn){
+    form.addEventListener('submit', (event) =>{
+        event.preventDefault()
+        const formData = new FormData(form)
+        if(stateUI.getLength() === 1){
+            if(classOfbtn === 'addBoard')
+               createBoard(stateUI.getActiveState(), formData)
+        }
+        else if(stateUI.getLength() === 2){
+            if(classOfbtn === 'editBoard'){
+                editBoard(stateUI.getMainState(), stateUI.getActiveState(), formData)
+            }
+            else if(classOfbtn === 'addProject'){
+                createProject(stateUI.getActiveState, formData)
+            }
+        }
+        else if(stateUI.getLength() === 3){
+            if(classOfbtn === 'editProject'){
+                editProject(stateUI.getPreviousState(), stateUI.getActiveState(), formData)
+            }
+            else if(classOfbtn === 'addTask'){
+                createTask(stateUI.getActiveState(), formData)
+            }
+        }
+        else if(stateUI.getLength() === 4){
+            if(classOfbtn === 'editTask'){
+                editTask(stateUI.getActiveState(), formData)
+            }
+        }
+})
+}
+
+function cleanFormHolder(){
+    const formHolder = document.querySelector('.formHolder')
+    while(formHolder.firstChild){
+        formHolder.removeChild(formHolder.firstChild)
+    }
+}
