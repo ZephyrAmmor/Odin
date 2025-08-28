@@ -114,6 +114,8 @@ function handleForm(stateUI, form, classOfbtn){
                 editTask(stateUI.getActiveState(), formData)
             }
         }
+
+        cleanFormHolder()
 })
 }
 
@@ -123,3 +125,5 @@ function cleanFormHolder(){
         formHolder.removeChild(formHolder.firstChild)
     }
 }
+
+export {handleForm}
