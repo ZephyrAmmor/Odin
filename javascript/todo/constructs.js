@@ -50,6 +50,7 @@ class Board{
         if(project && typeof project === 'object'){
             project.id = crypto.randomUUID()
             this.projects[project.id] = project
+            project.parent = this.id
             updateSelf()
         }
     }
