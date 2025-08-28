@@ -40,7 +40,7 @@ class Todo{
     }
 }
 
-class Board{
+class Board extends Todo{
     projects = {}
     constructor(title, description, importance){
         super(title, description, importance)
@@ -71,7 +71,7 @@ class Board{
     }
 }
 
-class Project{
+class Project extends Todo{
     tasks = {}
     constructor(title, description, importance, urgency, startDate, dueDate, note){
         super(title, description, importance)
@@ -101,5 +101,14 @@ class Project{
         if(task && task.id && this.tasks[task.id]){
             this.tasks[task.id]
         }
+    }
+}
+
+class Task extends Todo{
+    constructor(title, description, importance, urgency, dueDate, note){
+        super(title, description,importance)
+        this.urgency = urgency;
+        this.dueDate = dueDate;
+        this.note = note;
     }
 }
