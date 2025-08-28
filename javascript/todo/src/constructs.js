@@ -1,3 +1,5 @@
+const { javascript } = require("webpack");
+
 class Todo{
     #id 
     #parent
@@ -73,15 +75,19 @@ class Board extends Todo{
     }
     
     toJSON(){
-        return {
-            id : this.id,
-            parent : this.parent,
-            complete : this.complete,
-            title : this.title,
-            description: this.description,
-            importance : this.importance,
-            projects : this.projects
+        let jsonObj = {}
+        jsonObj.id = this.id
+        jsonObj.parent= this.parent
+        jsonObj.complete = this.complete
+        jsonObj.title = this.title
+        jsonObj.description = this.description
+        jsonObj.importance = this.importance
+        jsonObj.projects = {}
+
+        for(let [projId, projObj] of Object.entries(this.projects)){
+            jsonObj.projects[projId] = projObj.toJSON()
         }
+        return jsonObj;
     }
 
     static fromJSON(boardObj){
@@ -135,19 +141,23 @@ class Project extends Todo{
     }
 
     toJSON(){
-        return {
-            id : this.id,
-            parent : this.parent,
-            complete : this.complete,
-            title : this.title,
-            description: this.description,
-            importance : this.importance,
-            urgency : this.urgency,
-            startDate : this.startDate,
-            dueDate : this.dueDate,
-            note : this.note,
-            tasks : this.tasks
+        let jsonObj = {}
+        jsonObj.id = this.id
+        jsonObj.parent= this.parent
+        jsonObj.complete = this.complete
+        jsonObj.title = this.title
+        jsonObj.description = this.description
+        jsonObj.importance = this.importance
+        jsonObj.urgency = this.urgency
+        jsonObj.startDate = this.startDate
+        jsonObj.dueDate = this.dueDate
+        jsonObj.note = this.note
+        jsonObj.tasks = {}
+
+        for(let [taskId, taskObj] of Object.entries(this.tasks)){
+            jsonObj.tasks[taskId] = taskObj.toJSON()
         }
+        return jsonObj;
     }
 
     static fromJSON(projectObj){
