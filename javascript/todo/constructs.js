@@ -79,7 +79,8 @@ class Board extends Todo{
             complete : this.complete,
             title : this.title,
             description: this.description,
-            importance : this.importance
+            importance : this.importance,
+            projects : this.projects
         }
     }
 }
@@ -132,7 +133,8 @@ class Project extends Todo{
             urgency : this.urgency,
             startDate : this.startDate,
             dueDate : this.dueDate,
-            note : this.note
+            note : this.note,
+            tasks : this.tasks
         }
     }
 }
