@@ -58,4 +58,4 @@ function getFromLocalStorage(){
     workSpace.fromJSON(boards)
 }
 
-export {getFromLocalStorage}
+export {getFromLocalStorage, workSpace}
