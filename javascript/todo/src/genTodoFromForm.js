@@ -1,4 +1,3 @@
-import { act } from "react"
 import { Task, Project, Board } from "./constructs"
 function createBoard(workSpace, boardData){
     const title = boardData.get('title')
@@ -7,7 +6,7 @@ function createBoard(workSpace, boardData){
 
     const board = new Board(title, description, importance)
     workSpace.addBoard(board)
-    renderSideUI()
+    return board
 }
 
 function createProject(board, projectData){
@@ -22,7 +21,7 @@ function createProject(board, projectData){
     const project = new Project(title, description, importance, urgency, startDate, dueDate, note)
 
     board.addProject(project)
-    renderUI()
+    return project
 }
 
 function createTask(project, taskData){
@@ -36,7 +35,7 @@ function createTask(project, taskData){
     const task = new Task(title, description, importance, urgency, dueDate, note)
 
     project.addTask(task)
-    renderUI()
+    return task
 }
 
 function editTask(project, task, taskData){
@@ -55,7 +54,6 @@ function editTask(project, task, taskData){
     }
 
     project.updateTask(task)
-    renderUI()
 }
 
 function editProject(board, project, projectData){
@@ -74,7 +72,6 @@ function editProject(board, project, projectData){
         project.complete = false
 
     board.updateProject(project)
-    renderUI()
 }
 
 function editBoard(workSpace, board, boardData){
@@ -83,21 +80,21 @@ function editBoard(workSpace, board, boardData){
     board.importance = boardData.get('importance')
 
     workSpace.update(board)
-    renderSideUI()
 }
 
 function handleForm(form,parent, activeObj, classOfbtn, type){
+    let objToReturn = {};
     form.addEventListener('submit', (event) =>{
         event.preventDefault()
         const formData = new FormData(form)
         if( type == 'main'){
             if(classOfbtn === 'add'){
-                createBoard(activeObj, formData)
+                objToReturn = createBoard(parent, formData)
             }
         }
         else if(type === 'board'){
             if(classOfbtn === 'add'){
-                createProject(activeObj, formData)
+                objToReturn = createProject(activeObj, formData)
             }
             else if(classOfbtn === 'edit'){
                 editBoard(parent, activeObj, formData)
@@ -106,7 +103,7 @@ function handleForm(form,parent, activeObj, classOfbtn, type){
 
         else if(type === 'project'){
             if(classOfbtn === 'add'){
-                createTask(activeObj, formData)
+                objToReturn = createTask(activeObj, formData)
             }
             else if(classOfbtn === 'edit'){
                 editProject(parent, activeObj, formData)
@@ -118,6 +115,7 @@ function handleForm(form,parent, activeObj, classOfbtn, type){
             }
         }
         cleanFormHolder()
+        return objToReturn
 })
 }
 
