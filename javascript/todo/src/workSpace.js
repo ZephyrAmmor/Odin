@@ -16,7 +16,11 @@ const workSpace = {
             this.updateSelf()
         }
     },
-
+    getBoardById(id){
+        if(this.boards[id])
+            return this.boards[id]
+    }
+    ,
     removeBoard(id){
         if(id && this.boards[id]){
             delete this.boards[id]

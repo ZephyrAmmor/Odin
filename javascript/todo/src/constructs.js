@@ -62,6 +62,11 @@ class Board extends Todo{
             this.update()
         }
     }
+
+    getProjectById(id){
+        if(this.projects[id])
+            return this.projects[id]
+    }
     update(){
         workSpace.update(this)
     }
@@ -132,6 +137,11 @@ class Project extends Todo{
         }
     }
 
+    getTaskById(id){
+        if(this.tasks[id]){
+            return this.tasks[id]
+        }
+    }
     updateTask(task){
         if(task && task.id && this.tasks[task.id]){
             this.tasks[task.id]
