@@ -42,8 +42,9 @@ const workSpace = {
         const boards = {}
         for(let [boardId, boardObj] of Object.entries(this.boards)){
             boards[boardId] = boardObj.toJSON()
+            console.log(boards)
         }
-        return boards
+        return JSON.stringify(boards)
     },
 
     fromJSON(boards){
@@ -60,9 +61,14 @@ function addToLocalStorage(jsonObj){
 }
 
 function getFromLocalStorage(){
+    let boards = {}
     const rawData = localStorage.getItem('boards')
-    const boards = rawData ? JSON.parse(rawData) : getDummyData()
-    workSpace.fromJSON(boards)
+    if(rawData){
+        boards = JSON.parse(rawData)
+        workSpace.fromJSON(boards)
+    }
+    else
+        getDummyData()
 }
 
 function getDummyData(){

@@ -3,4 +3,4 @@ import { renderSideUI } from './renderUI.js'
 import { getFromLocalStorage } from './workSpace.js'
 
 getFromLocalStorage()
-setTimeout(renderSideUI, 1000)
+setTimeout(renderSideUI, 100)
