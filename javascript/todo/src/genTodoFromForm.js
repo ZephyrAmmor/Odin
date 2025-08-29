@@ -1,4 +1,6 @@
 import { Task, Project, Board } from "./constructs"
+import { stateUI } from "./handleUI"
+import { renderSideUI,renderUI } from "./renderUI"
 function createBoard(workSpace, boardData){
     const title = boardData.get('title')
     const description = boardData.get('description')
@@ -83,39 +85,48 @@ function editBoard(workSpace, board, boardData){
 }
 
 function handleForm(form,parent, activeObj, classOfbtn, type){
-    let objToReturn = {};
     form.addEventListener('submit', (event) =>{
         event.preventDefault()
         const formData = new FormData(form)
         if( type == 'main'){
             if(classOfbtn === 'add'){
-                objToReturn = createBoard(parent, formData)
+                const objToReturn = createBoard(parent, formData)
+                stateUI.backState()
+                stateUI.pushToState(objToReturn)
+                setTimeout(renderSideUI, 100)
             }
         }
         else if(type === 'board'){
             if(classOfbtn === 'add'){
-                objToReturn = createProject(activeObj, formData)
+                const objToReturn = createProject(activeObj, formData)
+                stateUI.pushToState(objToReturn)
+                setTimeout(renderUI, 100)
             }
             else if(classOfbtn === 'edit'){
                 editBoard(parent, activeObj, formData)
+                setTimeout(renderUI, 100)
+
             }
         }
 
         else if(type === 'project'){
             if(classOfbtn === 'add'){
-                objToReturn = createTask(activeObj, formData)
+                const objToReturn = createTask(activeObj, formData)
+                stateUI.pushToState(objToReturn)
+                setTimeout(renderUI, 100)
             }
             else if(classOfbtn === 'edit'){
                 editProject(parent, activeObj, formData)
+                setTimeout(renderUI, 100)
             }
         }
         else if(type === 'task'){
             if(classOfbtn === 'edit'){
                 editTask(parent, activeObj, formData)
+                setTimeout(renderUI, 100)
             }
         }
         cleanFormHolder()
-        return objToReturn
 })
 }
 
