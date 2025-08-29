@@ -197,7 +197,7 @@ class Project extends Todo{
         proj.id = id
         proj.parent = parent
         proj.complete = complete
-        for(let [taskId, taskObj] in Object.entries(projectObj.tasks)){
+        for(let [taskId, taskObj] of Object.entries(projectObj.tasks)){
             proj.tasks[taskId] = Task.fromJSON(taskObj)
         }
         return proj

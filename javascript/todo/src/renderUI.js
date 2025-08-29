@@ -18,7 +18,8 @@ function renderUI(){
             content.removeChild(content.firstChild)
         }
         content.classList.add('board')
-        content.appendChild(board)
+        if(board)
+            content.appendChild(board)
     }
     
     else if(stateUI.getStateLength() === 3){
@@ -35,7 +36,7 @@ function renderUI(){
         while(content.firstChild){
             content.removeChild(content.firstChild)
         }
-        content.classList.add(board)
+        content.classList.add('task')
         content.appendChild(task)
     }
 
@@ -53,7 +54,8 @@ function boardAsMain(board){
     const boardHolder = document.createElement('div')
     boardHolder.classList.add('board')
     boardHolder.classList.add('main')
-
+    if(!board)
+        return
     console.log(board)
     const title = board.title
     const description = board.description
@@ -203,7 +205,7 @@ function taskAsMain(project, task){
     taskHolder.appendChild(descriptionComp)
     taskHolder.appendChild(side)
     taskHolder.appendChild(noteComp)
-    taskHolder.appendChild(note)
+    taskHolder.appendChild(foot)
 
     return taskHolder
 

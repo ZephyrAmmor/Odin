@@ -1,6 +1,8 @@
 import { Task, Project, Board } from "./constructs"
 import { stateUI } from "./handleUI"
 import { renderSideUI,renderUI } from "./renderUI"
+const formHolder = document.querySelector('.formHolder')
+
 function createBoard(workSpace, boardData){
     const title = boardData.get('title')
     const description = boardData.get('description')
@@ -26,7 +28,7 @@ function createProject(board, projectData){
     return project
 }
 
-function createTask(project, taskData){
+function createTask(board, project, taskData){
     const title = taskData.get('title')
     const description = taskData.get('description')
     const importance = taskData.get('importance')
@@ -37,10 +39,11 @@ function createTask(project, taskData){
     const task = new Task(title, description, importance, urgency, dueDate, note)
 
     project.addTask(task)
+    project.update(board)
     return task
 }
 
-function editTask(project, task, taskData){
+function editTask(board, project, task, taskData){
     task.title = taskData.get('title')
     task.description = taskData.get('description')
     task.importance = taskData.get('importance')
@@ -56,6 +59,7 @@ function editTask(project, task, taskData){
     }
 
     project.updateTask(task)
+    project.update(board)
 }
 
 function editProject(board, project, projectData){
@@ -84,7 +88,7 @@ function editBoard(workSpace, board, boardData){
     workSpace.update(board)
 }
 
-function handleForm(form,parent, activeObj, classOfbtn, type){
+function handleForm(form,parent, activeObj,grand, classOfbtn, type){
     form.addEventListener('submit', (event) =>{
         event.preventDefault()
         const formData = new FormData(form)
@@ -111,7 +115,7 @@ function handleForm(form,parent, activeObj, classOfbtn, type){
 
         else if(type === 'project'){
             if(classOfbtn === 'add'){
-                const objToReturn = createTask(activeObj, formData)
+                const objToReturn = createTask(grand, activeObj, formData)
                 stateUI.pushToState(objToReturn)
                 setTimeout(renderUI, 100)
             }
@@ -122,19 +126,18 @@ function handleForm(form,parent, activeObj, classOfbtn, type){
         }
         else if(type === 'task'){
             if(classOfbtn === 'edit'){
-                editTask(parent, activeObj, formData)
+                editTask(grand, parent, activeObj, formData)
                 setTimeout(renderUI, 100)
             }
         }
-        cleanFormHolder()
+        cleanFormHolder(formHolder)
 })
 }
 
-function cleanFormHolder(){
-    const formHolder = document.querySelector('.formHolder')
+function cleanFormHolder(formHolder){
     while(formHolder.firstChild){
         formHolder.removeChild(formHolder.firstChild)
     }
 }
 
-export {handleForm}
+export {handleForm, cleanFormHolder}

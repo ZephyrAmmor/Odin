@@ -1,5 +1,5 @@
 import { genAddBoard, genAddProject, genAddTask, genEditBoard, genEditProject, genEditTask } from './genForms.js'
-import { handleForm } from './genTodoFromForm.js'
+import { handleForm , cleanFormHolder} from './genTodoFromForm.js'
 import { renderSideUI, renderUI } from './renderUI.js'
 import { workSpace } from './workSpace.js'
 const holder = document.querySelector('.holder')
@@ -34,6 +34,11 @@ const stateUI = {
     getIndexOfObj(obj){
         if(this.state.indexOf(obj) !== undefined)
             return this.state.indexOf(obj)
+    },
+    getGrandState(){
+        if(this.state.length >=3){
+            return this.state[1]
+        }
     }
 }
 
@@ -58,8 +63,9 @@ sidebar.addEventListener('click', (e) =>{
     
     if(classOfbtn === 'add'){
         const form = genAddBoard()
+        cleanFormHolder(formHolder)
         formHolder.appendChild(form)
-        handleForm(form, main, '', classOfbtn, 'main')
+        handleForm(form, main, '', '',classOfbtn, 'main')
 
     }
 
@@ -84,18 +90,20 @@ function evaluateStateAndCall(classOfbtn,stateUI, id){
     }
     const parent = stateUI.getPreviousState()
     const activeObj = stateUI.getActiveState()
-
+    const grand = stateUI.getGrandState()
         if(stateUI.getStateLength() === 2){
             if(classOfbtn=== 'add'){
                 const form = genAddProject()
+                cleanFormHolder(formHolder)
                 formHolder.appendChild(form)
-                handleForm(form, parent, activeObj, classOfbtn, type)
+                handleForm(form, parent, activeObj, '',classOfbtn, type)
 
             }
             else if(classOfbtn === 'edit'){
                 const form = genEditBoard(activeObj)
+                cleanFormHolder(formHolder)
                 formHolder.appendChild(form)
-                handleForm(form, parent, activeObj, classOfbtn, type)
+                handleForm(form, parent, activeObj, '',classOfbtn, type)
             }
             else if(classOfbtn === 'clear'){
                 console.log('clear')
@@ -119,13 +127,15 @@ function evaluateStateAndCall(classOfbtn,stateUI, id){
             if(classOfbtn === 'add'){
                 console.log('addtask')
                 const form = genAddTask()
+                cleanFormHolder(formHolder)
                 formHolder.appendChild(form)
-                handleForm(form, parent, activeObj, classOfbtn, type)
+                handleForm(form, parent, activeObj,grand, classOfbtn, type)
             }
             else if(classOfbtn === 'edit'){
                 const form = genEditProject(activeObj)
+                cleanFormHolder(formHolder)
                 formHolder.appendChild(form)
-                handleForm(form, parent, activeObj, classOfbtn, type)
+                handleForm(form, parent, activeObj,'' ,classOfbtn, type)
                 setTimeout( renderUI, 100)
             }
             else if(classOfbtn === 'clear'){
@@ -136,7 +146,7 @@ function evaluateStateAndCall(classOfbtn,stateUI, id){
             else if(classOfbtn === 'card'){
                 const task = activeObj.getTaskById(id)
                 stateUI.pushToState(task)
-                renderUI()
+                setTimeout(renderUI, 100)
             }
         }
         else if(stateUI.getStateLength() === 4){
@@ -146,8 +156,9 @@ function evaluateStateAndCall(classOfbtn,stateUI, id){
             }
             else if(classOfbtn === 'edit'){
                 const form = genEditTask(activeObj)
+                cleanFormHolder(formHolder)
                 formHolder.appendChild(form)
-                handleForm(form, parent, activeObj, classOfbtn, type)
+                handleForm(form, parent, activeObj, grand, classOfbtn, type)
                 setTimeout( renderUI, 100)
             }
             else if(classOfbtn === 'clear'){
