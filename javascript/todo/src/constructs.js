@@ -88,6 +88,10 @@ class Board extends Todo{
         return jsonObj;
     }
 
+    getProjects(){
+        return this.projects
+    }
+
     static fromJSON(boardObj){
         const [id, parent, complete, title, description, importance, projects] = boardObj
         const board = new Board(title, description, importance)
@@ -138,6 +142,9 @@ class Project extends Todo{
         board.updateProject(this)
     }
 
+    getTasks(){
+        return this.tasks
+    }
     toJSON(){
         let jsonObj = {}
         jsonObj.id = this.id
