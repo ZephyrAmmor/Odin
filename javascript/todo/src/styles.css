@@ -3,3 +3,31 @@
     margin: 0;
     padding: 0;
 }
+body{
+    display: grid;
+    grid-template-rows: 1fr 90% 1fr;
+    min-height: 99vh;
+}
+
+header{
+    grid-row: 1/2;
+}
+footer{
+    grid-row: 3/4;
+}
+body > .main{
+    grid-row: 2/3;
+    display: grid;
+    grid-template : auto 1fr/ 1fr 4fr;
+}
+.sidebar{
+    grid-area: 1/1/3/2;
+}
+body > .holder{
+    grid-area: 1/2/2/3;
+}
+.formHolder{
+    grid-area: 2/2/3/3;
+    width : 80%;
+    min-height: 300px;
+}
