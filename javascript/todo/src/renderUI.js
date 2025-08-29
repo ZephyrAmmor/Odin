@@ -13,8 +13,7 @@ function renderUI(){
 
     if(stateUI.getStateLength() === 2){
          console.log(stateUI)
-        const board = boardAsMain(stateUI.getActiveState())
-       
+        const board = boardAsMain(stateUI.getActiveState())  
         while(content.firstChild){
             content.removeChild(content.firstChild)
         }
@@ -31,7 +30,7 @@ function renderUI(){
         content.appendChild(project)
     }
 
-    else if(stateUI.getLength() === 4){
+    else if(stateUI.getStateLength() === 4){
         const task = taskAsMain(stateUI.getPreviousState(), stateUI.getActiveState())
         while(content.firstChild){
             content.removeChild(content.firstChild)
@@ -43,11 +42,10 @@ function renderUI(){
 }
 
 function renderSideUI(){
-    sideBar(stateUI.getMainState(), sidebar)
-
     while(sidebar.firstChild){
         sidebar.removeChild(sidebar.firstChild)
     }
+    sideBar(stateUI.getMainState(), sidebar)
     renderUI()
 }
 
@@ -66,7 +64,7 @@ function boardAsMain(board){
     const descriptionComp = createComponent('Description', 'description', description)
     const importanceComp = createComponent('Importance', 'importance', importance)
     const clearButton = createButton('clear', 'board', board.id, 'Clear')
-    const addButton = createButton('add', 'project', 'Add')
+    const addButton = createButton('add', 'project', board.id, 'Add')
     const header = document.createElement('div')
     const footer = document.createElement('div')
 
@@ -100,7 +98,7 @@ function projectAsMain(board, project){
     const dueDate = project.dueDate
     const note = project.note
 
-    const backButton = createButton('back', 'project', board.id)
+    const backButton = createButton('back', 'project', board.id, 'back')
     const editButton = createButton('edit', 'project', project.id, 'Edit')
     const clearButton = createButton('clear', 'project', project.id, 'Clear')
     const addButton = createButton('add', 'task', project.id, 'Add')
@@ -142,6 +140,8 @@ function projectAsMain(board, project){
     projectHolder.appendChild(noteComp)
     projectHolder.appendChild(tasksHolder)
     projectHolder.appendChild(foot)
+
+    return projectHolder
 }
 
 function sideBar (root, sidebar){
@@ -161,7 +161,7 @@ function taskAsMain(project, task){
     taskHolder.classList.add('task')
     taskHolder.classList.add('main')
     
-    const backButton = createButton('back', 'project', project.id)
+    const backButton = createButton('back', 'project', project.id, 'Back')
     const editButton = createButton('edit', 'task', task.id, 'Edit')
     const clearButton = createButton('clear', 'task', task.id, 'Clear')
 
