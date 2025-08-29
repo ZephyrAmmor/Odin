@@ -6,13 +6,15 @@ const content = document.querySelector('.holder')
 const sidebar = document.querySelector('.sidebar')
 
 function renderUI(){
-    if(stateUI.getLength() === 1){
-        const [board] = workSpace.getBoards()
-        stateUI.pushToState(board)
+    if(stateUI.getStateLength() === 1){
+        const first = Object.values(workSpace.getBoards())[0]
+        stateUI.pushToState(first)
     }
 
-    if(stateUI.getLength() === 2){
+    if(stateUI.getStateLength() === 2){
+         console.log(stateUI)
         const board = boardAsMain(stateUI.getActiveState())
+       
         while(content.firstChild){
             content.removeChild(content.firstChild)
         }
@@ -20,7 +22,7 @@ function renderUI(){
         content.appendChild(board)
     }
     
-    else if(stateUI.getLength() === 3){
+    else if(stateUI.getStateLength() === 3){
         const project = projectAsMain(stateUI.getPreviousState(), stateUI.getActiveState())
         while(content.firstChild){
             content.removeChild(content.firstChild)
@@ -54,6 +56,7 @@ function boardAsMain(board){
     boardHolder.classList.add('board')
     boardHolder.classList.add('main')
 
+    console.log(board)
     const title = board.title
     const description = board.description
     const importance = board.importance
@@ -212,9 +215,9 @@ function createChildHolder(todos, type){
     for(let todo of Object.values(todos)){
         const title = todo.title
         const description = todo.description
-
-        const card = createCard(title, type , description, project.id)
-        projectsHolder.appendChild(card)
+        
+        const card = createCard(title, type , description, todo.id)
+        cardsHolder.appendChild(card)
     }
 
     return cardsHolder
@@ -246,7 +249,7 @@ function createCard(title, classToAdd, description, id){
     head.textContent = title
 
     const para = document.createElement('p')
-    para.text = description
+    para.textContent = description
 
     card.appendChild(head)
     card.appendChild(para)
