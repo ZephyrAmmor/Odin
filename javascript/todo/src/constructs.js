@@ -1,3 +1,4 @@
+import { workSpace } from "./workSpace";
 class Todo{
     #id 
     #parent
@@ -16,7 +17,8 @@ class Todo{
         if(value && value.length === 36){
             this.#id = value
         }
-        throw ReferenceError('Id is not right')
+        else
+            throw ReferenceError('Id is not right')
     }
 
     get parent(){
@@ -24,7 +26,7 @@ class Todo{
     }
 
     set parent(value){
-        if(value && value.length === 'id'){
+        if(value && value.length === 36){
             this.#parent = value
         }
     }
@@ -98,7 +100,12 @@ class Board extends Todo{
     }
 
     static fromJSON(boardObj){
-        const [id, parent, complete, title, description, importance, projects] = boardObj
+        const id = boardObj.id
+        const parent = boardObj.parent
+        const complete = boardObj.complete
+        const title = boardObj.title
+        const description = boardObj.description
+        const importance  = boardObj.importance
         const board = new Board(title, description, importance)
         board.id = id
         board.parent = parent
@@ -176,7 +183,16 @@ class Project extends Todo{
     }
 
     static fromJSON(projectObj){
-        const [id, parent, complete, title, description, importance, urgency, startDate, dueDate, note, tasks] = projectObj
+        const id = projectObj.id
+        const parent = projectObj.parent
+        const complete =projectObj.complete
+        const title = projectObj.title  
+        const description = projectObj.description
+        const importance = projectObj.importance
+        const urgency = projectObj.urgency
+        const startDate = projectObj.startDate
+        const dueDate = projectObj.dueDate
+        const note = projectObj.note
         const proj = new Project(title, description, importance, urgency, startDate, dueDate, note)
         proj.id = id
         proj.parent = parent
@@ -215,7 +231,16 @@ class Task extends Todo{
     }
 
     static fromJSON(taskObj){
-        const [id, parent, complete, title, description, importance, urgency, dueDate, note] = taskObj
+        const id = taskObj.id
+        const parent = taskObj.parent
+        const complete = taskObj.complete
+        const title = taskObj.title
+        const description = taskObj.description
+        const importance = taskObj.importance
+        const urgency = taskObj.urgency
+        const dueDate = taskObj.dueDate
+        const note = taskObj.note
+
         const task = new Task(title, description, importance, urgency, dueDate, note)
         task.id = id
         task.parent = parent
