@@ -1,8 +1,7 @@
-import { act } from 'react'
 import { genAddBoard, genAddProject, genAddTask, genEditBoard, genEditProject, genEditTask } from './genForms.js'
 import { handleForm } from './genTodoFromForm.js'
 import { renderSideUI, renderUI } from './renderUI.js'
-import workSpace from './workSpace.js'
+
 const holder = document.querySelector('.holder')
 const sidebar = document.querySelector('.sidebar')
 const formHolder = document.querySelector('.formHolder')
@@ -153,3 +152,5 @@ function evaluateStateAndCall(classOfbtn,stateUI, id){
         }
 
 }
+
+export {stateUI}
