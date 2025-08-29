@@ -99,17 +99,20 @@ function genEditTask(task){
 } 
 
 function genAddBoard(){
-    const form = document.createAttribute('form')
+    const form = document.createElement('form')
     form.classList.add('boardForm')
-    const head = wrapInHead(title, importance)
     const title = inputDiv('text', 'titleField', 'title', 'Title', 'Odin')
     const importance = selectDiv('importanceField', 'importance', 'Important', 'Casual', 'Important', 'Very Important')
     const description = textareaDiv('descriptionField', 'description', 'Description', 'Odin is Amazing...')
 
+    const head = wrapInHead(title, importance)
 
     form.appendChild(head)
     form.appendChild(description)
 
+    const submitBtn = document.createElement('button')
+    submitBtn.textContent = 'Create'
+    form.appendChild(submitBtn)
     return form
 }
 
@@ -134,6 +137,9 @@ function genAddProject(){
     form.appendChild(description)
     form.appendChild(dates)
     form.appendChild(note)
+    const submitBtn = document.createElement('button')
+    submitBtn.textContent = 'Create'
+    form.appendChild(submitBtn)
 
     return form
 }
@@ -155,6 +161,9 @@ function genAddTask(){
     form.appendChild(description)
     form.appendChild(dueDate)
     form.appendChild(note)
+    const submitBtn = document.createElement('button')
+    submitBtn.textContent = 'Create'
+    form.appendChild(submitBtn)
 
     return form
 }
@@ -169,11 +178,11 @@ function wrapInHead(...args){
 function inputDiv(type, classToAdd, id, tag, placeholder = 'Write...'){
     const div = document.createElement('div')
     div.classList.add(classToAdd)
-    const label = label(id, tag)
-    const input = input(type, id, placeholder)
+    const labelC = label(id, tag)
+    const inputC = input(type, id, placeholder)
 
-    div.appendChild(label)
-    div.appendChild(input)
+    div.appendChild(labelC)
+    div.appendChild(inputC)
 
     return div
 
@@ -182,11 +191,11 @@ function inputDiv(type, classToAdd, id, tag, placeholder = 'Write...'){
 function textareaDiv(classToAdd, id, tag, placeholder = 'Write...'){
     const div = document.createElement('div')
     div.classList.add(classToAdd)
-    const label = label(id, tag)
-    const textarea = textarea(id, placeholder)
+    const labelC = label(id, tag)
+    const textareaC = textarea(id, placeholder)
 
-    div.appendChild(label)
-    div.appendChild(textarea)
+    div.appendChild(labelC)
+    div.appendChild(textareaC)
 
     return div
 }
@@ -194,11 +203,11 @@ function textareaDiv(classToAdd, id, tag, placeholder = 'Write...'){
 function selectDiv(classToAdd, id, tag, ...options){
     const div = document.createElement('div')
     div.classList.add(classToAdd)
-    const label = label(id, tag)
-    const select = select(id, options)
+    const labelC = label(id, tag)
+    const selectC = select(id, options)
 
-    div.appendChild(label)
-    div.appendChild(select)
+    div.appendChild(labelC)
+    div.appendChild(selectC)
     
     return div
 }
