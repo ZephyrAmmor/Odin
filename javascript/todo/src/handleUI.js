@@ -1,20 +1,23 @@
 import { genAddBoard, genAddProject, genAddTask, genEditBoard, genEditProject, genEditTask } from './genForms.js'
 import { handleForm } from './genTodoFromForm.js'
 import { renderSideUI, renderUI } from './renderUI.js'
-
+import { workSpace } from './workSpace.js'
 const holder = document.querySelector('.holder')
 const sidebar = document.querySelector('.sidebar')
 const formHolder = document.querySelector('.formHolder')
+console.table(workSpace)
+
 const stateUI = {
-    state : [workSpace,],
+    state : [workSpace],
 
     getStateLength(){
         return this.state.length
     },
-    getnMainState(){
+    getMainState(){
         return this.state[0]
     },
     getActiveState(){
+        console.log(this.state)
         return this.state.at(-1)
     },
     getPreviousState(){
@@ -83,26 +86,26 @@ function evaluateStateAndCall(classOfbtn,stateUI, id){
         if(stateUI.getStateLength() === 2){
             if(classOfbtn === 'back'){
                 stateUI.backState()
-                setTimeout( renderUI, 1000)
+                setTimeout( renderUI, 100)
             }
             else if(classOfbtn=== 'add'){
                 const form = genAddProject()
                 formHolder.appendChild(form)
                 const obj = handleForm(form, parent, activeObj, classOfbtn, type)
                 stateUI.pushToState(obj)
-                setTimeout( renderUI, 1000)
+                setTimeout( renderUI, 100)
             }
             else if(classOfbtn === 'edit'){
                 const form = genEditBoard(activeObj)
                 formHolder.appendChild(form)
                 handleForm(form, parent, activeObj, classOfbtn, type)
-                setTimeout( renderUI, 1000)
+                setTimeout( renderUI, 100)
             }
             }
             else if(classOfbtn === 'clear'){
                 parent.removeBoard(activeObj)
                 stateUI.backState()
-                setTimeout( renderSideUI, 1000)
+                setTimeout( renderSideUI, 100)
             }
             else if(classOfbtn === 'show'){
                 stateUI.backState()
@@ -117,18 +120,18 @@ function evaluateStateAndCall(classOfbtn,stateUI, id){
                 formHolder.appendChild(form)
                 const obj = handleForm(form, parent, activeObj, classOfbtn, type)
                 stateUI.pushToState(obj)
-                setTimeout( renderUI, 1000)
+                setTimeout( renderUI, 100)
             }
             else if(classOfbtn === 'edit'){
                 const form = genEditProject(activeObj)
                 formHolder.appendChild(form)
                 handleForm(form, parent, activeObj, classOfbtn, type)
-                setTimeout( renderUI, 1000)
+                setTimeout( renderUI, 100)
             }
             else if(classOfbtn === 'clear'){
                 parent.removeProject(activeObj)
                 stateUI.backState()
-                setTimeout( renderUI, 1000)
+                setTimeout( renderUI, 100)
             }
             else if(classOfbtn === 'show'){
                 stateUI.backState()
@@ -142,12 +145,12 @@ function evaluateStateAndCall(classOfbtn,stateUI, id){
                 const form = genEditTask(activeObj)
                 formHolder.appendChild(form)
                 handleForm(form, parent, activeObj, classOfbtn, type)
-                setTimeout( renderUI, 1000)
+                setTimeout( renderUI, 100)
             }
             else if(classOfbtn === 'clear'){
                 parent.removeTask(activeObj)
                 stateUI.backState()
-                setTimeout( renderUI, 1000)
+                setTimeout( renderUI, 100)
             }
         }
 
