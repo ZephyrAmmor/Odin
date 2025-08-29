@@ -5,7 +5,6 @@ import { workSpace } from './workSpace.js'
 const holder = document.querySelector('.holder')
 const sidebar = document.querySelector('.sidebar')
 const formHolder = document.querySelector('.formHolder')
-console.table(workSpace)
 
 const stateUI = {
     state : [workSpace],
@@ -17,15 +16,16 @@ const stateUI = {
         return this.state[0]
     },
     getActiveState(){
-        console.log(this.state)
+        console.log(this.state.at(-1))
         return this.state.at(-1)
     },
     getPreviousState(){
-        if(this.state.length > 2)
+        if(this.state.length >= 2)
             return this.state.at(-2)
     },
     backState(){
         this.state.pop()
+        console.log(this.state)
     }, 
     pushToState(obj){
         this.state.push(obj)
@@ -39,32 +39,35 @@ const stateUI = {
 
 holder.addEventListener('click', (e)=> {
     let id = ''
-    const classOfbtn = e.target.classList[0]
-    if(e.target.dataset.show)
-        id = e.target.dataset.show
-    evaluateStateAndCall(classOfbtn, stateUI)
+    let classOfbtn;
+    if(e.target.closest('.card.project')){
+       id = e.target.closest('.card').dataset.show
+       classOfbtn = e.target.closest('.card').classList[0]
+    }
+    else 
+        classOfbtn= e.target.classList[0]
+    evaluateStateAndCall(classOfbtn, stateUI, id)
 })
 
 sidebar.addEventListener('click', (e) =>{
     let id = '';
     const classOfbtn = e.target.classList[0]
-    const main = stateUI.getnMainState()
-    if(e.target.dataset.show)
-        id = e.target.dataset.show
+    const main = stateUI.getMainState()
+    if(e.target.closest('.card').dataset.show)
+        id = e.target.closest('.card').dataset.show
     
     if(classOfbtn === 'add'){
         const form = genAddBoard()
-        const obj = handleForm(form, main, '', classOfbtn, 'main')
-        stateUI.backState()
-        stateUI.pushToState(obj)
-        renderSideUI()
+        formHolder.appendChild(form)
+        handleForm(form, main, '', classOfbtn, 'main')
+
     }
 
-    else if(classOfbtn === 'show'){
+    else if(classOfbtn === 'card'){
         stateUI.backState()
         const board = main.getBoardById(id)
         stateUI.pushToState(board)
-        renderSideUI()
+        setTimeout(renderSideUI, 100)
     }
 })
 
@@ -82,45 +85,42 @@ function evaluateStateAndCall(classOfbtn,stateUI, id){
     const parent = stateUI.getPreviousState()
     const activeObj = stateUI.getActiveState()
 
-    if(classOfbtn){
         if(stateUI.getStateLength() === 2){
-            if(classOfbtn === 'back'){
-                stateUI.backState()
-                setTimeout( renderUI, 100)
-            }
-            else if(classOfbtn=== 'add'){
+            if(classOfbtn=== 'add'){
                 const form = genAddProject()
                 formHolder.appendChild(form)
-                const obj = handleForm(form, parent, activeObj, classOfbtn, type)
-                stateUI.pushToState(obj)
-                setTimeout( renderUI, 100)
+                handleForm(form, parent, activeObj, classOfbtn, type)
+
             }
             else if(classOfbtn === 'edit'){
                 const form = genEditBoard(activeObj)
                 formHolder.appendChild(form)
                 handleForm(form, parent, activeObj, classOfbtn, type)
-                setTimeout( renderUI, 100)
-            }
             }
             else if(classOfbtn === 'clear'){
-                parent.removeBoard(activeObj)
+                console.log('clear')
+                parent.removeBoard(activeObj.id)
+                console.table(workSpace)
                 stateUI.backState()
                 setTimeout( renderSideUI, 100)
             }
-            else if(classOfbtn === 'show'){
-                stateUI.backState()
+            else if(classOfbtn === 'card'){
                 const project = activeObj.getProjectById(id)
+                console.log(project)
                 stateUI.pushToState(project)
-                renderUI()
+                setTimeout(renderUI, 100)
             }
         }
         else if(stateUI.getStateLength() === 3){
+            if(classOfbtn === 'back'){
+                stateUI.backState()
+                setTimeout( renderUI, 100)
+            }
             if(classOfbtn === 'add'){
+                console.log('addtask')
                 const form = genAddTask()
                 formHolder.appendChild(form)
-                const obj = handleForm(form, parent, activeObj, classOfbtn, type)
-                stateUI.pushToState(obj)
-                setTimeout( renderUI, 100)
+                handleForm(form, parent, activeObj, classOfbtn, type)
             }
             else if(classOfbtn === 'edit'){
                 const form = genEditProject(activeObj)
@@ -129,31 +129,32 @@ function evaluateStateAndCall(classOfbtn,stateUI, id){
                 setTimeout( renderUI, 100)
             }
             else if(classOfbtn === 'clear'){
-                parent.removeProject(activeObj)
+                parent.removeProject(activeObj.id)
                 stateUI.backState()
                 setTimeout( renderUI, 100)
             }
-            else if(classOfbtn === 'show'){
-                stateUI.backState()
+            else if(classOfbtn === 'card'){
                 const task = activeObj.getTaskById(id)
                 stateUI.pushToState(task)
                 renderUI()
             }
         }
         else if(stateUI.getStateLength() === 4){
-            if(classOfbtn === 'edit'){
+            if(classOfbtn === 'back'){
+                stateUI.backState()
+                setTimeout( renderUI, 100)
+            }
+            else if(classOfbtn === 'edit'){
                 const form = genEditTask(activeObj)
                 formHolder.appendChild(form)
                 handleForm(form, parent, activeObj, classOfbtn, type)
                 setTimeout( renderUI, 100)
             }
             else if(classOfbtn === 'clear'){
-                parent.removeTask(activeObj)
+                parent.removeTask(activeObj.id)
                 stateUI.backState()
                 setTimeout( renderUI, 100)
             }
         }
-
-}
-
+    }
 export {stateUI}
