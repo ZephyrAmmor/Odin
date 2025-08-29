@@ -2,36 +2,29 @@ function genEditBoard(board){
     const form = document.createElement('form')
     form.classList.add('boardEditForm')
 
-    const title = inputDiv('text', 'titleField', 'title', 'Title', 'Odin')
-    const importance = selectDiv('importanceField', 'importance', 'Important', 'Casual', 'Important', 'Very Important')
-    const description = textareaDiv('descriptionField', 'description', 'Description', 'Odin is Amazing...')
-
     const titleValue = board.title
     const descriptionValue = board.description
     const importanceValue = board.importance
 
-    title.setAttribute('value', titleValue)
-    description.setAttribute('value', descriptionValue)
-    importance.setAttribute('value', importanceValue)
+    const title = inputDiv('text', 'titleField', 'title', 'Title',titleValue, 'Odin')
+    const importance = selectDiv('importanceField', 'importance', 'Important', 'Casual', 'Important', importanceValue, 'Very Important')
+    const description = textareaDiv('descriptionField', 'description', 'Description', descriptionValue,'Odin is Amazing...')
+
+    console.log(board)
+
     const head = wrapInHead(title, importance)
 
     form.appendChild(head)
     form.appendChild(description)
 
+    const submitBtn = document.createElement('button')
+    submitBtn.textContent = 'Save'
+    form.appendChild(submitBtn)
     return form
 }
 function genEditProject(project){
     const form = document.createElement('form')
     form.classList.add('projectEditForm')
-
-    const title = inputDiv('text', 'titleField', 'title', 'Title', 'Odin')
-    const importance = selectDiv('importanceField', 'importance', 'Important', 'Casual', 'Important', 'Very Important')
-    const urgency = selectDiv('urgencyField', 'urgency', 'Urgent', 'Trivial', 'Urgent', 'Very Urgent')
-    const description = textareaDiv('descriptionField', 'description', 'Description', 'Odin is Amazing...')
-    const startDate = inputDiv('date', 'startDateField', 'startDate', 'Start Date')
-    const dueDate = inputDiv('date', 'dueDateField', 'dueDate', 'Due Date')
-    const note = textareaDiv('noteField', 'note', 'Note', 'Odin is tough as well...')
-    const complete = input('checkbox', 'complete')
 
     const titleValue = project.title
     const descriptionValue = project.description
@@ -41,6 +34,16 @@ function genEditProject(project){
     const startDateValue = project.startDate
     const noteValue = project.note
     const completeValue = project.complete
+
+    const title = inputDiv('text', 'titleField', 'title', 'Title',titleValue, 'Odin')
+    const importance = selectDiv('importanceField', 'importance', 'Important', 'Casual', 'Important', importanceValue,'Very Important')
+    const urgency = selectDiv('urgencyField', 'urgency', 'Urgent', 'Trivial', 'Urgent', urgencyValue, 'Very Urgent')
+    const description = textareaDiv('descriptionField', 'description', 'Description', descriptionValue,  'Odin is Amazing...')
+    const startDate = inputDiv('date', 'startDateField', 'startDate',startDateValue, 'Start Date')
+    const dueDate = inputDiv('date', 'dueDateField', 'dueDate', dueDateValue, 'Due Date')
+    const note = textareaDiv('noteField', 'note', 'Note', noteValue, 'Odin is tough as well...')
+    const complete = input('checkbox', 'complete')
+
     if(completeValue === true)
         complete.setAttribute('checked', 'ckecked')
     title.setAttribute('value', titleValue)
@@ -59,6 +62,11 @@ function genEditProject(project){
     form.appendChild(description)
     form.appendChild(dates)
     form.appendChild(note)
+    const submitBtn = document.createElement('button')
+    submitBtn.textContent = 'Save'
+    form.appendChild(submitBtn)
+
+    return form
 }
 function genEditTask(task){
     const form = document.createElement('form')
@@ -94,6 +102,10 @@ function genEditTask(task){
     form.appendChild(description)
     form.appendChild(dueDate)
     form.appendChild(note)
+
+    const submitBtn = document.createElement('button')
+    submitBtn.textContent = 'Save'
+    form.appendChild(submitBtn)
 
     return form
 } 
@@ -175,11 +187,11 @@ function wrapInHead(...args){
     return head
 }
 
-function inputDiv(type, classToAdd, id, tag, placeholder = 'Write...'){
+function inputDiv(type, classToAdd, id, tag, value, placeholder = 'Write...'){
     const div = document.createElement('div')
     div.classList.add(classToAdd)
     const labelC = label(id, tag)
-    const inputC = input(type, id, placeholder)
+    const inputC = input(type, id, value, placeholder)
 
     div.appendChild(labelC)
     div.appendChild(inputC)
@@ -188,11 +200,11 @@ function inputDiv(type, classToAdd, id, tag, placeholder = 'Write...'){
 
 }
 
-function textareaDiv(classToAdd, id, tag, placeholder = 'Write...'){
+function textareaDiv(classToAdd, id, tag, value, placeholder = 'Write...'){
     const div = document.createElement('div')
     div.classList.add(classToAdd)
     const labelC = label(id, tag)
-    const textareaC = textarea(id, placeholder)
+    const textareaC = textarea(id,value, placeholder)
 
     div.appendChild(labelC)
     div.appendChild(textareaC)
@@ -200,11 +212,11 @@ function textareaDiv(classToAdd, id, tag, placeholder = 'Write...'){
     return div
 }
 
-function selectDiv(classToAdd, id, tag, ...options){
+function selectDiv(classToAdd, id, tag,selected, ...options){
     const div = document.createElement('div')
     div.classList.add(classToAdd)
     const labelC = label(id, tag)
-    const selectC = select(id, options)
+    const selectC = select(id, options, selected)
 
     div.appendChild(labelC)
     div.appendChild(selectC)
@@ -212,12 +224,14 @@ function selectDiv(classToAdd, id, tag, ...options){
     return div
 }
 
-function input(type, id, placeholder){
+function input(type, id, value, placeholder){
     const input = document.createElement('input')
     input.setAttribute('type', type)
     input.setAttribute('id', id)
     input.setAttribute('name', id)
     input.setAttribute('placeholder', placeholder)
+    if(value)
+        input.value = value
     return input
 }
 function label(forValue, text){
@@ -226,27 +240,31 @@ function label(forValue, text){
     label.textContent = text
     return label
 }
-function textarea(id, placeholder){
+function textarea(id, value, placeholder){
     const textarea = document.createElement('textarea')
     textarea.setAttribute('id', id)
     textarea.setAttribute('name', id)
     textarea.setAttribute('placeholder', placeholder)
+    if(value)
+        textarea.value = value
     return textarea
 }
-function select(id, options){
+function select(id, options, selected){
     const select = document.createElement('select')
     select.setAttribute('id', id)
     select.setAttribute('name', id)
     for(let optValue of options){
-        select.appendChild(option(optValue))
+        select.appendChild(option(optValue, selected ))
     }
     return select
 }
 
-function option(value){
+function option(value, selected){
     const option = document.createElement('option')
     option.setAttribute('value', value)
     option.textContent = value
+    if(value === selected)
+        option.setAttribute('selected', 'selected')
     return option
 }
 
