@@ -1,3 +1,4 @@
+import { act } from "react"
 import { Task, Project, Board } from "./constructs"
 function createBoard(workSpace, boardData){
     const title = boardData.get('title')
@@ -85,36 +86,37 @@ function editBoard(workSpace, board, boardData){
     renderSideUI()
 }
 
-function handleForm(stateUI, form, classOfbtn){
+function handleForm(form,parent, activeObj, classOfbtn, type){
     form.addEventListener('submit', (event) =>{
         event.preventDefault()
         const formData = new FormData(form)
-        if(stateUI.getLength() === 1){
-            if(classOfbtn === 'addBoard')
-               createBoard(stateUI.getActiveState(), formData)
-        }
-        else if(stateUI.getLength() === 2){
-            if(classOfbtn === 'editBoard'){
-                editBoard(stateUI.getMainState(), stateUI.getActiveState(), formData)
-            }
-            else if(classOfbtn === 'addProject'){
-                createProject(stateUI.getActiveState, formData)
+        if( type == 'main'){
+            if(classOfbtn === 'add'){
+                createBoard(activeObj, formData)
             }
         }
-        else if(stateUI.getLength() === 3){
-            if(classOfbtn === 'editProject'){
-                editProject(stateUI.getPreviousState(), stateUI.getActiveState(), formData)
+        else if(type === 'board'){
+            if(classOfbtn === 'add'){
+                createProject(activeObj, formData)
             }
-            else if(classOfbtn === 'addTask'){
-                createTask(stateUI.getActiveState(), formData)
-            }
-        }
-        else if(stateUI.getLength() === 4){
-            if(classOfbtn === 'editTask'){
-                editTask(stateUI.getActiveState(), formData)
+            else if(classOfbtn === 'edit'){
+                editBoard(parent, activeObj, formData)
             }
         }
 
+        else if(type === 'project'){
+            if(classOfbtn === 'add'){
+                createTask(activeObj, formData)
+            }
+            else if(classOfbtn === 'edit'){
+                editProject(parent, activeObj, formData)
+            }
+        }
+        else if(type === 'task'){
+            if(classOfbtn === 'edit'){
+                editTask(parent, activeObj, formData)
+            }
+        }
         cleanFormHolder()
 })
 }
