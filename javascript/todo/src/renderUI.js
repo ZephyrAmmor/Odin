@@ -84,7 +84,7 @@ function boardAsMain(board){
 
 }
 
-function projectAsMain(project){
+function projectAsMain(board, project){
     const projectHolder = document.createElement('div')
     projectHolder.classList.add('project')
     projectHolder.classList.add('main')
@@ -97,6 +97,7 @@ function projectAsMain(project){
     const dueDate = project.dueDate
     const note = project.note
 
+    const backButton = createButton('back', 'project', board.id)
     const editButton = createButton('edit', 'project', project.id, 'Edit')
     const clearButton = createButton('clear', 'project', project.id, 'Clear')
     const addButton = createButton('add', 'task', project.id, 'Add')
@@ -131,6 +132,7 @@ function projectAsMain(project){
 
     const tasksHolder = createChildHolder(project.getTasks(), 'task')
 
+    projectHolder.appendChild(backButton)
     projectHolder.appendChild(head)
     projectHolder.appendChild(descriptionComp)
     projectHolder.appendChild(side)
@@ -151,11 +153,12 @@ function sideBar (root, sidebar){
     sidebar.appendChild(addButton)
 }
 
-function taskAsMain(task){
+function taskAsMain(project, task){
     const taskHolder = document.createElement('div')
     taskHolder.classList.add('task')
     taskHolder.classList.add('main')
-
+    
+    const backButton = createButton('back', 'project', project.id)
     const editButton = createButton('edit', 'task', task.id, 'Edit')
     const clearButton = createButton('clear', 'task', task.id, 'Clear')
 
@@ -192,6 +195,7 @@ function taskAsMain(task){
 
     foot.appendChild(clearButton)
 
+    taskHolder.appendChild(backButton)
     taskHolder.appendChild(head)
     taskHolder.appendChild(descriptionComp)
     taskHolder.appendChild(side)
