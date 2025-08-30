@@ -6,7 +6,7 @@
 body{
     position: relative;
     --background : whitesmoke;
-    --shadyPurple : rgb(199, 163, 240);
+    --shadyPurple : rgb(216, 203, 247);
     background-color: var(--background);
     display: grid;
     grid-template-rows: 1fr 50 minmax(10px, 40%) 1fr;
@@ -19,13 +19,12 @@ header{
     gap: 2rem;
     display: flex;
     padding: 0.5rem;
-    background-color: rgb(218, 223, 240);
     grid-row: 1/2;
 }
 footer{
+    background-color: rgb(199, 163, 240);
     max-height: 50px;
     padding: 0.5rem;
-    background-color: rgb(218, 223, 240);
     text-align: center;
     grid-row: 4/5
 }
@@ -130,7 +129,7 @@ button{
     cursor: pointer;
     display: inline-block;
     color: inherit;
-    background-color: var(--shadyPurple);
+    background-color: rgb(199, 163, 240);;
     width: minmax(5rem, 100px);
     margin: 0.5rem;
     padding: 0.2rem 0.5rem;
