@@ -92,6 +92,7 @@ function handleForm(form,parent, activeObj,grand, classOfbtn, type){
     form.addEventListener('submit', (event) =>{
         event.preventDefault()
         const formData = new FormData(form)
+        form.reset()
         if( type == 'main'){
             if(classOfbtn === 'add'){
                 const objToReturn = createBoard(parent, formData)
