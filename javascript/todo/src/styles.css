@@ -4,12 +4,13 @@
     padding: 0;
 }
 body{
+    position: relative;
     padding: 0.2rem;
     --background : whitesmoke;
-    --shadyPurple : rgb(215, 214, 249);
+    --shadyPurple : rgb(169, 166, 250);
     background-color: var(--background);
     display: grid;
-    grid-template-rows: 1fr 70% 300px 1fr;
+    grid-template-rows: 1fr 50% minmax(10px 40%) 1fr;
     min-height: 99vh;
 }
 
@@ -17,7 +18,7 @@ header{
     grid-row: 1/2;
 }
 footer{
-    grid-row: 4/5;
+    grid-row: 4/5
 }
 body > .main{
     padding: 0.5rem;
@@ -126,4 +127,55 @@ button:hover{
 }
 .sidebar .card{
     min-width: 100%;
+}
+
+.formHolder{
+    grid-row: 3/4;
+    width: 100%;
+}
+form{
+    padding: 1rem;
+    width: 50%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+form *{
+    cursor : pointer;
+    border : none;
+    padding: 0.3rem;
+    font : inherit;
+    display: block;
+    width: 100%;
+}
+form input, form select{
+    border-radius: 0.5rem;
+    box-shadow: 2px 2px 10px var(--shadyPurple);
+    width: 100%;
+}
+.formHead, .datesField{
+    flex-wrap: wrap;
+    display:flex;
+    gap: 1rem;
+}
+.formHead .titleField{
+    flex: 1 0 100%;
+}
+.formHead .importanceField, .urgencyField, .datesField *{
+    background-color: inherit;
+    color: inherit;
+    flex : 1;
+}
+.datesField  input, .datesField{
+    cursor: default;
+}
+form textarea{
+     padding:0.5rem;
+    border-radius: 1rem 2rem 0rem 2rem;
+    box-shadow: 2px 2px 10px var(--shadyPurple);
+    min-height: 150px;
+}
+input:active, textarea:active{
+    border: 2px dotted var(--shadyPurple)
 }
