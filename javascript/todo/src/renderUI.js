@@ -69,12 +69,12 @@ function boardAsMain(board){
     const addButton = createButton('add', 'project', board.id, 'Add')
     const header = document.createElement('div')
     const footer = document.createElement('div')
-
+    header.classList.add('head')
     header.appendChild(titleComp)
     header.appendChild(editButton)
     footer.appendChild(clearButton)
     footer.appendChild(addButton)
-
+    footer.classList.add('foot')
     const projectsHolder = createChildHolder(board.getProjects(), 'project')
     projectsHolder.classList.add('projectHolder')
     boardHolder.appendChild(header)
@@ -114,6 +114,7 @@ function projectAsMain(board, project){
     const noteComp = createComponent('Note', 'note', note)
 
     const head = document.createElement('div')
+    head.classList.add('head')
     head.appendChild(titleComp)
     head.appendChild(editButton)
 
@@ -134,7 +135,7 @@ function projectAsMain(board, project){
     foot.appendChild(addButton)
 
     const tasksHolder = createChildHolder(project.getTasks(), 'task')
-
+    foot.classList.add('foot')
     projectHolder.appendChild(backButton)
     projectHolder.appendChild(head)
     projectHolder.appendChild(descriptionComp)
@@ -183,6 +184,7 @@ function taskAsMain(project, task){
 
     
     const head = document.createElement('div')
+    head.classList.add('head')
     head.appendChild(titleComp)
     head.appendChild(editButton)
 
@@ -199,7 +201,7 @@ function taskAsMain(project, task){
     foot.classList.add('foot')
 
     foot.appendChild(clearButton)
-
+    foot.classList.add('foot')
     taskHolder.appendChild(backButton)
     taskHolder.appendChild(head)
     taskHolder.appendChild(descriptionComp)
@@ -229,7 +231,7 @@ function createComponent(title, classToAdd, text){
     const div = document.createElement('div')
     div.classList.add(classToAdd)
 
-    const heading = document.createElement('h2')
+    const heading = document.createElement('h3')
     heading.textContent = title
 
     const para = document.createElement('p')
