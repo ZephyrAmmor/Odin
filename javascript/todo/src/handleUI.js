@@ -94,10 +94,10 @@ function evaluateStateAndCall(classOfbtn,stateUI, id){
     const parent = stateUI.getPreviousState()
     const activeObj = stateUI.getActiveState()
     const grand = stateUI.getGrandState()
+    cleanFormHolder(formHolder)
         if(stateUI.getStateLength() === 2){
             if(classOfbtn=== 'add'){
                 const form = genAddProject()
-                cleanFormHolder(formHolder)
                 formHolder.appendChild(form)
                 formHolder.scrollIntoView({
                     behavior: 'smooth',
@@ -108,7 +108,6 @@ function evaluateStateAndCall(classOfbtn,stateUI, id){
             }
             else if(classOfbtn === 'edit'){
                 const form = genEditBoard(activeObj)
-                cleanFormHolder(formHolder)
                 formHolder.appendChild(form)
                 formHolder.scrollIntoView({
                     behavior: 'smooth',
@@ -137,7 +136,6 @@ function evaluateStateAndCall(classOfbtn,stateUI, id){
             if(classOfbtn === 'add'){
                 console.log('addtask')
                 const form = genAddTask()
-                cleanFormHolder(formHolder)
                 formHolder.appendChild(form)
                 formHolder.scrollIntoView({
                     behavior: 'smooth',
@@ -147,7 +145,6 @@ function evaluateStateAndCall(classOfbtn,stateUI, id){
             }
             else if(classOfbtn === 'edit'){
                 const form = genEditProject(activeObj)
-                cleanFormHolder(formHolder)
                 formHolder.appendChild(form)
                 formHolder.scrollIntoView({
                     behavior: 'smooth',
@@ -174,7 +171,6 @@ function evaluateStateAndCall(classOfbtn,stateUI, id){
             }
             else if(classOfbtn === 'edit'){
                 const form = genEditTask(activeObj)
-                cleanFormHolder(formHolder)
                 formHolder.appendChild(form)
                 formHolder.scrollIntoView({
                     behavior: 'smooth',
