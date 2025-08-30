@@ -55,16 +55,19 @@ holder.addEventListener('click', (e)=> {
 })
 
 sidebar.addEventListener('click', (e) =>{
-    let id = '';
+    const id = e.target.closest('.card')?.dataset.show
     const classOfbtn = e.target.classList[0]
     const main = stateUI.getMainState()
-    if(e.target.closest('.card').dataset.show)
-        id = e.target.closest('.card').dataset.show
+    console.log(id, classOfbtn)
     
     if(classOfbtn === 'add'){
         const form = genAddBoard()
         cleanFormHolder(formHolder)
         formHolder.appendChild(form)
+        formHolder.scrollIntoView({
+            behavior: 'smooth',
+            block : 'end'
+        })
         handleForm(form, main, '', '',classOfbtn, 'main')
 
     }
@@ -96,6 +99,10 @@ function evaluateStateAndCall(classOfbtn,stateUI, id){
                 const form = genAddProject()
                 cleanFormHolder(formHolder)
                 formHolder.appendChild(form)
+                formHolder.scrollIntoView({
+                    behavior: 'smooth',
+                    block : 'end'
+                })
                 handleForm(form, parent, activeObj, '',classOfbtn, type)
 
             }
@@ -103,12 +110,15 @@ function evaluateStateAndCall(classOfbtn,stateUI, id){
                 const form = genEditBoard(activeObj)
                 cleanFormHolder(formHolder)
                 formHolder.appendChild(form)
+                formHolder.scrollIntoView({
+                    behavior: 'smooth',
+                    block : 'end'
+                })
                 handleForm(form, parent, activeObj, '',classOfbtn, type)
             }
             else if(classOfbtn === 'clear'){
                 console.log('clear')
                 parent.removeBoard(activeObj.id)
-                console.table(workSpace)
                 stateUI.backState()
                 setTimeout( renderSideUI, 100)
             }
@@ -129,12 +139,20 @@ function evaluateStateAndCall(classOfbtn,stateUI, id){
                 const form = genAddTask()
                 cleanFormHolder(formHolder)
                 formHolder.appendChild(form)
+                formHolder.scrollIntoView({
+                    behavior: 'smooth',
+                    block : 'end'
+                })
                 handleForm(form, parent, activeObj,grand, classOfbtn, type)
             }
             else if(classOfbtn === 'edit'){
                 const form = genEditProject(activeObj)
                 cleanFormHolder(formHolder)
                 formHolder.appendChild(form)
+                formHolder.scrollIntoView({
+                    behavior: 'smooth',
+                    block : 'end'
+                })
                 handleForm(form, parent, activeObj,'' ,classOfbtn, type)
                 setTimeout( renderUI, 100)
             }
@@ -158,6 +176,10 @@ function evaluateStateAndCall(classOfbtn,stateUI, id){
                 const form = genEditTask(activeObj)
                 cleanFormHolder(formHolder)
                 formHolder.appendChild(form)
+                formHolder.scrollIntoView({
+                    behavior: 'smooth',
+                    block : 'end'
+                })
                 handleForm(form, parent, activeObj, grand, classOfbtn, type)
                 setTimeout( renderUI, 100)
             }
