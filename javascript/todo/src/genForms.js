@@ -57,6 +57,8 @@ function genEditProject(project){
     const dates = document.createElement('div')
     dates.appendChild(startDate)
     dates.appendChild(dueDate)
+    dates.classList.add('datesField')
+
     const head = wrapInHead(title, importance, urgency, complete)
     form.appendChild(head)
     form.appendChild(description)
@@ -144,7 +146,7 @@ function genAddProject(){
     const dates = document.createElement('div')
     dates.appendChild(startDate)
     dates.appendChild(dueDate)
-
+    dates.classList.add('datesField')
     form.appendChild(head)
     form.appendChild(description)
     form.appendChild(dates)
@@ -180,10 +182,11 @@ function genAddTask(){
     return form
 }
 function wrapInHead(...args){
-    const head = document.createElement('fromHead')
+    const head = document.createElement('div')
     for(let arg of args){
         head.appendChild(arg)
     }
+    head.classList.add('formHead')
     return head
 }
 
