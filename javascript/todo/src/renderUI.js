@@ -37,7 +37,8 @@ function renderUI(){
             content.removeChild(content.firstChild)
         }
         content.classList.add('task')
-        content.appendChild(task)
+        if(task)
+            content.appendChild(task)
     }
 
 }
@@ -163,6 +164,8 @@ function taskAsMain(project, task){
     const taskHolder = document.createElement('div')
     taskHolder.classList.add('task')
     taskHolder.classList.add('main')
+    if(!task || task.id === undefined)
+        return false
     
     const backButton = createButton('back', 'project', project.id, 'Back')
     const editButton = createButton('edit', 'task', task.id, 'Edit')
