@@ -1,0 +1,137 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    background-color: transparent;
+}
+.clock-holder{
+    margin : auto;
+    width : fit-content;
+}
+.curly-clock {
+    padding : 4rem;
+    position : relative;
+    backdrop-filter: blur(4px);
+    padding : 1rem;
+}
+.clock {
+  /* Style your clock container */
+  position: relative;
+  width: 270px;
+  height: 270px;
+  background-color: rgb(41, 37, 32);
+  border-radius: 50%;
+}
+
+.clock-face {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  transform: translate(-50%, -50%); /* Center the clock face */
+}
+
+.hand {
+  position: absolute;
+  background-color: transparent;
+  transform-origin: bottom center; /* Rotate from the base */
+  left: 50%;
+  transform: translateX(-50%); /* Center the hand horizontally */
+}
+
+.hour-hand {
+  outline : 5px solid rgb(32, 171, 32);
+  border-radius: 2rem 0rem 1rem 1rem;
+  width: 0.75rem;
+  height: 34%;
+  top: 16%;
+}
+
+.min-hand {
+  border-radius: 5rem 0rem 1rem 1rem;
+  z-index: 1;
+  outline: 5px solid rgb(19, 251, 19);
+  width: 0.5rem;
+  height: 42%;
+  top: 8%;
+  right : 5%;
+}
+
+.second-hand {
+  width: 2px;
+  height: 45%;
+  top: 5%;
+  background-color: rgb(136, 248, 67);
+  z-index : 10;
+}
+.number {
+    color : white;
+    background-color: rgb(41, 37, 32);
+    width : 5rem;
+    height : 5rem;
+    border-radius: 50%;
+    position: absolute;
+}
+.twelve {
+    top : 1%;
+    left : 37%;
+}
+.one {
+    top : 6%;
+    right : 20%;
+}
+.two {
+    top : 18%;
+    right : 7%;
+}
+.three {
+    top : 35%;
+    right : 1%;
+}
+.four {
+    bottom : 20%;
+    right : 5%;
+}
+.five {
+    bottom : 5%;
+    right : 18%;
+}
+.six {
+    bottom : 1%;
+    left : 37%;
+}
+.seven {
+    bottom : 5%;
+    left : 18%;
+}
+.eight {
+    bottom : 20%;
+    left : 5%;
+}
+.nine {
+    bottom : 37%;
+    left : 1%;
+}
+.ten {
+    top : 19%;
+    left : 7%;
+}
+.eleven {
+    top : 6%;
+    left : 20%
+}
+.dot {
+  /* Your existing styles */
+  background-color: black;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  position: absolute;
+  
+  /* The transition is key for smoothness. It animates the changes to 'left' and 'top' */
+  /* '0.05s' is 50ms, a duration that's longer than your 10ms interval, */
+  /* allowing for a subtle, fluid motion between updates. */
+  transition: all 0.05s linear; 
+  border : 3px solid rgb(136, 248, 67);
+}

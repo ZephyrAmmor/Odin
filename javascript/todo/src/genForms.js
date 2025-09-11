@@ -89,7 +89,7 @@ function genEditTask(task){
     const note = textareaDiv('noteField', 'note', 'Note', noteValue, 'Odin is tough as well...')
     const complete = input('checkbox', 'complete')
 
-    const completeValue = project.complete
+    const completeValue = task.complete
     if(completeValue === true)
         complete.setAttribute('checked', 'checked')
     title.setAttribute('value', titleValue)
