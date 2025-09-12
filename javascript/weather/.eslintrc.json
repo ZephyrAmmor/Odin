@@ -1,0 +1,11 @@
+    // .eslintrc.json
+    {
+      "extends": "airbnb-base",
+      "env": {
+        "browser": true,
+        "node": false
+      },
+      "rules": {
+        "no-console": "off"
+      }
+    }
