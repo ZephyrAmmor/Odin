@@ -6,4 +6,12 @@ function clearElement(elem) {
   }
 }
 
-export { clearElement };
+function createCard(classNames, id, unit, value) {
+  const card = document.createElement('div');
+  card.className = `${classNames} card`;
+  card.id = id;
+  card.textContent = unit ? `${value} ${unit}` : value;
+  return card;
+}
+
+export { clearElement, createCard };
