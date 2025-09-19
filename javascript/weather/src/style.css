@@ -1,0 +1,46 @@
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body{
+  padding : 1rem;
+}
+.card {
+  margin: 0.5rem;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  box-shadow: 1px 1px 8px gray;
+}
+input, button{
+  padding: 0.4rem 0.2rem;
+  border: none;
+  box-shadow: 1px 1px 5px gray;
+  background: inherit;
+  font: inherit;
+  border-radius: 0.3rem;
+}
+.header{
+  display: flex;
+  justify-content: space-between;
+}
+.search-bar{
+  width : 50%;
+  display: flex;
+  align-items: center;
+  gap : 3rem;
+}
+
+.container {
+  display : grid;
+  grid-template-columns: 1fr 4fr 1fr;
+}
+
+.left-sidebar {
+  grid-column: 1/2;
+  height: fit-content;
+}
+.central-view{
+  grid-column: 2/3;
+  height: fit-content;
+}
