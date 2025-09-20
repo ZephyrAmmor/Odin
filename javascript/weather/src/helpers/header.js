@@ -10,6 +10,7 @@ async function getWeather(location) {
 function renderHeader(local) {
   const header = document.querySelector('.header');
   clearElement(header);
+  header.classList.add('card');
   const searchBar = document.createElement('div');
   searchBar.classList.add('search-bar');
   const searchInput = document.createElement('input');
