@@ -3,11 +3,13 @@
   margin: 0;
   padding: 0;
 }
-body{
-  padding : 1rem;
-}
+
 .card {
+  width: 100%;
   margin: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   border-radius: 0.5rem;
   padding: 0.5rem 1rem;
   box-shadow: 1px 1px 8px gray;
@@ -21,26 +23,83 @@ input, button{
   border-radius: 0.3rem;
 }
 .header{
-  display: flex;
-  justify-content: space-between;
+  flex-direction: row;
+  justify-content: space-evenly;
 }
 .search-bar{
-  width : 50%;
+  width : 60%;
   display: flex;
   align-items: center;
   gap : 3rem;
 }
-
+.search-input {
+  width: 70%;
+}
 .container {
   display : grid;
   grid-template-columns: 1fr 4fr 1fr;
+  gap: 1rem;
 }
 
 .left-sidebar {
   grid-column: 1/2;
+  align-items: center;
   height: fit-content;
+}
+.date-time, .sun, .conditions {
+  align-items: center;
 }
 .central-view{
   grid-column: 2/3;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 1rem;
   height: fit-content;
+}
+
+.temp-full {
+  display : grid;
+  gap: 0.5rem 1.5rem;
+  grid-template: repeat(8, 1fr) / 7fr 5fr;
+}
+.temp {
+  font-size: 4rem;
+  grid-area: 1/1/6/2;
+}
+.feelslike {
+  font-size: 2rem;
+  grid-area: 6/1/9/2;
+}
+.minmax-feelslike {
+  grid-area: 1/2/5/3;
+  flex-direction: row;
+  gap: 1rem;
+  justify-content: center;
+}
+.minmax-temp {
+  grid-area: 5/2/9/3;
+  flex-direction: row;
+  justify-content: center;
+  gap: 1rem;
+}
+.minmax-feelslike > , .minmax-temp > {
+  width : clamp(100px, 40%, 200px)
+}
+.clouds, .wind, .moisture, .additional-info {
+  width : 47.5%;
+  min-width: 450px;
+  justify-content: space-between;
+  flex-direction: row;
+}
+.label {
+  font-size: 1.2em;
+  font-weight: 600;
+}
+.city-name {
+  font-weight: 900;
+  font-size: 2rem;
+}
+.city-name::first-letter {
+  font-size: 3rem;
+  text-transform: uppercase;
 }
