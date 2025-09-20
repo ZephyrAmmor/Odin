@@ -29,8 +29,9 @@ function renderWeather(data) {
     today.getSeconds() < 10 ? `0${today.getSeconds()}` : today.getSeconds();
   const time = `${hours} : ${minutes} : ${seconds}`;
   const timeCard = createCard('time', 'time-card', 'Time', '', time);
-
+  // Required Data
   const { days, currentConditions } = data;
+  // Current data
   const {
     temp,
     uvindex,
@@ -44,6 +45,7 @@ function renderWeather(data) {
     humidity,
     dew,
   } = currentConditions;
+  // Today's Data
   const {
     tempmin,
     tempmax,
